@@ -17,6 +17,75 @@ We are always on the lookout for talented individuals who share our passion for 
 {{< /block >}}
 
 {{< block-section
+    backgroundColor="white"
+    textColor="dark"
+    subtitle="Current Openings"
+>}}
+
+## Available Positions
+
+{{< columns-start >}}
+{{< column-start class="is-6" >}}
+
+### Administration & Bookkeeper
+
+**Reference:** HR-OPN-2026-0003
+
+We are seeking a Bookkeeper and Admin/Logistics Officer to support our financial operations, HR functions, and organisational logistics.
+
+**Key Responsibilities:**
+- Manage bookkeeping tasks using ERPNext
+- Process customer and supplier invoices
+- Handle payroll updates including reimbursements and leave tracking
+- Calculate foreign salaries and process forex receipts
+- Serve as remote receptionist for communications
+- Assist with recruitment and maintain application records
+- Book travel arrangements and manage asset registers
+
+**Requirements:**
+- ERP and payroll system experience (ERPNext knowledge advantageous)
+- Advanced computer literacy
+- Strong organisational and HR process familiarity
+- Attention to detail in financial reporting
+- Problem-solving and critical thinking abilities
+- South African home-based role
+
+<a class="button is-primary is-small mt-3" href="mailto:jobs@kartoza.com?subject=Application: Administration %26 Bookkeeper (HR-OPN-2026-0003)">Apply Now</a>
+
+{{< column-end >}}
+{{< column-start class="is-6" >}}
+
+### Support Desk and Testing Analyst
+
+**Reference:** HR-OPN-2026-0004
+
+We are looking for a Support Desk Technician to manage client support queries, maintain portal access, and ensure efficient issue resolution while supporting software testing activities.
+
+**Key Responsibilities:**
+- Monitor and capture support emails in system tracking
+- Provide first-line support and testing assistance
+- Distribute support tickets to Project Manager for allocation
+- Assist clients with account registration and portal access
+- Guide clients through account creation and login processes
+- Execute functionality and usability testing
+- Prepare testing reports for design teams
+
+**Requirements:**
+- Strong organisational and administrative capabilities
+- Excellent verbal and written communication skills
+- Familiarity with ERPNext and support ticketing systems
+- Basic IT literacy and software testing knowledge
+- Customer service orientation with problem-solving ability
+- Geographic flexibility with minimum team time overlap
+
+<a class="button is-primary is-small mt-3" href="mailto:jobs@kartoza.com?subject=Application: Support Desk and Testing Analyst (HR-OPN-2026-0004)">Apply Now</a>
+
+{{< column-end >}}
+{{< columns-end >}}
+
+{{< /block-section >}}
+
+{{< block-section
     backgroundColor="primary"
     textColor="white"
     subtitle="Why Kartoza?"

@@ -7815,6 +7815,181 @@ body:has(.blog-hero) .contextmenu {
 }
 
 /* Areas of Expertise */
+/* Current Openings Section */
+.careers-openings {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    padding: 6rem 0;
+}
+
+.careers-openings .section-header h2,
+.careers-openings .section-header p,
+.careers-openings .section-header .section-label {
+    color: var(--white);
+}
+
+.careers-openings .section-header .section-label i {
+    color: var(--accent);
+}
+
+.openings-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+.opening-card {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-xl);
+    display: flex;
+    flex-direction: column;
+    transition: all var(--transition-med);
+    border: 2px solid transparent;
+}
+
+.opening-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+    border-color: var(--accent);
+}
+
+.opening-card-header {
+    background: var(--light-bg);
+    padding: 1.5rem 2rem;
+    border-bottom: 3px solid var(--primary);
+}
+
+.opening-ref {
+    display: inline-block;
+    background: var(--primary);
+    color: var(--white);
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    margin-bottom: 0.75rem;
+}
+
+.opening-card-header h3 {
+    color: var(--text-dark);
+    font-size: 1.35rem;
+    font-weight: 700;
+    margin: 0 0 0.5rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.opening-card-header h3 i {
+    color: var(--primary);
+}
+
+.opening-location {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.opening-location i {
+    color: var(--accent);
+}
+
+.opening-card-body {
+    padding: 2rem;
+    flex: 1;
+}
+
+.opening-card-body > p {
+    color: var(--text-dark);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+}
+
+.opening-details {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.opening-section h4 {
+    color: var(--primary);
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.opening-section h4 i {
+    color: var(--accent);
+}
+
+.opening-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.opening-section ul li {
+    position: relative;
+    padding: 0.4rem 0 0.4rem 1.25rem;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.opening-section ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.85rem;
+    width: 6px;
+    height: 6px;
+    background: var(--primary);
+    border-radius: 50%;
+}
+
+.opening-card-footer {
+    padding: 1.5rem 2rem;
+    border-top: 1px solid var(--light-bg);
+    background: var(--light-bg);
+}
+
+.opening-card-footer .button {
+    width: 100%;
+    justify-content: center;
+}
+
+@media screen and (max-width: 1024px) {
+    .openings-grid {
+        grid-template-columns: 1fr;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .careers-openings {
+        padding: 4rem 0;
+    }
+
+    .opening-card-header {
+        padding: 1.25rem 1.5rem;
+    }
+
+    .opening-card-body {
+        padding: 1.5rem;
+    }
+
+    .opening-card-footer {
+        padding: 1.25rem 1.5rem;
+    }
+}
+
 .careers-areas {
     background: var(--light-bg);
 }
@@ -9721,6 +9896,18 @@ body:has(.blog-hero) .contextmenu {
     box-shadow: 0 4px 15px rgba(140, 154, 168, 0.4);
 }
 
+.showcase-badge.careers {
+    background: linear-gradient(135deg, #27ae60, #1e8449);
+    color: white;
+    box-shadow: 0 4px 15px rgba(39, 174, 96, 0.4);
+    animation: pulse-careers 2s ease-in-out infinite;
+}
+
+@keyframes pulse-careers {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
 /* Image Section */
 .showcase-image {
     position: relative;
@@ -9753,6 +9940,10 @@ body:has(.blog-hero) .contextmenu {
 
 .showcase-placeholder.blog {
     background: linear-gradient(135deg, #8C9AA8 0%, #6B7A8A 100%);
+}
+
+.showcase-placeholder.careers {
+    background: linear-gradient(135deg, #27ae60 0%, #1e8449 100%);
 }
 
 /* Content Section */
