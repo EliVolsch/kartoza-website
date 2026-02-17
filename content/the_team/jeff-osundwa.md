@@ -1,0 +1,34 @@
+---
+title: "Jeff Osundwa"
+role: "QGIS Developer"
+department: "Development"
+departmentIcon: "fa-code"
+weight: 14
+draft: false
+image: "/img/team/jeff-osundwa.jpg"
+location: "Nairobi, Kenya"
+country: "Kenya"
+coordinates: "-1.2921, 36.8219"
+github: "osundwajeff"
+education:
+  - degree: "BSc Geospatial Information Science"
+skills:
+  - "QGIS"
+  - "Python"
+  - "Open Source GIS"
+  - "Geospatial Analysis"
+  - "Plugin Development"
+achievements:
+  - "Specialized in Python programming for GIS"
+bio: "From Nairobi, Kenya. BSc Geospatial Information Science. Python specialist."
+---
+
+Jeff is a QGIS developer bringing together formal geospatial education with strong programming skills. His Bachelor of Science in Geospatial Information Science provides the theoretical foundation for understanding spatial data and analysis.
+
+Based in Nairobi, Kenya, Jeff represents Kartoza's commitment to building a truly global team. His expertise in Python programming, combined with his geospatial knowledge, makes him particularly effective at developing custom QGIS solutions.
+
+Jeff specializes in extending QGIS functionality through plugins and scripts, helping clients automate workflows and solve unique geospatial challenges. His understanding of both the GIS domain and software development enables him to bridge the gap between user needs and technical implementation.
+
+His work at Kartoza involves developing open source GIS tools that serve users worldwide. Jeff is passionate about making geospatial technology more accessible and believes that open source software is key to democratizing access to mapping and spatial analysis.
+
+When approaching a new project, Jeff focuses on understanding the real-world problem first, then crafting a solution that is both technically sound and user-friendly.
