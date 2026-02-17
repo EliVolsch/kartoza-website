@@ -144,6 +144,15 @@ a.button:hover, button.button:hover, .button:hover {
     box-shadow: 0 2px 12px rgba(27, 107, 155, 0.08);
 }
 
+/* Remove gap between navbar and hero sections */
+.hero-home,
+.hero.has-bg-img,
+.blog-hero,
+.solution-hero,
+.careers-hero {
+    margin-top: -0.5rem;
+}
+
 /* Footer - subtle top shadow */
 footer.footer {
     border-top: 3px solid #3B9DD9;

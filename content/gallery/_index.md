@@ -1,7 +1,7 @@
 ---
 type: "gallery"
 layout: "list"
-title: "Maps Gallery"
+title: "Our Work"
 subtitle: "Web maps crafted by Kartoza"
 description: "Explore our collection of interactive web maps showcasing vector tiles, QGIS publishing, GeoServer, and MapServer capabilities."
 HasBanner: true
