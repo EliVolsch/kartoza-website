@@ -4,6 +4,9 @@ description: "Master the fundamentals of desktop GIS using QGIS, the world's lea
 thumbnail: "/img/courses/qgis-introduction.svg"
 duration: "3 Days"
 level: "Beginner"
+track: "Desktop GIS"
+trackOrder: 1
+weight: 1
 tags:
   - QGIS
   - Desktop GIS

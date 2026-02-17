@@ -4,6 +4,9 @@ description: "Automate geospatial workflows and build custom tools with Python p
 thumbnail: "/img/courses/python-gis.svg"
 duration: "4 Days"
 level: "Intermediate"
+track: "Development"
+trackOrder: 3
+weight: 6
 tags:
   - Python
   - Automation

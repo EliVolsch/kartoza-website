@@ -4,6 +4,9 @@ description: "Deploy and manage professional web mapping services with GeoServer
 thumbnail: "/img/courses/geoserver.svg"
 duration: "3 Days"
 level: "Intermediate"
+track: "Server & Infrastructure"
+trackOrder: 2
+weight: 4
 tags:
   - GeoServer
   - Web GIS

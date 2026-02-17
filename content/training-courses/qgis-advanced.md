@@ -4,6 +4,9 @@ description: "Take your QGIS skills to the next level with advanced techniques, 
 thumbnail: "/img/courses/qgis-advanced.svg"
 duration: "3 Days"
 level: "Advanced"
+track: "Desktop GIS"
+trackOrder: 1
+weight: 2
 tags:
   - QGIS
   - PyQGIS

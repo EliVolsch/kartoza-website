@@ -4,6 +4,9 @@ description: "Build and manage complete spatial data infrastructures with GeoNod
 thumbnail: "/img/courses/geonode.svg"
 duration: "3 Days"
 level: "Intermediate"
+track: "Server & Infrastructure"
+trackOrder: 2
+weight: 5
 tags:
   - GeoNode
   - SDI

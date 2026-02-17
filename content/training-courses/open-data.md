@@ -4,6 +4,9 @@ description: "Implement best practices for spatial data sharing, metadata manage
 thumbnail: "/img/courses/open-data.svg"
 duration: "2 Days"
 level: "All Levels"
+track: "Foundational"
+trackOrder: 4
+weight: 8
 tags:
   - Open Data
   - SDI

@@ -11,10 +11,191 @@
         </div>
         {{ end }}
 
-        <!-- Training Grid -->
-        <div class="training-grid columns is-multiline">
-            {{ range (.Paginator 50).Pages }}
-            <div class="column is-4-desktop is-6-tablet">
+        <!-- Learning Paths Overview -->
+        <div class="training-paths-nav">
+            <a href="#track-desktop-gis" class="training-path-link">
+                <i class="fas fa-desktop"></i>
+                Desktop GIS
+            </a>
+            <a href="#track-server-infrastructure" class="training-path-link">
+                <i class="fas fa-server"></i>
+                Server & Infrastructure
+            </a>
+            <a href="#track-development" class="training-path-link">
+                <i class="fas fa-code"></i>
+                Development
+            </a>
+            <a href="#track-foundational" class="training-path-link">
+                <i class="fas fa-book"></i>
+                Foundational
+            </a>
+        </div>
+
+        <!-- Desktop GIS Track -->
+        {{ $desktopCourses := where .RegularPages "Params.track" "Desktop GIS" }}
+        {{ if $desktopCourses }}
+        <div class="training-track" id="track-desktop-gis">
+            <div class="training-track-header">
+                <div class="training-track-icon">
+                    <i class="fas fa-desktop"></i>
+                </div>
+                <div class="training-track-info">
+                    <h2>Desktop GIS Track</h2>
+                    <p>Master QGIS from beginner to advanced level. Learn to create maps, analyze spatial data, and automate workflows.</p>
+                </div>
+            </div>
+            <div class="training-track-sequence">
+                {{ range $index, $course := $desktopCourses.ByWeight }}
+                {{ if gt $index 0 }}<div class="track-connector"><i class="fas fa-arrow-right"></i></div>{{ end }}
+                <article class="training-card">
+                    <div class="training-card-step">{{ add $index 1 }}</div>
+                    <div class="training-card-image">
+                        <a href="{{ .Permalink }}">
+                            {{ $thumbnail := .Params.thumbnail | default "/img/banner-courses.png" }}
+                            <img src="{{ absURL $thumbnail }}" alt="{{ .Title }}" loading="lazy">
+                        </a>
+                        {{ if .Params.level }}
+                        <span class="training-card-badge">{{ .Params.level }}</span>
+                        {{ end }}
+                    </div>
+                    <div class="training-card-content">
+                        <h3 class="training-card-title">
+                            <a href="{{ .Permalink }}">{{ .Title }}</a>
+                        </h3>
+                        {{ if .Params.duration }}
+                        <p class="training-card-duration">
+                            <i class="fas fa-clock"></i>
+                            {{ .Params.duration }}
+                        </p>
+                        {{ end }}
+                        <p class="training-card-description">
+                            {{ .Description | truncate 100 }}
+                        </p>
+                        <a href="{{ .Permalink }}" class="training-card-link">
+                            View Course <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+                {{ end }}
+            </div>
+        </div>
+        {{ end }}
+
+        <!-- Server & Infrastructure Track -->
+        {{ $serverCourses := where .RegularPages "Params.track" "Server & Infrastructure" }}
+        {{ if $serverCourses }}
+        <div class="training-track" id="track-server-infrastructure">
+            <div class="training-track-header">
+                <div class="training-track-icon">
+                    <i class="fas fa-server"></i>
+                </div>
+                <div class="training-track-info">
+                    <h2>Server & Infrastructure Track</h2>
+                    <p>Build enterprise-grade spatial data infrastructure with PostGIS, GeoServer, and GeoNode.</p>
+                </div>
+            </div>
+            <div class="training-track-sequence">
+                {{ range $index, $course := $serverCourses.ByWeight }}
+                {{ if gt $index 0 }}<div class="track-connector"><i class="fas fa-arrow-right"></i></div>{{ end }}
+                <article class="training-card">
+                    <div class="training-card-step">{{ add $index 1 }}</div>
+                    <div class="training-card-image">
+                        <a href="{{ .Permalink }}">
+                            {{ $thumbnail := .Params.thumbnail | default "/img/banner-courses.png" }}
+                            <img src="{{ absURL $thumbnail }}" alt="{{ .Title }}" loading="lazy">
+                        </a>
+                        {{ if .Params.level }}
+                        <span class="training-card-badge">{{ .Params.level }}</span>
+                        {{ end }}
+                    </div>
+                    <div class="training-card-content">
+                        <h3 class="training-card-title">
+                            <a href="{{ .Permalink }}">{{ .Title }}</a>
+                        </h3>
+                        {{ if .Params.duration }}
+                        <p class="training-card-duration">
+                            <i class="fas fa-clock"></i>
+                            {{ .Params.duration }}
+                        </p>
+                        {{ end }}
+                        <p class="training-card-description">
+                            {{ .Description | truncate 100 }}
+                        </p>
+                        <a href="{{ .Permalink }}" class="training-card-link">
+                            View Course <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+                {{ end }}
+            </div>
+        </div>
+        {{ end }}
+
+        <!-- Development Track -->
+        {{ $devCourses := where .RegularPages "Params.track" "Development" }}
+        {{ if $devCourses }}
+        <div class="training-track" id="track-development">
+            <div class="training-track-header">
+                <div class="training-track-icon">
+                    <i class="fas fa-code"></i>
+                </div>
+                <div class="training-track-info">
+                    <h2>Development Track</h2>
+                    <p>Learn to build custom GIS applications with Python and JavaScript web mapping libraries.</p>
+                </div>
+            </div>
+            <div class="training-track-sequence">
+                {{ range $index, $course := $devCourses.ByWeight }}
+                {{ if gt $index 0 }}<div class="track-connector"><i class="fas fa-arrow-right"></i></div>{{ end }}
+                <article class="training-card">
+                    <div class="training-card-step">{{ add $index 1 }}</div>
+                    <div class="training-card-image">
+                        <a href="{{ .Permalink }}">
+                            {{ $thumbnail := .Params.thumbnail | default "/img/banner-courses.png" }}
+                            <img src="{{ absURL $thumbnail }}" alt="{{ .Title }}" loading="lazy">
+                        </a>
+                        {{ if .Params.level }}
+                        <span class="training-card-badge">{{ .Params.level }}</span>
+                        {{ end }}
+                    </div>
+                    <div class="training-card-content">
+                        <h3 class="training-card-title">
+                            <a href="{{ .Permalink }}">{{ .Title }}</a>
+                        </h3>
+                        {{ if .Params.duration }}
+                        <p class="training-card-duration">
+                            <i class="fas fa-clock"></i>
+                            {{ .Params.duration }}
+                        </p>
+                        {{ end }}
+                        <p class="training-card-description">
+                            {{ .Description | truncate 100 }}
+                        </p>
+                        <a href="{{ .Permalink }}" class="training-card-link">
+                            View Course <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+                {{ end }}
+            </div>
+        </div>
+        {{ end }}
+
+        <!-- Foundational Track -->
+        {{ $foundCourses := where .RegularPages "Params.track" "Foundational" }}
+        {{ if $foundCourses }}
+        <div class="training-track" id="track-foundational">
+            <div class="training-track-header">
+                <div class="training-track-icon">
+                    <i class="fas fa-book"></i>
+                </div>
+                <div class="training-track-info">
+                    <h2>Foundational</h2>
+                    <p>Essential knowledge for understanding open data principles and spatial data infrastructure.</p>
+                </div>
+            </div>
+            <div class="training-track-sequence">
+                {{ range $index, $course := $foundCourses.ByWeight }}
                 <article class="training-card">
                     <div class="training-card-image">
                         <a href="{{ .Permalink }}">
@@ -36,42 +217,16 @@
                         </p>
                         {{ end }}
                         <p class="training-card-description">
-                            {{ .Description | truncate 120 }}
+                            {{ .Description | truncate 100 }}
                         </p>
                         <a href="{{ .Permalink }}" class="training-card-link">
                             View Course <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
                 </article>
-            </div>
-            {{ end }}
-        </div>
-
-        <!-- Pagination -->
-        {{ if gt .Paginator.TotalPages 1 }}
-        <nav class="pagination is-centered section-pagination" role="navigation" aria-label="pagination">
-            {{ if .Paginator.HasPrev }}
-            <a class="pagination-previous" href="{{ .Paginator.Prev.URL }}">
-                <i class="fas fa-chevron-left"></i> Previous
-            </a>
-            {{ end }}
-            {{ if .Paginator.HasNext }}
-            <a class="pagination-next" href="{{ .Paginator.Next.URL }}">
-                Next <i class="fas fa-chevron-right"></i>
-            </a>
-            {{ end }}
-            <ul class="pagination-list">
-                {{ range .Paginator.Pagers }}
-                <li>
-                    <a class="pagination-link {{ if eq . $.Paginator }}is-current{{ end }}"
-                       href="{{ .URL }}"
-                       aria-label="Page {{ .PageNumber }}">
-                        {{ .PageNumber }}
-                    </a>
-                </li>
                 {{ end }}
-            </ul>
-        </nav>
+            </div>
+        </div>
         {{ end }}
     </div>
 </section>

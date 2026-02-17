@@ -4,6 +4,9 @@ description: "Create stunning interactive web maps using modern JavaScript libra
 thumbnail: "/img/courses/web-mapping.svg"
 duration: "3 Days"
 level: "Intermediate"
+track: "Development"
+trackOrder: 3
+weight: 7
 tags:
   - Web Mapping
   - JavaScript

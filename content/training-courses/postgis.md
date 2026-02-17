@@ -4,6 +4,9 @@ description: "Harness the power of spatial databases with PostgreSQL and PostGIS
 thumbnail: "/img/courses/postgis.svg"
 duration: "3 Days"
 level: "Intermediate"
+track: "Server & Infrastructure"
+trackOrder: 2
+weight: 3
 tags:
   - PostGIS
   - PostgreSQL

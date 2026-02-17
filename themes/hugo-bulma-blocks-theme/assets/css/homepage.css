@@ -1906,6 +1906,168 @@
     transform: translateX(4px);
 }
 
+/* Training Paths Navigation */
+.training-paths-nav {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+    padding: 1.5rem;
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+}
+
+.training-path-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.25rem;
+    border-radius: var(--radius-md);
+    background: var(--gray-100);
+    color: var(--gray-700);
+    font-weight: 600;
+    transition: all var(--transition-fast);
+}
+
+.training-path-link:hover {
+    background: var(--primary);
+    color: var(--white);
+}
+
+.training-path-link i {
+    font-size: 1rem;
+}
+
+/* Training Track Sections */
+.training-track {
+    margin-bottom: 4rem;
+    padding: 2rem;
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+}
+
+.training-track-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 2px solid var(--gray-100);
+}
+
+.training-track-icon {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    border-radius: var(--radius-md);
+    color: var(--white);
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.training-track-info h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-dark);
+    margin-bottom: 0.5rem;
+}
+
+.training-track-info p {
+    color: var(--gray-600);
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.training-track-sequence {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    align-items: stretch;
+}
+
+.training-track-sequence .training-card {
+    flex: 1;
+    min-width: 280px;
+    max-width: 350px;
+    position: relative;
+}
+
+.training-card-step {
+    position: absolute;
+    top: -12px;
+    left: -12px;
+    width: 36px;
+    height: 36px;
+    background: var(--accent);
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1rem;
+    z-index: 2;
+    box-shadow: var(--shadow-md);
+}
+
+.track-connector {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gray-400);
+    font-size: 1.25rem;
+    padding: 0 0.5rem;
+}
+
+@media screen and (max-width: 768px) {
+    .training-paths-nav {
+        flex-direction: column;
+        padding: 1rem;
+    }
+
+    .training-path-link {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .training-track {
+        padding: 1.5rem;
+    }
+
+    .training-track-header {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+    }
+
+    .training-track-sequence {
+        flex-direction: column;
+    }
+
+    .training-track-sequence .training-card {
+        max-width: 100%;
+    }
+
+    .track-connector {
+        transform: rotate(90deg);
+        padding: 0.5rem 0;
+    }
+
+    .training-card-step {
+        top: -8px;
+        left: -8px;
+        width: 28px;
+        height: 28px;
+        font-size: 0.875rem;
+    }
+}
+
 /* ============================================
    SOLUTIONS PAGE SPECIFIC
    ============================================ */
