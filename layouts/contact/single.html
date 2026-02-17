@@ -1,0 +1,768 @@
+{{ partial "header.html" . }}
+{{ partial "menu.html" . }}
+
+<!-- Contact Hero - Interactive Globe with Floating Elements -->
+<section class="contact-hero">
+    <!-- Animated Background -->
+    <div class="contact-hero-bg">
+        <div class="contact-globe-container">
+            <canvas id="globe-canvas"></canvas>
+        </div>
+        <div class="contact-particles" id="contact-particles"></div>
+        <div class="contact-grid-lines"></div>
+    </div>
+
+    <!-- Floating GIS Icons that respond to mouse -->
+    <div class="floating-icons" id="floating-icons">
+        <div class="floating-icon" data-speed="0.02" style="--x: 10%; --y: 20%;"><i class="fas fa-map-marker-alt"></i></div>
+        <div class="floating-icon" data-speed="0.03" style="--x: 85%; --y: 15%;"><i class="fas fa-globe-africa"></i></div>
+        <div class="floating-icon" data-speed="0.015" style="--x: 15%; --y: 70%;"><i class="fas fa-database"></i></div>
+        <div class="floating-icon" data-speed="0.025" style="--x: 80%; --y: 75%;"><i class="fas fa-layer-group"></i></div>
+        <div class="floating-icon" data-speed="0.02" style="--x: 50%; --y: 10%;"><i class="fas fa-satellite"></i></div>
+        <div class="floating-icon" data-speed="0.018" style="--x: 5%; --y: 45%;"><i class="fas fa-draw-polygon"></i></div>
+        <div class="floating-icon" data-speed="0.022" style="--x: 92%; --y: 50%;"><i class="fas fa-compass"></i></div>
+        <div class="floating-icon" data-speed="0.028" style="--x: 30%; --y: 85%;"><i class="fas fa-route"></i></div>
+        <div class="floating-icon" data-speed="0.016" style="--x: 70%; --y: 90%;"><i class="fas fa-map"></i></div>
+    </div>
+
+    <!-- Paper Airplane Animation on Submit -->
+    <div class="paper-airplane-container" id="paper-airplane">
+        <div class="paper-airplane">
+            <i class="fas fa-paper-plane"></i>
+        </div>
+        <div class="airplane-trail"></div>
+    </div>
+
+    <div class="container">
+        <div class="contact-hero-content">
+            <div class="hero-badge animate-bounce-in">
+                <span class="badge-ping"></span>
+                <i class="fas fa-satellite-dish"></i>
+                <span>We're Online</span>
+            </div>
+            <h1 class="contact-hero-title">
+                <span class="title-line title-line-1">Drop a Pin</span>
+                <span class="title-line title-line-2">On Our <span class="title-highlight magnetic-text" id="magnetic-title">Map</span></span>
+            </h1>
+            <p class="contact-hero-subtitle">
+                Send your coordinates and let's plot the perfect solution together.
+                <br><em class="tagline-mappy">"A Happy Life is a Mappy Life"</em>
+            </p>
+            <div class="hero-scroll-hint">
+                <span>Scroll to connect</span>
+                <div class="scroll-indicator">
+                    <div class="scroll-dot"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Connection Lines Animation -->
+    <svg class="connection-lines" id="connection-svg">
+        <defs>
+            <linearGradient id="line-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" style="stop-color:var(--primary);stop-opacity:0" />
+                <stop offset="50%" style="stop-color:var(--accent);stop-opacity:1" />
+                <stop offset="100%" style="stop-color:var(--primary);stop-opacity:0" />
+            </linearGradient>
+        </defs>
+    </svg>
+</section>
+
+<!-- Interactive Form Section -->
+<section class="contact-section">
+    <div class="container">
+        <div class="contact-grid">
+            <!-- Contact Form with Physics -->
+            <div class="contact-grid-form">
+                <div class="contact-form-wrapper" id="form-wrapper">
+                    <!-- Draggable corner indicator -->
+                    <div class="form-corner-accent"></div>
+
+                    <div class="contact-form-header">
+                        <div class="form-icon-burst">
+                            <i class="fas fa-envelope"></i>
+                            <span class="burst-ring"></span>
+                            <span class="burst-ring delay-1"></span>
+                            <span class="burst-ring delay-2"></span>
+                        </div>
+                        <h2>Send Us a Message</h2>
+                        <p>Fill in the coordinates below and we'll navigate to your inbox within 24 hours.</p>
+                    </div>
+
+                    <form id="contact-form" class="contact-form" action="/api/contact" method="POST">
+                        <div class="form-grid">
+                            <!-- Name - with typing animation -->
+                            <div class="form-field" data-aos="fade-up" data-aos-delay="100">
+                                <label class="field-label" for="name">
+                                    <i class="fas fa-user"></i>
+                                    <span>Your Name</span>
+                                    <span class="required-dot"></span>
+                                </label>
+                                <div class="input-wrapper">
+                                    <input class="form-input" type="text" id="name" name="name" placeholder="Captain GIS" required>
+                                    <div class="input-focus-ring"></div>
+                                    <div class="input-sparkle"></div>
+                                </div>
+                            </div>
+
+                            <!-- Email -->
+                            <div class="form-field" data-aos="fade-up" data-aos-delay="150">
+                                <label class="field-label" for="email">
+                                    <i class="fas fa-at"></i>
+                                    <span>Email Address</span>
+                                    <span class="required-dot"></span>
+                                </label>
+                                <div class="input-wrapper">
+                                    <input class="form-input" type="email" id="email" name="email" placeholder="you@yourmap.com" required>
+                                    <div class="input-focus-ring"></div>
+                                </div>
+                            </div>
+
+                            <!-- Organisation -->
+                            <div class="form-field" data-aos="fade-up" data-aos-delay="200">
+                                <label class="field-label" for="organisation">
+                                    <i class="fas fa-building"></i>
+                                    <span>Organisation</span>
+                                </label>
+                                <div class="input-wrapper">
+                                    <input class="form-input" type="text" id="organisation" name="organisation" placeholder="Acme Mapping Co.">
+                                    <div class="input-focus-ring"></div>
+                                </div>
+                            </div>
+
+                            <!-- Phone -->
+                            <div class="form-field" data-aos="fade-up" data-aos-delay="250">
+                                <label class="field-label" for="phone">
+                                    <i class="fas fa-phone-alt"></i>
+                                    <span>Phone Number</span>
+                                </label>
+                                <div class="input-wrapper">
+                                    <input class="form-input" type="tel" id="phone" name="phone" placeholder="+27 21 813 8912">
+                                    <div class="input-focus-ring"></div>
+                                </div>
+                            </div>
+
+                            <!-- Interest - Interactive Pills -->
+                            <div class="form-field full-width" data-aos="fade-up" data-aos-delay="300">
+                                <label class="field-label">
+                                    <i class="fas fa-compass"></i>
+                                    <span>What brings you here?</span>
+                                    <span class="required-dot"></span>
+                                </label>
+                                <div class="interest-pills" id="interest-pills">
+                                    <button type="button" class="interest-pill" data-value="hosting">
+                                        <i class="fas fa-server"></i>
+                                        <span>Hosting</span>
+                                    </button>
+                                    <button type="button" class="interest-pill" data-value="mycivitas">
+                                        <i class="fas fa-city"></i>
+                                        <span>MyCivitas</span>
+                                    </button>
+                                    <button type="button" class="interest-pill" data-value="bims">
+                                        <i class="fas fa-leaf"></i>
+                                        <span>BIMS</span>
+                                    </button>
+                                    <button type="button" class="interest-pill" data-value="training">
+                                        <i class="fas fa-graduation-cap"></i>
+                                        <span>Training</span>
+                                    </button>
+                                    <button type="button" class="interest-pill" data-value="development">
+                                        <i class="fas fa-code"></i>
+                                        <span>Development</span>
+                                    </button>
+                                    <button type="button" class="interest-pill" data-value="consulting">
+                                        <i class="fas fa-lightbulb"></i>
+                                        <span>Consulting</span>
+                                    </button>
+                                    <button type="button" class="interest-pill" data-value="support">
+                                        <i class="fas fa-headset"></i>
+                                        <span>Support</span>
+                                    </button>
+                                    <button type="button" class="interest-pill" data-value="other">
+                                        <i class="fas fa-ellipsis-h"></i>
+                                        <span>Other</span>
+                                    </button>
+                                </div>
+                                <input type="hidden" id="interest" name="interest" required>
+                            </div>
+
+                            <!-- Message with character counter -->
+                            <div class="form-field full-width" data-aos="fade-up" data-aos-delay="350">
+                                <label class="field-label" for="message">
+                                    <i class="fas fa-feather-alt"></i>
+                                    <span>Your Message</span>
+                                    <span class="required-dot"></span>
+                                </label>
+                                <div class="textarea-wrapper">
+                                    <textarea class="form-textarea" id="message" name="message" rows="5" placeholder="Tell us about your GIS dreams, mapping challenges, or just say hello..." required></textarea>
+                                    <div class="textarea-focus-ring"></div>
+                                    <div class="char-counter"><span id="char-count">0</span> / 2000</div>
+                                </div>
+                            </div>
+
+                            <!-- Submit Button with Animation -->
+                            <div class="form-field full-width" data-aos="fade-up" data-aos-delay="400">
+                                <button type="submit" class="submit-button" id="submit-btn">
+                                    <span class="btn-bg"></span>
+                                    <span class="btn-content">
+                                        <i class="fas fa-paper-plane"></i>
+                                        <span>Launch Message</span>
+                                    </span>
+                                    <span class="btn-loading">
+                                        <i class="fas fa-circle-notch fa-spin"></i>
+                                        <span>Sending...</span>
+                                    </span>
+                                    <span class="btn-success">
+                                        <i class="fas fa-check"></i>
+                                        <span>Sent!</span>
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Success Animation -->
+                        <div id="form-success" class="form-message success is-hidden">
+                            <div class="message-icon">
+                                <i class="fas fa-check-circle"></i>
+                                <div class="confetti-burst"></div>
+                            </div>
+                            <h3>Message Received!</h3>
+                            <p>Your coordinates have been logged. We'll navigate to your inbox soon.</p>
+                        </div>
+
+                        <div id="form-error" class="form-message error is-hidden">
+                            <div class="message-icon">
+                                <i class="fas fa-exclamation-triangle"></i>
+                            </div>
+                            <h3>Transmission Error</h3>
+                            <p>Something went wrong. <a href="mailto:info@kartoza.com">Try direct email instead</a>.</p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Interactive Sidebar -->
+            <div class="contact-grid-sidebar">
+                <div class="contact-sidebar">
+                    <!-- Live Globe Card -->
+                    <div class="sidebar-card globe-card">
+                        <div class="card-glow"></div>
+                        <div class="mini-globe" id="mini-globe">
+                            <div class="globe-sphere">
+                                <div class="globe-highlight"></div>
+                            </div>
+                            <div class="orbit-ring">
+                                <div class="orbit-dot"></div>
+                            </div>
+                            <div class="location-ping za-ping">
+                                <span class="ping-wave"></span>
+                                <span class="ping-dot"></span>
+                            </div>
+                            <div class="location-ping pt-ping">
+                                <span class="ping-wave"></span>
+                                <span class="ping-dot"></span>
+                            </div>
+                        </div>
+                        <div class="globe-card-content">
+                            <h3>Global Reach</h3>
+                            <p>From Cape Town to Lisbon, we serve clients on every continent.</p>
+                        </div>
+                    </div>
+
+                    <!-- Contact Methods - Interactive Cards -->
+                    <div class="sidebar-card contact-card" data-tilt data-tilt-max="8" data-tilt-speed="400">
+                        <div class="contact-method-modern" onclick="window.location.href='mailto:info@kartoza.com'">
+                            <div class="method-icon pulse-glow">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="method-info">
+                                <span class="method-label">Email Us</span>
+                                <span class="method-value">info@kartoza.com</span>
+                            </div>
+                            <div class="method-arrow">
+                                <i class="fas fa-arrow-right"></i>
+                            </div>
+                        </div>
+                        <div class="contact-method-modern" onclick="window.location.href='tel:+27218138912'">
+                            <div class="method-icon pulse-glow">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div class="method-info">
+                                <span class="method-label">Call Us (SA)</span>
+                                <span class="method-value">+27 21 813 8912</span>
+                            </div>
+                            <div class="method-arrow">
+                                <i class="fas fa-arrow-right"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Office Locations with Animation -->
+                    <div class="sidebar-card offices-card">
+                        <h4><i class="fas fa-map-marked-alt"></i> Our Coordinates</h4>
+                        <div class="office-locations">
+                            <div class="office-location" data-region="ZA">
+                                <div class="office-marker">
+                                    <span class="marker-ping"></span>
+                                    ZA
+                                </div>
+                                <div class="office-info-modern">
+                                    <strong>South Africa (HQ)</strong>
+                                    <span>Kartoza (Pty) Ltd.</span>
+                                    <span>Cape Town</span>
+                                </div>
+                            </div>
+                            <div class="connection-line-vertical"></div>
+                            <div class="office-location" data-region="EU">
+                                <div class="office-marker">
+                                    <span class="marker-ping"></span>
+                                    PT
+                                </div>
+                                <div class="office-info-modern">
+                                    <strong>Europe</strong>
+                                    <span>Kartoza LDA</span>
+                                    <span>Lisbon, Portugal</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Response Time - Animated -->
+                    <div class="sidebar-card response-card">
+                        <div class="response-clock">
+                            <div class="clock-face">
+                                <div class="clock-hand hour"></div>
+                                <div class="clock-hand minute"></div>
+                                <div class="clock-center"></div>
+                            </div>
+                            <div class="clock-badge">24h</div>
+                        </div>
+                        <div class="response-info">
+                            <h4>Lightning Fast Response</h4>
+                            <p>We typically reply within <strong>24 hours</strong></p>
+                            <span class="business-hours">Mon-Fri, 08:00-17:00 SAST</span>
+                        </div>
+                    </div>
+
+                    <!-- Social Links - Magnetic Effect -->
+                    <div class="sidebar-card social-card">
+                        <h4><i class="fas fa-share-nodes"></i> Connect</h4>
+                        <div class="social-links-modern">
+                            <a href="https://twitter.com/KartozaGeo" target="_blank" class="social-orb" data-magnetic>
+                                <i class="fa-brands fa-x-twitter"></i>
+                                <span class="orb-glow"></span>
+                            </a>
+                            <a href="https://www.linkedin.com/company/kartoza-pty-ltd" target="_blank" class="social-orb" data-magnetic>
+                                <i class="fa-brands fa-linkedin-in"></i>
+                                <span class="orb-glow"></span>
+                            </a>
+                            <a href="https://www.github.com/orgs/kartoza" target="_blank" class="social-orb" data-magnetic>
+                                <i class="fa-brands fa-github"></i>
+                                <span class="orb-glow"></span>
+                            </a>
+                            <a href="https://www.youtube.com/user/kartozachannel" target="_blank" class="social-orb" data-magnetic>
+                                <i class="fa-brands fa-youtube"></i>
+                                <span class="orb-glow"></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Interactive World Map Section -->
+<section class="contact-map-section">
+    <div class="map-bg-gradient"></div>
+    <div class="container">
+        <div class="section-header has-text-centered">
+            <span class="section-badge">
+                <i class="fas fa-globe-africa"></i>
+                Worldwide
+            </span>
+            <h2>Mapping Solutions <span class="highlight-word">Globally</span></h2>
+            <p>Our team works across timezones to deliver geospatial excellence.</p>
+        </div>
+        <div class="world-map-container">
+            <div class="world-map-interactive" id="world-map">
+                <!-- SVG World map with interactive dots -->
+                <svg viewBox="0 0 1000 500" class="world-map-svg">
+                    <!-- Simplified world outline -->
+                    <path class="continent" d="M150,120 Q200,100 250,120 Q300,140 350,130 Q400,120 420,140 L450,180 Q430,220 380,250 Q330,280 280,270 Q230,260 200,230 Q170,200 150,170 Z" />
+                    <path class="continent" d="M480,80 Q550,60 620,80 Q690,100 750,90 Q810,80 850,110 L880,160 Q870,220 820,260 Q770,300 700,290 Q630,280 570,250 Q510,220 480,180 Z" />
+                    <path class="continent" d="M500,280 Q540,260 580,280 Q620,300 650,320 L660,380 Q630,420 580,430 Q530,440 490,410 Q450,380 460,340 Q470,300 500,280 Z" />
+                    <path class="continent" d="M200,300 Q250,280 300,300 Q350,320 380,360 L370,420 Q320,450 260,440 Q200,430 170,390 Q140,350 160,320 Q180,290 200,300 Z" />
+                    <path class="continent" d="M750,320 Q800,300 850,320 Q900,340 920,380 L910,430 Q860,460 800,450 Q740,440 710,400 Q680,360 700,330 Q720,300 750,320 Z" />
+
+                    <!-- Connection lines -->
+                    <path class="connection-arc" d="M280,380 Q400,200 580,300" />
+                    <path class="connection-arc" d="M580,300 Q700,150 800,200" />
+                    <path class="connection-arc delay" d="M280,380 Q500,100 800,200" />
+
+                    <!-- Location markers -->
+                    <g class="map-marker cape-town" data-location="Cape Town">
+                        <circle cx="560" cy="380" r="8" class="marker-outer" />
+                        <circle cx="560" cy="380" r="4" class="marker-inner" />
+                        <circle cx="560" cy="380" r="15" class="marker-pulse" />
+                    </g>
+                    <g class="map-marker lisbon" data-location="Lisbon">
+                        <circle cx="440" cy="180" r="6" class="marker-outer" />
+                        <circle cx="440" cy="180" r="3" class="marker-inner" />
+                        <circle cx="440" cy="180" r="12" class="marker-pulse" />
+                    </g>
+                </svg>
+
+                <!-- Location Labels -->
+                <div class="map-label cape-town-label">
+                    <span class="label-dot"></span>
+                    <span class="label-text">Cape Town, SA</span>
+                    <span class="label-sub">Headquarters</span>
+                </div>
+                <div class="map-label lisbon-label">
+                    <span class="label-dot"></span>
+                    <span class="label-text">Lisbon, PT</span>
+                    <span class="label-sub">EU Office</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ Section with Playful Animations -->
+<section class="contact-faq-section">
+    <div class="faq-bg-shapes">
+        <div class="faq-shape shape-1"></div>
+        <div class="faq-shape shape-2"></div>
+        <div class="faq-shape shape-3"></div>
+    </div>
+    <div class="container">
+        <div class="section-header has-text-centered">
+            <span class="section-badge">
+                <i class="fas fa-question-circle"></i>
+                FAQ
+            </span>
+            <h2>Questions? <span class="highlight-word">Answered.</span></h2>
+        </div>
+        <div class="columns is-centered">
+            <div class="column is-8">
+                <div class="faq-accordion">
+                    <div class="faq-item-modern">
+                        <button class="faq-trigger">
+                            <span class="faq-icon"><i class="fas fa-clock"></i></span>
+                            <span class="faq-question-text">What is your typical project timeline?</span>
+                            <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                        </button>
+                        <div class="faq-content">
+                            <p>Project timelines vary based on scope. Small projects: 2-4 weeks. Medium: 1-3 months. Enterprise implementations: 3-6 months. We provide detailed timelines during initial consultation.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item-modern">
+                        <button class="faq-trigger">
+                            <span class="faq-icon"><i class="fas fa-handshake"></i></span>
+                            <span class="faq-question-text">Do you offer support contracts?</span>
+                            <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                        </button>
+                        <div class="faq-content">
+                            <p>Yes! We offer flexible SLA-based support contracts including guaranteed response times, regular maintenance, security updates, and priority bug fixes. From basic to enterprise-grade support.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item-modern">
+                        <button class="faq-trigger">
+                            <span class="faq-icon"><i class="fas fa-plug"></i></span>
+                            <span class="faq-question-text">Can you integrate with our existing GIS?</span>
+                            <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                        </button>
+                        <div class="faq-content">
+                            <p>Absolutely. We specialise in integrating with existing systems - ArcGIS, MapInfo, proprietary databases, and more. Our team bridges the gap between legacy systems and modern FOSS solutions.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item-modern">
+                        <button class="faq-trigger">
+                            <span class="faq-icon"><i class="fas fa-chalkboard-teacher"></i></span>
+                            <span class="faq-question-text">Do you provide on-site training?</span>
+                            <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                        </button>
+                        <div class="faq-content">
+                            <p>Yes! We offer on-site training globally, plus live virtual sessions. On-site training outside SA/EU may include travel costs. All training includes hands-on exercises and take-home materials.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // ============================================
+    // FLOATING ICONS - PARALLAX MOUSE FOLLOW
+    // ============================================
+    const floatingIcons = document.querySelectorAll('.floating-icon');
+    let mouseX = 0, mouseY = 0;
+    let currentX = 0, currentY = 0;
+
+    document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+    });
+
+    function animateIcons() {
+        currentX += (mouseX - currentX) * 0.05;
+        currentY += (mouseY - currentY) * 0.05;
+
+        floatingIcons.forEach(icon => {
+            const speed = parseFloat(icon.dataset.speed) || 0.02;
+            const rect = icon.getBoundingClientRect();
+            const centerX = window.innerWidth / 2;
+            const centerY = window.innerHeight / 2;
+
+            const moveX = (currentX - centerX) * speed;
+            const moveY = (currentY - centerY) * speed;
+
+            icon.style.transform = `translate(${moveX}px, ${moveY}px) rotate(${moveX * 0.5}deg)`;
+        });
+
+        requestAnimationFrame(animateIcons);
+    }
+    animateIcons();
+
+    // ============================================
+    // INTEREST PILLS - INTERACTIVE SELECTION
+    // ============================================
+    const pills = document.querySelectorAll('.interest-pill');
+    const interestInput = document.getElementById('interest');
+
+    pills.forEach(pill => {
+        pill.addEventListener('click', function() {
+            // Remove active from all
+            pills.forEach(p => p.classList.remove('active'));
+            // Add active to clicked
+            this.classList.add('active');
+            // Set hidden input value
+            interestInput.value = this.dataset.value;
+
+            // Add bounce animation
+            this.style.animation = 'none';
+            setTimeout(() => {
+                this.style.animation = 'pill-bounce 0.4s ease';
+            }, 10);
+        });
+    });
+
+    // ============================================
+    // CHARACTER COUNTER
+    // ============================================
+    const messageInput = document.getElementById('message');
+    const charCount = document.getElementById('char-count');
+
+    if (messageInput && charCount) {
+        messageInput.addEventListener('input', function() {
+            charCount.textContent = this.value.length;
+            if (this.value.length > 1800) {
+                charCount.parentElement.classList.add('warning');
+            } else {
+                charCount.parentElement.classList.remove('warning');
+            }
+        });
+    }
+
+    // ============================================
+    // FORM SUBMISSION WITH ANIMATIONS
+    // ============================================
+    const form = document.getElementById('contact-form');
+    const submitBtn = document.getElementById('submit-btn');
+    const successMsg = document.getElementById('form-success');
+    const errorMsg = document.getElementById('form-error');
+    const paperAirplane = document.getElementById('paper-airplane');
+
+    if (form) {
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            // Validate interest selected
+            if (!interestInput.value) {
+                const pillsContainer = document.getElementById('interest-pills');
+                pillsContainer.classList.add('shake');
+                setTimeout(() => pillsContainer.classList.remove('shake'), 500);
+                return;
+            }
+
+            // Start loading state
+            submitBtn.classList.add('loading');
+
+            // Collect form data
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData.entries());
+
+            try {
+                const apiUrl = window.location.hostname === 'localhost'
+                    ? 'http://localhost:8080/api/contact'
+                    : '/api/contact';
+
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+
+                if (response.ok) {
+                    // Success animation
+                    submitBtn.classList.remove('loading');
+                    submitBtn.classList.add('success');
+
+                    // Paper airplane animation
+                    paperAirplane.classList.add('flying');
+
+                    setTimeout(() => {
+                        form.style.display = 'none';
+                        successMsg.classList.remove('is-hidden');
+                        launchConfetti();
+                    }, 800);
+                } else {
+                    throw new Error('Server error');
+                }
+            } catch (error) {
+                submitBtn.classList.remove('loading');
+                errorMsg.classList.remove('is-hidden');
+
+                // Create mailto fallback
+                const mailtoLink = `mailto:info@kartoza.com?subject=${encodeURIComponent('Contact: ' + data.interest)}&body=${encodeURIComponent(
+                    `Name: ${data.name}\nEmail: ${data.email}\nOrganisation: ${data.organisation || 'N/A'}\n\nMessage:\n${data.message}`
+                )}`;
+                errorMsg.querySelector('a').href = mailtoLink;
+            }
+        });
+    }
+
+    // ============================================
+    // CONFETTI CELEBRATION
+    // ============================================
+    function launchConfetti() {
+        const colors = ['#3B9DD9', '#E8A331', '#27ae60', '#9b59b6', '#e74c3c'];
+        const confettiCount = 100;
+        const container = document.querySelector('.contact-form-wrapper');
+
+        for (let i = 0; i < confettiCount; i++) {
+            const confetti = document.createElement('div');
+            confetti.className = 'confetti-piece';
+            confetti.style.cssText = `
+                --x: ${Math.random() * 100}%;
+                --rotation: ${Math.random() * 360}deg;
+                --delay: ${Math.random() * 0.5}s;
+                background: ${colors[Math.floor(Math.random() * colors.length)]};
+            `;
+            container.appendChild(confetti);
+
+            setTimeout(() => confetti.remove(), 3000);
+        }
+    }
+
+    // ============================================
+    // FAQ ACCORDION
+    // ============================================
+    const faqTriggers = document.querySelectorAll('.faq-trigger');
+
+    faqTriggers.forEach(trigger => {
+        trigger.addEventListener('click', function() {
+            const item = this.parentElement;
+            const isOpen = item.classList.contains('active');
+
+            // Close all
+            document.querySelectorAll('.faq-item-modern').forEach(faq => {
+                faq.classList.remove('active');
+            });
+
+            // Open clicked if wasn't open
+            if (!isOpen) {
+                item.classList.add('active');
+            }
+        });
+    });
+
+    // ============================================
+    // MAGNETIC SOCIAL BUTTONS
+    // ============================================
+    const magneticElements = document.querySelectorAll('[data-magnetic]');
+
+    magneticElements.forEach(el => {
+        el.addEventListener('mousemove', function(e) {
+            const rect = this.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+
+            this.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+        });
+
+        el.addEventListener('mouseleave', function() {
+            this.style.transform = 'translate(0, 0)';
+        });
+    });
+
+    // ============================================
+    // ANIMATED CLOCK
+    // ============================================
+    function updateClock() {
+        const now = new Date();
+        const hours = now.getHours() % 12;
+        const minutes = now.getMinutes();
+
+        const hourHand = document.querySelector('.clock-hand.hour');
+        const minuteHand = document.querySelector('.clock-hand.minute');
+
+        if (hourHand && minuteHand) {
+            hourHand.style.transform = `rotate(${hours * 30 + minutes * 0.5}deg)`;
+            minuteHand.style.transform = `rotate(${minutes * 6}deg)`;
+        }
+    }
+
+    updateClock();
+    setInterval(updateClock, 1000);
+
+    // ============================================
+    // SCROLL ANIMATIONS
+    // ============================================
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate-in');
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.sidebar-card, .faq-item-modern, .form-field').forEach(el => {
+        observer.observe(el);
+    });
+
+    // ============================================
+    // INPUT FOCUS EFFECTS
+    // ============================================
+    const inputs = document.querySelectorAll('.form-input, .form-textarea');
+
+    inputs.forEach(input => {
+        input.addEventListener('focus', function() {
+            this.parentElement.classList.add('focused');
+        });
+
+        input.addEventListener('blur', function() {
+            this.parentElement.classList.remove('focused');
+            if (this.value) {
+                this.parentElement.classList.add('has-value');
+            } else {
+                this.parentElement.classList.remove('has-value');
+            }
+        });
+    });
+});
+</script>
+
+{{ partial "footer.html" . }}
