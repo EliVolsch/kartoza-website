@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  api-bridge:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      - BRIDGE_PORT=8080
+      - BRIDGE_ENV=development
+      - ERPNEXT_URL=${ERPNEXT_URL}
+      - ERPNEXT_API_KEY=${ERPNEXT_API_KEY}
+      - ERPNEXT_API_SECRET=${ERPNEXT_API_SECRET}
+      - ALLOWED_ORIGINS=http://localhost:1313,http://localhost:3000,https://kartoza.com
+      - RATE_LIMIT=20
+      - RATE_LIMIT_BURST=10
+      - NOTIFY_EMAIL=info@kartoza.com
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:8080/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
