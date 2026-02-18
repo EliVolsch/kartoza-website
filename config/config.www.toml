@@ -1,3 +1,0 @@
-baseURL = 'https://www.qgis.org/'
-publishDir = "public_www"
-minify = true

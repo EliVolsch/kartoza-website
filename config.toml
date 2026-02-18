@@ -195,6 +195,12 @@ matomoSiteId = ''
   url = "/docker/"
   weight = 40
 
+[[menu.main]]
+  parent = "Our Work"
+  name = "YouTube Channels"
+  url = "/youtube/"
+  weight = 50
+
 # -- Courses --
 [[menu.main]]
   name = "Courses"

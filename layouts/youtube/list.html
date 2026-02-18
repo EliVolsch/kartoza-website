@@ -1,0 +1,166 @@
+{{ partial "header.html" . }}
+{{ partial "menu.html" . }}
+
+<!-- YouTube Hero Section -->
+<section class="youtube-hero">
+    <div class="youtube-hero-bg">
+        <div class="youtube-hero-overlay"></div>
+    </div>
+    <div class="container">
+        <div class="youtube-hero-content">
+            <span class="youtube-hero-tagline">
+                <i class="fab fa-youtube"></i>
+                Video Content
+            </span>
+            <h1 class="youtube-hero-title">{{ .Title }}</h1>
+            <p class="youtube-hero-subtitle">{{ .Params.subtitle }}</p>
+        </div>
+    </div>
+</section>
+
+<!-- Introduction -->
+<section class="section youtube-intro">
+    <div class="container">
+        <div class="youtube-intro-content">
+            <div class="youtube-intro-icon">
+                <i class="fas fa-play-circle"></i>
+            </div>
+            <p>{{ .Content }}</p>
+        </div>
+    </div>
+</section>
+
+<!-- YouTube Channels Grid -->
+<section class="section youtube-channels-section">
+    <div class="container">
+        <div class="section-header has-text-centered">
+            <h2 class="title is-2">Our Channels</h2>
+            <p class="subtitle">Subscribe to stay updated with the latest geospatial content</p>
+        </div>
+
+        <div class="youtube-channels-grid">
+            {{ range .Pages }}
+            <div class="youtube-channel-card">
+                <div class="channel-thumbnail">
+                    {{ if .Params.thumbnail }}
+                    <img src="{{ absURL .Params.thumbnail }}" alt="{{ .Title }}">
+                    {{ else }}
+                    <div class="channel-thumbnail-placeholder">
+                        <i class="fab fa-youtube"></i>
+                    </div>
+                    {{ end }}
+                    <div class="channel-play-overlay">
+                        <i class="fas fa-external-link-alt"></i>
+                    </div>
+                </div>
+                <div class="channel-content">
+                    <h3 class="channel-title">{{ .Title }}</h3>
+                    <p class="channel-description">{{ .Description }}</p>
+                    {{ with .Params.subscribers }}
+                    <div class="channel-stats">
+                        <span class="stat">
+                            <i class="fas fa-users"></i>
+                            {{ . }} subscribers
+                        </span>
+                    </div>
+                    {{ end }}
+                    <div class="channel-tags">
+                        {{ range .Params.tags }}
+                        <span class="tag is-primary is-light">{{ . }}</span>
+                        {{ end }}
+                    </div>
+                    <div class="channel-actions">
+                        <a href="{{ .Params.channelUrl }}" target="_blank" class="button is-danger">
+                            <span class="icon"><i class="fab fa-youtube"></i></span>
+                            <span>Visit Channel</span>
+                        </a>
+                        {{ with .Params.subscribeUrl }}
+                        <a href="{{ . }}" target="_blank" class="button is-dark">
+                            <span class="icon"><i class="fas fa-bell"></i></span>
+                            <span>Subscribe</span>
+                        </a>
+                        {{ end }}
+                    </div>
+                </div>
+            </div>
+            {{ end }}
+        </div>
+    </div>
+</section>
+
+<!-- Featured Playlists -->
+<section class="section youtube-playlists-section">
+    <div class="container">
+        <div class="section-header has-text-centered">
+            <h2 class="title is-2">Featured Playlists</h2>
+            <p class="subtitle">Curated collections of our best content</p>
+        </div>
+
+        <div class="youtube-playlists-grid">
+            <div class="playlist-card">
+                <div class="playlist-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <h4>QGIS Sketcher</h4>
+                <p>Quick tips and tutorials for QGIS sketching and digitizing.</p>
+                <a href="https://www.youtube.com/playlist?list=PLvOKSAePh-kLBJ0Nrq-P-M0CdvACxIK4J" target="_blank" class="playlist-link">
+                    <i class="fas fa-play"></i> Watch Playlist
+                </a>
+            </div>
+
+            <div class="playlist-card">
+                <div class="playlist-icon">
+                    <i class="fas fa-road"></i>
+                </div>
+                <h4>QGIS Road to Nerdvana</h4>
+                <p>Deep dive into QGIS development, building, and advanced features.</p>
+                <a href="https://www.youtube.com/playlist?list=PLvOKSAePh-kINBmQqv-D5VeVzs-PRTQQL" target="_blank" class="playlist-link">
+                    <i class="fas fa-play"></i> Watch Playlist
+                </a>
+            </div>
+
+            <div class="playlist-card">
+                <div class="playlist-icon">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                </div>
+                <h4>GeoNode Training</h4>
+                <p>Learn to use GeoNode for spatial data management and sharing.</p>
+                <a href="https://www.youtube.com/playlist?list=PLvOKSAePh-kLObtaRzGPPX9Z6VCH6Gm9u" target="_blank" class="playlist-link">
+                    <i class="fas fa-play"></i> Watch Playlist
+                </a>
+            </div>
+
+            <div class="playlist-card">
+                <div class="playlist-icon">
+                    <i class="fas fa-map-marked-alt"></i>
+                </div>
+                <h4>QGIS Training Videos</h4>
+                <p>Comprehensive QGIS training from beginner to advanced.</p>
+                <a href="https://www.youtube.com/playlist?list=PLvOKSAePh-kLZv8ooIu8GIzTxZkSrQyFD" target="_blank" class="playlist-link">
+                    <i class="fas fa-play"></i> Watch Playlist
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="youtube-cta">
+    <div class="container">
+        <div class="youtube-cta-content">
+            <div class="youtube-cta-icon">
+                <i class="fas fa-bell"></i>
+            </div>
+            <h2 class="youtube-cta-title">Never Miss an Update</h2>
+            <p class="youtube-cta-text">Subscribe to our channels and turn on notifications to stay updated with the latest geospatial tutorials, webinars, and news.</p>
+            <div class="youtube-cta-buttons">
+                <a class="button is-danger is-medium" href="https://www.youtube.com/user/kartozachannel?sub_confirmation=1" target="_blank">
+                    <span class="icon"><i class="fab fa-youtube"></i></span>
+                    <span>Subscribe Now</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+{{ partial "footer.html" . }}
