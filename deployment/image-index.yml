@@ -1,4 +1,4 @@
 images:
   - name: kartoza-website
-    dockerfile: deployment/docker/Dockerfile
+    dockerfile: deployment/hugo/Dockerfile
     buildPath: .
