@@ -1,4 +1,22 @@
-# Nginx Service - Serves static files built by Hugo
+# Stage 1: Build the Hugo site
+FROM hugomods/hugo:exts-0.144.0 AS builder
+
+# Build argument for baseURL (default to localhost for local dev)
+ARG BASE_URL=http://localhost:8888
+
+# Set working directory
+WORKDIR /src
+
+# Copy all project files
+COPY . .
+
+# Build the Hugo site with custom baseURL
+# --gc: Run garbage collection after build
+# --cleanDestinationDir: Remove files from destination not found in static dirs
+# --baseURL: Override the baseURL from config.toml
+RUN hugo --gc --cleanDestinationDir --baseURL="${BASE_URL}"
+
+# Stage 2: Serve with Nginx
 FROM nginx:1.29.0-alpine-perl
 
 # Install ca-certificates and tools
@@ -8,8 +26,8 @@ RUN apk add --no-cache ca-certificates tzdata wget
 COPY deployment/nginx/sites-enabled/nginx.conf /etc/nginx/nginx.conf
 COPY deployment/nginx/sites-enabled/default.conf /etc/nginx/conf.d/default.conf
 
-# Create directory for static files
-RUN mkdir -p /usr/share/nginx/html
+# Copy built site from builder stage
+COPY --from=builder /src/public /usr/share/nginx/html
 
 # Create non-root user for nginx
 RUN addgroup -g 1001 -S www && \

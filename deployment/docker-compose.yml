@@ -1,49 +1,20 @@
 version: '3.8'
 
 services:
-  # Hugo Builder - Builds the static site
-  hugo-builder:
+  # Hugo + Nginx - Build and serve the static site
+  website:
     build:
       context: ..
-      dockerfile: deployment/hugo/Dockerfile
-    container_name: kartoza-hugo-builder
-    volumes:
-      - hugo-output:/src/public
-    restart: "no"
-    labels:
-      - "com.kartoza.description=Hugo static site builder"
-      - "com.kartoza.service=hugo-builder"
-
-  # Nginx - Serves the static files
-  nginx:
-    build:
-      context: ..
-      dockerfile: deployment/nginx/Dockerfile
-    container_name: kartoza-nginx
+      dockerfile: deployment/docker/Dockerfile
+      args:
+        - BASE_URL=${BASE_URL:-http://localhost:8888}
+    container_name: kartoza-website
     ports:
-      - "8888:8080"
-    volumes:
-      - hugo-output:/usr/share/nginx/html:ro
+      - "${PORT:-8888}:8080"
     restart: unless-stopped
-    depends_on:
-      - hugo-builder
     healthcheck:
       test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:8080/health"]
       interval: 30s
       timeout: 10s
       retries: 3
       start_period: 10s
-    networks:
-      - kartoza-network
-    labels:
-      - "com.kartoza.description=Nginx web server"
-      - "com.kartoza.service=nginx"
-
-volumes:
-  hugo-output:
-    name: kartoza-hugo-output
-
-networks:
-  kartoza-network:
-    driver: bridge
-    name: kartoza-network
