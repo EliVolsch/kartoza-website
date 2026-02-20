@@ -2,7 +2,7 @@
 FROM nginx:1.27.3-alpine-slim
 
 # Hugo version
-ARG HUGO_VERSION=0.144.0
+ARG HUGO_VERSION=0.156.0
 
 # Install Hugo, upgrade packages, and install essentials
 RUN apk upgrade --no-cache --available && \
