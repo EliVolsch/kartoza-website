@@ -1,5 +1,64 @@
+# Hugo build output
 public/
+
+# Version control
 .github/
 .git/
+.gitignore
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+Pipfile
+Pipfile.lock
+pytest.ini
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Nix
+flake.nix
+flake.lock
+nix/
+
+# Docker build files (but keep nginx configs)
+deployment/docker-compose.yml
+deployment/.template.env
+deployment/.env
+deployment/DOCKER.md
+docker-compose.yml
+Dockerfile
+.dockerignore
+*.dockerfile
+
+# Logs
+*.log
+logs/
+
+# Other
 fireside-scraper
 scraped-data
+api-bridge/
+scripts/
+sdd/
