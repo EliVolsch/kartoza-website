@@ -87,4 +87,4 @@ This project is licensed under the MIT License. See the [LICENSE](./LICENSE) fil
 
 ---
 
-Made with love by the Kartoza team.
+Made with love ❤️ by the Kartoza team.
