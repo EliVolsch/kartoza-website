@@ -316,4 +316,4 @@ To add a new endpoint (e.g., newsletter subscription):
 
 ## License
 
-MIT.
+MIT
