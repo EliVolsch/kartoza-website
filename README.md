@@ -86,5 +86,5 @@ This project is licensed under the MIT License. See the [LICENSE](./LICENSE) fil
 - **Phone:** +27 21 813 8912
 
 ---
-
+This is me
 Made with love by the Kartoza team.
