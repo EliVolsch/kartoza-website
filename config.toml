@@ -91,9 +91,6 @@ githubEditUrl = "https://github.com/kartoza/Kartoza-Hugo/edit/main"
 ### Radius for boxes (organic rounded)
 corner-radius = "12px"
 
-## Twitter handle for meta tags
-twitter = "@KartozaGeo"
-
 ## This will turn on Cookie popup. True to show popup
 cookiesstate = false
 

@@ -1,0 +1,16 @@
+{{/* Feature card with centered icon, title, and description */}}
+{{ $icon := .Get "icon" | default "" }}
+{{ $title := .Get "title" | default "" }}
+{{ $class := .Get "class" | default "" }}
+
+<div class="has-text-centered p-5 {{ $class }}">
+    {{ if ne $icon "" }}
+    <figure class="image is-128x128 is-inline-block">
+        <img src="{{ $icon | absURL }}" alt="{{ $title }}">
+    </figure>
+    {{ end }}
+    {{ if ne $title "" }}
+    <h3 class="title is-4 mt-4">{{ $title }}</h3>
+    {{ end }}
+    <p>{{ .Inner | markdownify }}</p>
+</div>

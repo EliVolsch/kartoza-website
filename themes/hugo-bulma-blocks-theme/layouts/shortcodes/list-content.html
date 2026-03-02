@@ -1,0 +1,5 @@
+{{/* Simple wrapper for markdown lists to apply Bulma content styling */}}
+{{ $class := .Get "class" | default "" }}
+<div class="content {{ $class }}">
+{{ .Inner | markdownify }}
+</div>
