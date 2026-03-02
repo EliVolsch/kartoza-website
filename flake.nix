@@ -92,8 +92,10 @@
             packages = with pkgs; [
               hugo # Hugo for building the website
               vscode # VSCode for development
+              python3 # Python interpreter
               python3Packages.icalendar # Python packages
-              python3Packages.requests # Python packages
+              python3Packages.requests # Python packages - for ERPNext API
+              python3Packages.pyyaml # Python packages - for YAML generation
               gnumake # GNU Make for build automation
             ];
             shellHook = ''
