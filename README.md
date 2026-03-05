@@ -14,6 +14,34 @@
   <em>Official website for <a href="https://kartoza.com">Kartoza</a> - Open Source Geospatial Experts</em>
 </p>
 
+<p align="center">
+  <a href="https://kartoza.com">
+    <img src="https://img.shields.io/badge/Live_Site-kartoza.com-00A86B?style=for-the-badge&logo=google-chrome&logoColor=white" alt="Live Site">
+  </a>
+</p>
+
+---
+
+<p align="center">
+  <img src="img/home-page.png" alt="Kartoza Website Screenshot" width="800">
+</p>
+
+---
+
+## Table of Contents
+
+- [About Kartoza](#about-kartoza)
+- [Technology Stack](#technology-stack)
+- [Prerequisites](#prerequisites)
+- [Quick Start](#quick-start)
+- [Project Structure](#project-structure)
+- [Content Management](#content-management)
+- [Development](#development)
+- [Security](#security)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
+
 ---
 
 <p align="center">
@@ -95,6 +123,18 @@
 
 ---
 
+## Prerequisites
+
+| Requirement | Version | Notes |
+|-------------|---------|-------|
+| **Hugo** | 0.147+ | Extended version required |
+| **Nix** | 2.4+ | Optional, but recommended |
+| **Docker** | 20.10+ | Optional, for containerized deployment |
+
+> **Note**: Using Nix Flakes automatically provides all dependencies. No manual installation required.
+
+---
+
 ## Quick Start
 
 ### Using Nix (Recommended)
@@ -151,6 +191,40 @@ Kartoza-Hugo/
 ├── deployment/            # Docker & nginx configs
 ├── scripts/               # Automation scripts
 └── flake.nix              # Nix development environment
+```
+
+---
+
+## Content Management
+
+### Adding Content
+
+| Content Type | Location | Command |
+|--------------|----------|---------|
+| Blog post | `content/blog/` | `hugo new blog/my-post.md` |
+| Team member | `content/the_team/` | `hugo new the_team/name.md` |
+| Portfolio item | `content/portfolio/` | `hugo new portfolio/project.md` |
+| Training course | `content/training-courses/` | `hugo new training-courses/course.md` |
+
+### Front Matter Example
+
+```yaml
+---
+title: "My Blog Post"
+date: 2024-01-15
+draft: false
+author: "Team Member"
+tags: ["QGIS", "GIS", "Tutorial"]
+thumbnail: "img/blog/my-post-thumbnail.png"
+---
+```
+
+### Images
+
+Place images in the `static/img/` directory and reference them in markdown:
+
+```markdown
+![Alt text](/img/blog/my-image.png)
 ```
 
 ---
