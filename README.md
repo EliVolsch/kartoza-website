@@ -83,6 +83,9 @@
 
 <p align="center">
   <!-- Security -->
+  <a href="https://github.com/kartoza/kartoza-website/security/dependabot">
+    <img src="https://img.shields.io/badge/Dependabot-0_alerts-success?style=flat&logo=dependabot&logoColor=white" alt="Dependabot">
+  </a>
   <img src="https://img.shields.io/badge/Security-Audited-success?style=flat&logo=shieldsdotio" alt="Security Audited">
   <img src="https://img.shields.io/badge/nginx-1.28.2-009639?style=flat&logo=nginx&logoColor=white" alt="nginx">
   <img src="https://img.shields.io/badge/Python-3.12-3776AB?style=flat&logo=python&logoColor=white" alt="Python">
