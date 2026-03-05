@@ -41,6 +41,7 @@
 - [Contributing](#contributing)
 - [License](#license)
 - [Contact](#contact)
+- [Acknowledgements](#acknowledgements)
 
 ---
 
@@ -319,6 +320,12 @@ This project is licensed under the **MIT License**. See the [LICENSE](./LICENSE)
     <img src="https://img.shields.io/badge/YouTube-Kartoza-FF0000?style=flat&logo=youtube&logoColor=white" alt="YouTube">
   </a>
 </p>
+
+---
+
+## Acknowledgements
+
+This project was originally derived from the [QGIS Hugo Website Theme](https://github.com/qgis/QGIS-Hugo-Website-Theme). We thank the QGIS community for their excellent work on the original Hugo theme and site structure that served as the foundation for this project.
 
 ---
 
