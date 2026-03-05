@@ -95,7 +95,7 @@
 
 ## About Kartoza
 
-<img align="right" src="static/img/kartoza-logo-modern.svg" width="120">
+<img align="right" src="static/img/kartoza-logo.png" width="120">
 
 **Kartoza** is a global Free and Open Source GIS (FOSS GIS) service provider registered in South Africa and Portugal. We use GIS software to address location-related challenges for individuals, businesses, and governments worldwide.
 
