@@ -330,7 +330,7 @@ This project was originally derived from the [QGIS Hugo Website Theme](https://g
 ---
 
 <p align="center">
-  Made with 💗 by <a href="https://kartoza.com">Kartoza</a> |
+  Made with ❤️ by <a href="https://kartoza.com">Kartoza</a> |
   <a href="https://github.com/sponsors/kartoza">Donate!</a> |
   <a href="https://github.com/kartoza/kartoza-website">GitHub</a>
 </p>
