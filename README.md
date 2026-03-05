@@ -238,9 +238,6 @@ This project is licensed under the **MIT License**. See the [LICENSE](./LICENSE)
   <a href="https://www.linkedin.com/company/kartoza">
     <img src="https://img.shields.io/badge/LinkedIn-Kartoza-0A66C2?style=flat&logo=linkedin&logoColor=white" alt="LinkedIn">
   </a>
-  <a href="https://twitter.com/kartaborolong">
-    <img src="https://img.shields.io/badge/Twitter-@kartaborolong-1DA1F2?style=flat&logo=twitter&logoColor=white" alt="Twitter">
-  </a>
   <a href="https://www.youtube.com/@kartaborolong">
     <img src="https://img.shields.io/badge/YouTube-Kartoza-FF0000?style=flat&logo=youtube&logoColor=white" alt="YouTube">
   </a>
