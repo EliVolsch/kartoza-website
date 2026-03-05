@@ -1,5 +1,5 @@
 # Minimal Nginx runtime with Hugo
-FROM nginx:1.27.3-alpine-slim
+FROM nginx:1.28.2-alpine-slim
 
 # Hugo version
 ARG HUGO_VERSION=0.156.0

@@ -9,10 +9,11 @@
   inputs = {
     nixpkgs-version.url = "github:QGIS/qgis-nixpkgs-version";
     nixpkgs.follows = "nixpkgs-version/nixpkgs-25-05";
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
   };
 
   outputs =
-    { self, nixpkgs, ... }:
+    { self, nixpkgs, nixpkgs-unstable, ... }:
 
     let
       # Flake system
@@ -23,9 +24,19 @@
         "aarch64-darwin"
       ];
       forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
+
       nixpkgsFor = forAllSystems (
         system:
         import nixpkgs {
+          inherit system;
+          config.allowUnfree = true;
+        }
+      );
+
+      # nixpkgs-unstable for packages with security fixes
+      nixpkgsUnstableFor = forAllSystems (
+        system:
+        import nixpkgs-unstable {
           inherit system;
           config.allowUnfree = true;
         }
@@ -85,18 +96,24 @@
         system:
         let
           pkgs = nixpkgsFor.${system};
+          pkgsUnstable = nixpkgsUnstableFor.${system};
+          # Use unstable Python packages for security fixes (Pillow CVE-2026-25990)
+          pythonEnv = pkgsUnstable.python3.withPackages (ps: with ps; [
+            icalendar # Calendar handling
+            requests # HTTP requests - for ERPNext API
+            pyyaml # YAML generation
+            pillow # Image processing (12.1.0 - patched for CVE-2026-25990)
+            stripe # Donor management
+          ]);
         in
         {
           # Development environment
           default = pkgs.mkShell {
-            packages = with pkgs; [
-              hugo # Hugo for building the website
-              vscode # VSCode for development
-              python3 # Python interpreter
-              python3Packages.icalendar # Python packages
-              python3Packages.requests # Python packages - for ERPNext API
-              python3Packages.pyyaml # Python packages - for YAML generation
-              gnumake # GNU Make for build automation
+            packages = [
+              pkgs.hugo # Hugo for building the website
+              pkgs.vscode # VSCode for development
+              pythonEnv # Python with all packages from unstable
+              pkgs.gnumake # GNU Make for build automation
             ];
             shellHook = ''
               export DIRENV_LOG_FORMAT=
