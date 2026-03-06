@@ -595,15 +595,35 @@ document.addEventListener('DOMContentLoaded', function() {
             const formData = new FormData(form);
             const data = Object.fromEntries(formData.entries());
 
+            // Transform data to match ERPNext Lead schema
+            const erpnextData = {
+                doctype: "Lead",
+                first_name: data.name,
+                email_id: data.email,
+                phone: data.phone || null,
+                company_name: data.organisation || null,
+                utm_source: "Website",
+                status: "Lead",
+                lead_owner: "support@kartoza.com",
+                type: "Client",
+                request_type: "Product Enquiry",
+                country: null,
+                notes: [
+                    {
+                        doctype: "CRM Note",
+                        note: `Interest: ${data.interest}\n\n${data.message}`
+                    }
+                ]
+            };
+
             try {
-                const apiUrl = window.location.hostname === 'localhost'
-                    ? 'http://localhost:8080/api/contact'
-                    : '/api/contact';
+                // Use relative URL to match current port
+                const apiUrl = '/api/contact';
 
                 const response = await fetch(apiUrl, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(data)
+                    body: JSON.stringify(erpnextData)
                 });
 
                 if (response.ok) {
