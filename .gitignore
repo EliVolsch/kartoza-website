@@ -62,3 +62,4 @@ PROMPT.log
 # Synced images from ERPNext
 static/img/synced/
 sdd
+.claude/
