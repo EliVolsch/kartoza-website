@@ -31,9 +31,9 @@ minHugoVersion = "0.139.0"
 description = "Kartoza - Open Source Geospatial Solutions"
 # Brand colours (Kartoza branding - extracted from brand pattern)
 # Blues
-primary1 = "#1B6B9B"
-primary2 = "#3B9DD9"
-primary3 = "#5BB5E8"
+primary1 = "#53a2cc"
+primary2 = "#3488b8"
+primary3 = "#b2d5e8"
 # Greys
 primary4 = "#9E9E9E"
 primary5 = "#C8C8C8"
@@ -74,9 +74,9 @@ success = "#4CAF50"
 warning = "#E8A331"
 link = "#3B9DD9"
 # Brand fonts
-heading-font = "'Roboto', sans-serif"
-text-font = "'Roboto', sans-serif"
-fancy-font = "'Roboto', sans-serif"
+heading-font = "'Nunito', sans-serif"
+text-font = "'Nunito', sans-serif"
+fancy-font = "'Nunito', sans-serif"
 
 menuFontClass = "is-size-6"
 ## Gh repo edit link
