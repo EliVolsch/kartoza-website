@@ -16,35 +16,32 @@ Make geospatial data and technology work for you by partnering with us for train
 {{< columns-start >}}
 {{< column-start class="is-4" >}}
 
-<div class="has-text-centered p-5">
-    <figure class="image is-128x128 is-inline-block">
-        <img src="/img/education-icon.svg" alt="Training">
-    </figure>
-    <h3 class="title is-4 mt-4">Training & Education</h3>
-    <p>We train corporates, NGOs, and government departments on GIS software optimisation. We also supply curriculum materials and teacher training for schools and universities.</p>
-</div>
+{{< feature-card
+    icon="/img/education-icon.svg"
+    title="Training & Education"
+>}}
+We train corporates, NGOs, and government departments on GIS software optimisation. We also supply curriculum materials and teacher training for schools and universities.
+{{< /feature-card >}}
 
 {{< column-end >}}
 {{< column-start class="is-4" >}}
 
-<div class="has-text-centered p-5">
-    <figure class="image is-128x128 is-inline-block">
-        <img src="/img/consultancy-icon.svg" alt="Consultancy">
-    </figure>
-    <h3 class="title is-4 mt-4">Software Development & Consultancy</h3>
-    <p>Custom geographic information systems built using Free and Open Source GIS for desktop or web deployment. We build solutions tailored to your needs.</p>
-</div>
+{{< feature-card
+    icon="/img/consultancy-icon.svg"
+    title="Software Development & Consultancy"
+>}}
+Custom geographic information systems built using Free and Open Source GIS for desktop or web deployment. We build solutions tailored to your needs.
+{{< /feature-card >}}
 
 {{< column-end >}}
 {{< column-start class="is-4" >}}
 
-<div class="has-text-centered p-5">
-    <figure class="image is-128x128 is-inline-block">
-        <img src="/img/support-icon.svg" alt="Support">
-    </figure>
-    <h3 class="title is-4 mt-4">Support, Maintenance & Hosting</h3>
-    <p>Maintenance and support for existing GIS systems, plus deployment of FOSS GIS applications using PostgreSQL/PostGIS, QGIS, and other leading tools.</p>
-</div>
+{{< feature-card
+    icon="/img/support-icon.svg"
+    title="Support, Maintenance & Hosting"
+>}}
+Maintenance and support for existing GIS systems, plus deployment of FOSS GIS applications using PostgreSQL/PostGIS, QGIS, and other leading tools.
+{{< /feature-card >}}
 
 {{< column-end >}}
 {{< columns-end >}}
@@ -93,7 +90,7 @@ Kartoza is the largest FOSS geospatial service provider in South Africa and in t
 
 Whether you need custom GIS software development, professional training, or managed hosting and support, our team of geospatial experts is ready to help.
 
-<a class="button is-primary is-medium mt-4" href="/contact-us/">Request a Consultation</a>
+{{< button class="is-primary is-medium mt-4" link="/contact-us/" text="Request a Consultation" >}}
 
 ----
 

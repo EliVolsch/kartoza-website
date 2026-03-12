@@ -16,7 +16,10 @@
       "Bash(git init:*)",
       "Bash(hugo:*)",
       "Bash(sed:*)",
-      "Bash(mkdir:*)"
+      "Bash(mkdir:*)",
+      "Bash(xxd:*)",
+      "WebSearch",
+      "Bash(xargs ls:*)"
     ],
     "deny": [],
     "ask": []

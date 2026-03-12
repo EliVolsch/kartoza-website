@@ -50,7 +50,7 @@ We are seeking a Bookkeeper and Admin/Logistics Officer to support our financial
 - Problem-solving and critical thinking abilities
 - South African home-based role
 
-<a class="button is-primary is-small mt-3" href="mailto:jobs@kartoza.com?subject=Application: Administration %26 Bookkeeper (HR-OPN-2026-0003)">Apply Now</a>
+{{< button class="is-primary is-small mt-3" link="mailto:jobs@kartoza.com?subject=Application: Administration %26 Bookkeeper (HR-OPN-2026-0003)" text="Apply Now" >}}
 
 {{< column-end >}}
 {{< column-start class="is-6" >}}
@@ -78,7 +78,7 @@ We are looking for a Support Desk Technician to manage client support queries, m
 - Customer service orientation with problem-solving ability
 - Geographic flexibility with minimum team time overlap
 
-<a class="button is-primary is-small mt-3" href="mailto:jobs@kartoza.com?subject=Application: Support Desk and Testing Analyst (HR-OPN-2026-0004)">Apply Now</a>
+{{< button class="is-primary is-small mt-3" link="mailto:jobs@kartoza.com?subject=Application: Support Desk and Testing Analyst (HR-OPN-2026-0004)" text="Apply Now" >}}
 
 {{< column-end >}}
 {{< columns-end >}}
@@ -117,30 +117,26 @@ We are looking for a Support Desk Technician to manage client support queries, m
 
 ### Software Development
 
-<div class="content">
-
+{{< list-content >}}
 - Python, Flask, Django
 - QGIS and geospatial software (C++, Qt, C, Java)
 - JavaScript
 - Mobile development (iOS, Android, cross-platform)
 - UI/UX/design
-
-</div>
+{{< /list-content >}}
 
 {{< column-end >}}
 {{< column-start class="is-6" >}}
 
 ### GIS Specialisation
 
-<div class="content">
-
+{{< list-content >}}
 - Strong spatial, statistical, analytical, or data science capabilities
 - Programming/scripting experience required
 - Vertical expertise: disaster risk reduction, local government, agriculture
 - Horizontal expertise: cartography, spatial databases, remote sensing, GIS workflow management
 - Proficiency with QGIS, PostGIS, GeoServer, GDAL/OGR and other FOSS GIS tools
-
-</div>
+{{< /list-content >}}
 
 {{< column-end >}}
 {{< columns-end >}}
@@ -170,6 +166,6 @@ Submit to **jobs@kartoza.com** with the following:
 - Publications
 - Website / portfolio examples
 
-<a class="button is-primary is-medium mt-4" href="mailto:jobs@kartoza.com">Send Your Application</a>
+{{< button class="is-primary is-medium mt-4" link="mailto:jobs@kartoza.com" text="Send Your Application" >}}
 
 {{< /block-section >}}

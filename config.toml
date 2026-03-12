@@ -16,8 +16,21 @@ pygmentsCodefences = true
 # Folders in these folders get published automatically
 staticDir = ['static']
 
+# Enable minification for production builds
+[minify]
+  disableCSS = false
+  disableHTML = false
+  disableJS = false
+  disableJSON = false
+  disableSVG = false
+  disableXML = false
+  minifyOutput = true
+  [minify.tdewolff]
+    [minify.tdewolff.html]
+      keepWhitespace = false
+
 # See https://gohugo.io/templates/robots/
-enableRobotsTXT = false
+enableRobotsTXT = true
 
 [taxonomies]
   category = 'categories'
@@ -91,9 +104,6 @@ githubEditUrl = "https://github.com/kartoza/Kartoza-Hugo/edit/main"
 ### Radius for boxes (organic rounded)
 corner-radius = "12px"
 
-## Twitter handle for meta tags
-twitter = "@KartozaGeo"
-
 ## This will turn on Cookie popup. True to show popup
 cookiesstate = false
 
@@ -101,7 +111,9 @@ cookiesstate = false
 matomoURL = ""
 matomoSiteId = ''
 
-# This will cause html in markdown files to be rendered directly
+# Allow raw HTML in markdown files
+# SECURITY NOTE: This is enabled because content is from trusted Kartoza team members only.
+# If accepting user-generated content, set to false to prevent XSS attacks.
 [markup]
   [markup.goldmark]
     [markup.goldmark.renderer]
@@ -258,18 +270,6 @@ matomoSiteId = ''
   name = "Portfolio"
   url = "/portfolio/"
   weight = 30
-
-[[menu.footer]]
-  parent = "Navigate"
-  name = "Policies"
-  url = "/policies/"
-  weight = 40
-
-[[menu.footer]]
-  parent = "Navigate"
-  name = "Crowdfunding"
-  url = "/crowdfunding/"
-  weight = 50
 
 # -- Services column --
 [[menu.footer]]

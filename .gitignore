@@ -55,3 +55,11 @@ result
 
 # Prompt log
 PROMPT.log
+
+# ERPNext sync cache
+.cache/
+
+# Synced images from ERPNext
+static/img/synced/
+sdd
+.claude/

@@ -1,0 +1,356 @@
+# Training Schedule and Pricing Data
+# This file contains all scheduled training sessions, venues, and pricing
+# Used by the training booking flow to present options to users
+
+# Venue definitions
+venues:
+  cape-town:
+    name: "Cape Town, South Africa"
+    address: "Kartoza Office, Black River Park, Observatory, Cape Town"
+    type: "in-person"
+    icon: "fa-building"
+    description: "Our headquarters with fully-equipped training facilities"
+
+  johannesburg:
+    name: "Johannesburg, South Africa"
+    address: "Sandton Convention Centre"
+    type: "in-person"
+    icon: "fa-building"
+    description: "Central location in Johannesburg's business district"
+
+  remote:
+    name: "Online / Remote"
+    address: "Live virtual classroom"
+    type: "remote"
+    icon: "fa-video"
+    description: "Join from anywhere with our interactive online sessions"
+
+  on-site:
+    name: "Your Location"
+    address: "We come to you"
+    type: "on-site"
+    icon: "fa-map-marker-alt"
+    description: "Custom training at your office or preferred venue"
+
+# Currency options
+currencies:
+  ZAR:
+    symbol: "R"
+    name: "South African Rand"
+    code: "ZAR"
+  USD:
+    symbol: "$"
+    name: "US Dollar"
+    code: "USD"
+  EUR:
+    symbol: "€"
+    name: "Euro"
+    code: "EUR"
+
+# Course pricing (per person, by venue type)
+# Price key format: course-slug
+pricing:
+  qgis-introduction:
+    ZAR:
+      in-person: 7500
+      remote: 5500
+      on-site: null  # Quote required
+    USD:
+      in-person: 450
+      remote: 330
+      on-site: null
+    EUR:
+      in-person: 420
+      remote: 300
+      on-site: null
+
+  qgis-advanced:
+    ZAR:
+      in-person: 9000
+      remote: 6500
+      on-site: null
+    USD:
+      in-person: 540
+      remote: 390
+      on-site: null
+    EUR:
+      in-person: 500
+      remote: 360
+      on-site: null
+
+  postgis:
+    ZAR:
+      in-person: 9000
+      remote: 6500
+      on-site: null
+    USD:
+      in-person: 540
+      remote: 390
+      on-site: null
+    EUR:
+      in-person: 500
+      remote: 360
+      on-site: null
+
+  geoserver:
+    ZAR:
+      in-person: 9000
+      remote: 6500
+      on-site: null
+    USD:
+      in-person: 540
+      remote: 390
+      on-site: null
+    EUR:
+      in-person: 500
+      remote: 360
+      on-site: null
+
+  geonode:
+    ZAR:
+      in-person: 9000
+      remote: 6500
+      on-site: null
+    USD:
+      in-person: 540
+      remote: 390
+      on-site: null
+    EUR:
+      in-person: 500
+      remote: 360
+      on-site: null
+
+  python-gis:
+    ZAR:
+      in-person: 12000
+      remote: 8500
+      on-site: null
+    USD:
+      in-person: 720
+      remote: 510
+      on-site: null
+    EUR:
+      in-person: 670
+      remote: 470
+      on-site: null
+
+  web-mapping:
+    ZAR:
+      in-person: 9000
+      remote: 6500
+      on-site: null
+    USD:
+      in-person: 540
+      remote: 390
+      on-site: null
+    EUR:
+      in-person: 500
+      remote: 360
+      on-site: null
+
+  open-data:
+    ZAR:
+      in-person: 6000
+      remote: 4500
+      on-site: null
+    USD:
+      in-person: 360
+      remote: 270
+      on-site: null
+    EUR:
+      in-person: 330
+      remote: 250
+      on-site: null
+
+# Scheduled sessions
+# Each session has a unique ID for the booking API
+sessions:
+  # QGIS Introduction
+  - id: "QGIS-INTRO-2024-Q2-CPT"
+    course: "qgis-introduction"
+    venue: "cape-town"
+    start_date: "2024-04-15"
+    end_date: "2024-04-17"
+    seats_total: 12
+    seats_available: 8
+    instructor: "Tim Sutton"
+    status: "open"  # open, few-seats, full, cancelled
+
+  - id: "QGIS-INTRO-2024-Q2-REM"
+    course: "qgis-introduction"
+    venue: "remote"
+    start_date: "2024-05-06"
+    end_date: "2024-05-08"
+    seats_total: 20
+    seats_available: 15
+    instructor: "Gavin Fleming"
+    status: "open"
+
+  - id: "QGIS-INTRO-2024-Q3-JHB"
+    course: "qgis-introduction"
+    venue: "johannesburg"
+    start_date: "2024-07-22"
+    end_date: "2024-07-24"
+    seats_total: 15
+    seats_available: 3
+    instructor: "Admire Nyakudya"
+    status: "few-seats"
+
+  - id: "QGIS-INTRO-2024-Q3-REM"
+    course: "qgis-introduction"
+    venue: "remote"
+    start_date: "2024-08-12"
+    end_date: "2024-08-14"
+    seats_total: 20
+    seats_available: 20
+    instructor: "Tim Sutton"
+    status: "open"
+
+  # QGIS Advanced
+  - id: "QGIS-ADV-2024-Q2-CPT"
+    course: "qgis-advanced"
+    venue: "cape-town"
+    start_date: "2024-04-22"
+    end_date: "2024-04-24"
+    seats_total: 10
+    seats_available: 6
+    instructor: "Tim Sutton"
+    status: "open"
+
+  - id: "QGIS-ADV-2024-Q3-REM"
+    course: "qgis-advanced"
+    venue: "remote"
+    start_date: "2024-09-02"
+    end_date: "2024-09-04"
+    seats_total: 15
+    seats_available: 12
+    instructor: "Gavin Fleming"
+    status: "open"
+
+  # PostGIS
+  - id: "POSTGIS-2024-Q2-CPT"
+    course: "postgis"
+    venue: "cape-town"
+    start_date: "2024-05-13"
+    end_date: "2024-05-15"
+    seats_total: 12
+    seats_available: 5
+    instructor: "Tim Sutton"
+    status: "open"
+
+  - id: "POSTGIS-2024-Q3-REM"
+    course: "postgis"
+    venue: "remote"
+    start_date: "2024-08-26"
+    end_date: "2024-08-28"
+    seats_total: 20
+    seats_available: 18
+    instructor: "Gavin Fleming"
+    status: "open"
+
+  # GeoServer
+  - id: "GEOSERVER-2024-Q2-REM"
+    course: "geoserver"
+    venue: "remote"
+    start_date: "2024-06-03"
+    end_date: "2024-06-05"
+    seats_total: 15
+    seats_available: 10
+    instructor: "Admire Nyakudya"
+    status: "open"
+
+  - id: "GEOSERVER-2024-Q4-CPT"
+    course: "geoserver"
+    venue: "cape-town"
+    start_date: "2024-10-14"
+    end_date: "2024-10-16"
+    seats_total: 12
+    seats_available: 12
+    instructor: "Tim Sutton"
+    status: "open"
+
+  # GeoNode
+  - id: "GEONODE-2024-Q3-REM"
+    course: "geonode"
+    venue: "remote"
+    start_date: "2024-07-08"
+    end_date: "2024-07-10"
+    seats_total: 15
+    seats_available: 8
+    instructor: "Gavin Fleming"
+    status: "open"
+
+  # Python for GIS
+  - id: "PYTHON-GIS-2024-Q2-CPT"
+    course: "python-gis"
+    venue: "cape-town"
+    start_date: "2024-05-27"
+    end_date: "2024-05-30"
+    seats_total: 10
+    seats_available: 4
+    instructor: "Tim Sutton"
+    status: "few-seats"
+
+  - id: "PYTHON-GIS-2024-Q4-REM"
+    course: "python-gis"
+    venue: "remote"
+    start_date: "2024-11-04"
+    end_date: "2024-11-07"
+    seats_total: 15
+    seats_available: 15
+    instructor: "Tim Sutton"
+    status: "open"
+
+  # Web Mapping
+  - id: "WEBMAP-2024-Q3-REM"
+    course: "web-mapping"
+    venue: "remote"
+    start_date: "2024-09-16"
+    end_date: "2024-09-18"
+    seats_total: 15
+    seats_available: 12
+    instructor: "Admire Nyakudya"
+    status: "open"
+
+  # Open Data
+  - id: "OPENDATA-2024-Q2-REM"
+    course: "open-data"
+    venue: "remote"
+    start_date: "2024-06-17"
+    end_date: "2024-06-18"
+    seats_total: 25
+    seats_available: 20
+    instructor: "Gavin Fleming"
+    status: "open"
+
+# Group discount tiers
+group_discounts:
+  - min_attendees: 3
+    max_attendees: 5
+    discount_percent: 10
+    label: "Small Team"
+  - min_attendees: 6
+    max_attendees: 10
+    discount_percent: 15
+    label: "Team"
+  - min_attendees: 11
+    max_attendees: 20
+    discount_percent: 20
+    label: "Large Team"
+  - min_attendees: 21
+    max_attendees: null
+    discount_percent: 25
+    label: "Enterprise"
+
+# Early bird discount (days before course start)
+early_bird:
+  days_before: 30
+  discount_percent: 10
+
+# API configuration for e-commerce integration
+api:
+  base_url: "https://kartoza.com/api/v1"
+  endpoints:
+    check_availability: "/training/sessions/{session_id}/availability"
+    create_booking: "/training/bookings"
+    get_pricing: "/training/pricing/{course_slug}"

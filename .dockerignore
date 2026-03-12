@@ -59,6 +59,5 @@ logs/
 # Other
 fireside-scraper
 scraped-data
-api-bridge/
 scripts/
 sdd/
