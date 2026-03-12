@@ -41,12 +41,10 @@
                 <span>We're Online</span>
             </div>
             <h1 class="contact-hero-title">
-                <span class="title-line title-line-1">Drop a Pin</span>
-                <span class="title-line title-line-2">On Our <span class="title-highlight magnetic-text" id="magnetic-title">Map</span></span>
+                <span class="title-line title-line-1">Let’s Start a Conversation</span>
             </h1>
             <p class="contact-hero-subtitle">
-                Send your coordinates and let's plot the perfect solution together.
-                <br><em class="tagline-mappy">"A Happy Life is a Mappy Life"</em>
+                 Support, enquiries, and collaboration requests are always welcome
             </p>
             <div class="hero-scroll-hint">
                 <span>Scroll to connect</span>
@@ -86,8 +84,8 @@
                             <span class="burst-ring delay-1"></span>
                             <span class="burst-ring delay-2"></span>
                         </div>
-                        <h2>Send Us a Message</h2>
-                        <p>Fill in the coordinates below and we'll navigate to your inbox within 24 hours.</p>
+                        <h2>How Can We Help?</h2>
+                        <p>We’d love to hear from you.</p>
                     </div>
 
                     <form id="contact-form" class="contact-form" action="/api/contact" method="POST">
@@ -228,7 +226,7 @@
                                 <div class="confetti-burst"></div>
                             </div>
                             <h3>Message Received!</h3>
-                            <p>Your coordinates have been logged. We'll navigate to your inbox soon.</p>
+                            <p>Your message has been received. We will be in touch as soon as possible.</p>
                         </div>
 
                         <div id="form-error" class="form-message error is-hidden">
@@ -245,33 +243,26 @@
             <!-- Interactive Sidebar -->
             <div class="contact-grid-sidebar">
                 <div class="contact-sidebar">
-                    <!-- Live Globe Card -->
-                    <div class="sidebar-card globe-card">
-                        <div class="card-glow"></div>
-                        <div class="mini-globe" id="mini-globe">
-                            <div class="globe-sphere">
-                                <div class="globe-highlight"></div>
+                    <!-- Response Time - Animated -->
+                    <div class="sidebar-card response-card">
+                        <div class="response-clock">
+                            <div class="clock-face">
+                                <div class="clock-hand hour"></div>
+                                <div class="clock-hand minute"></div>
+                                <div class="clock-center"></div>
                             </div>
-                            <div class="orbit-ring">
-                                <div class="orbit-dot"></div>
-                            </div>
-                            <div class="location-ping za-ping">
-                                <span class="ping-wave"></span>
-                                <span class="ping-dot"></span>
-                            </div>
-                            <div class="location-ping pt-ping">
-                                <span class="ping-wave"></span>
-                                <span class="ping-dot"></span>
-                            </div>
+                            <div class="clock-badge">24h</div>
                         </div>
-                        <div class="globe-card-content">
-                            <h3>Global Reach</h3>
-                            <p>From Cape Town to Lisbon, we serve clients on every continent.</p>
+                        <div class="response-info">
+                            <h4>Lightning Fast Response</h4>
+                            <p>We typically reply within <strong>24 hours</strong></p>
+                            <span class="business-hours">Mon-Fri, 08:00-17:00 SAST</span>
                         </div>
                     </div>
 
                     <!-- Contact Methods - Interactive Cards -->
                     <div class="sidebar-card contact-card" data-tilt data-tilt-max="8" data-tilt-speed="400">
+                     <h4><b>Contact Us</b></h4>
                         <div class="contact-method-modern" onclick="window.location.href='mailto:info@kartoza.com'">
                             <div class="method-icon pulse-glow">
                                 <i class="fas fa-envelope"></i>
@@ -290,7 +281,8 @@
                             </div>
                             <div class="method-info">
                                 <span class="method-label">Call Us (SA)</span>
-                                <span class="method-value">+27 21 813 8912</span>
+                                <span class="method-value">+27 (0) 71 774 9515</span>
+                                <span class="method-value">+27 (0) 87 809 2702 </span>
                             </div>
                             <div class="method-arrow">
                                 <i class="fas fa-arrow-right"></i>
@@ -300,7 +292,7 @@
 
                     <!-- Office Locations with Animation -->
                     <div class="sidebar-card offices-card">
-                        <h4><i class="fas fa-map-marked-alt"></i> Our Coordinates</h4>
+                        <h4><i class="fas fa-map-marked-alt"></i> Our Locations</h4>
                         <div class="office-locations">
                             <div class="office-location" data-region="ZA">
                                 <div class="office-marker">
@@ -321,49 +313,12 @@
                                 </div>
                                 <div class="office-info-modern">
                                     <strong>Europe</strong>
-                                    <span>Kartoza LDA</span>
+                                    <span>Kartoza Lda</span>
                                     <span>Lisbon, Portugal</span>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-                    <!-- Response Time - Animated -->
-                    <div class="sidebar-card response-card">
-                        <div class="response-clock">
-                            <div class="clock-face">
-                                <div class="clock-hand hour"></div>
-                                <div class="clock-hand minute"></div>
-                                <div class="clock-center"></div>
-                            </div>
-                            <div class="clock-badge">24h</div>
-                        </div>
-                        <div class="response-info">
-                            <h4>Lightning Fast Response</h4>
-                            <p>We typically reply within <strong>24 hours</strong></p>
-                            <span class="business-hours">Mon-Fri, 08:00-17:00 SAST</span>
-                        </div>
-                    </div>
-
-                    <!-- Social Links - Magnetic Effect -->
-                    <div class="sidebar-card social-card">
-                        <h4><i class="fas fa-share-nodes"></i> Connect</h4>
-                        <div class="social-links-modern">
-                            <a href="https://www.linkedin.com/company/kartoza-pty-ltd" target="_blank" class="social-orb" data-magnetic>
-                                <i class="fa-brands fa-linkedin-in"></i>
-                                <span class="orb-glow"></span>
-                            </a>
-                            <a href="https://www.github.com/orgs/kartoza" target="_blank" class="social-orb" data-magnetic>
-                                <i class="fa-brands fa-github"></i>
-                                <span class="orb-glow"></span>
-                            </a>
-                            <a href="https://www.youtube.com/user/kartozachannel" target="_blank" class="social-orb" data-magnetic>
-                                <i class="fa-brands fa-youtube"></i>
-                                <span class="orb-glow"></span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
@@ -439,7 +394,7 @@
                 <i class="fas fa-question-circle"></i>
                 FAQ
             </span>
-            <h2>Questions? <span class="highlight-word">Answered.</span></h2>
+            <h2>Your Questions, <span class="highlight-word">Answered.</span></h2>
         </div>
         <div class="columns is-centered">
             <div class="column is-8">

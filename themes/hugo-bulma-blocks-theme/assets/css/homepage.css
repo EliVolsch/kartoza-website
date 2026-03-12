@@ -7,9 +7,9 @@
    CSS VARIABLES (using Kartoza brand colors)
    ============================================ */
 :root {
-    --primary-dark: #1B6B9B;
-    --primary: #3B9DD9;
-    --primary-light: #5BB5E8;
+    --primary-dark: #3488b8;
+    --primary: #53a2cc;
+    --primary-light: #b2d5e8;
     --accent: #E8A331;
     --accent-dark: #D4922A;
     --accent-light: #F0B84D;
@@ -11476,7 +11476,7 @@ body:has(.blog-hero) .contextmenu {
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    background: linear-gradient(135deg, #1a2a3a 0%, #2c4a62 50%, #3B9DD9 100%);
+    background: linear-gradient( #3488b3, #53a2cc, #b2d5e8);
 }
 
 .contact-hero-bg {
@@ -11598,11 +11598,10 @@ body:has(.blog-hero) .contextmenu {
     display: inline-flex;
     align-items: center;
     gap: 0.75rem;
-    background: rgba(39, 174, 96, 0.2);
-    border: 1px solid rgba(39, 174, 96, 0.5);
+    background:  #edb348;
     padding: 0.6rem 1.5rem;
     border-radius: 50px;
-    color: #2ecc71;
+    color: #ffffff;
     font-size: 0.85rem;
     font-weight: 600;
     margin-bottom: 2rem;
@@ -12462,7 +12461,7 @@ body:has(.blog-hero) .contextmenu {
     display: flex;
     align-items: center;
     gap: 1.25rem;
-    background: linear-gradient(135deg, var(--accent) 0%, #d4941c 100%);
+    background: linear-gradient(135deg, var(--accent) 0%, #edb348  100%);
     color: white;
 }
 
@@ -12603,7 +12602,7 @@ body:has(.blog-hero) .contextmenu {
 /* Map Section */
 .contact-map-section {
     padding: 6rem 0;
-    background: #1a2a3a;
+    background: #53a2cc;
     position: relative;
     overflow: hidden;
 }
@@ -12626,10 +12625,10 @@ body:has(.blog-hero) .contextmenu {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    background: rgba(255,255,255,0.1);
+    background: #edb348;
     padding: 0.5rem 1rem;
     border-radius: 20px;
-    color: var(--accent);
+    color: #ffffff;
     font-size: 0.85rem;
     font-weight: 600;
     margin-bottom: 1rem;
