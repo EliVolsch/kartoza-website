@@ -25,7 +25,7 @@ The National Geospatial Information division of South Africa manages national ma
 
 ## Problem Statement
 
-The author sought to estimate work requirements for mapping new areas by analyzing existing coverage data. They extracted sheet numbers from bid documents, loaded them into QGIS, and imported the layer into PostgreSQL as the "sample" table.
+The author sought to estimate work requirements for mapping new areas by analysing existing coverage data. They extracted sheet numbers from bid documents, loaded them into QGIS, and imported the layer into PostgreSQL as the "sample" table.
 
 ## Initial SQL Query
 

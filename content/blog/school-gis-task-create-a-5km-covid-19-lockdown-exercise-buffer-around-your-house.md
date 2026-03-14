@@ -1,6 +1,6 @@
 ---
 title: "School GIS Task: Create a 5km COVID-19 Lockdown Exercise Buffer Around Your House"
-description: "An educational resource for students to digitize their home locations and apply GIS buffer techniques to visualize a 5-kilometer exercise radius during pandemic restrictions."
+description: "An educational resource for students to digitize their home locations and apply GIS buffer techniques to visualise a 5-kilometer exercise radius during pandemic restrictions."
 tags:
   - Education
   - QGIS
@@ -17,7 +17,7 @@ thumbnail: "/img/blog/placeholder.png"
     class="is-primary"
     sub-block-side="bottom"
 >}}
-An educational resource for students to digitize their home locations and apply GIS buffer techniques to visualize exercise boundaries during pandemic restrictions.
+An educational resource for students to digitize their home locations and apply GIS buffer techniques to visualise exercise boundaries during pandemic restrictions.
 {{< /block >}}
 
 ## Content
@@ -26,7 +26,7 @@ This educational resource targets students facing blended learning environments.
 
 ## Learning Objectives
 
-The assignment asks Grade 10-12 students to digitize their home locations and neighborhoods using OpenStreetMap (OSM), then apply GIS buffer techniques to visualize a 5-kilometer exercise radius.
+The assignment asks Grade 10-12 students to digitize their home locations and neighbourhoods using OpenStreetMap (OSM), then apply GIS buffer techniques to visualise a 5-kilometer exercise radius.
 
 ## Required Prerequisites
 

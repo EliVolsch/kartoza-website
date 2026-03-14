@@ -12,7 +12,7 @@ date: 2024-01-01
 
 ## Overview
 
-Kartoza's GIS Consultancy services help organizations make informed decisions about their geospatial strategy, technology choices, and implementation approaches. Our experienced consultants bring deep technical knowledge and practical insights to every engagement.
+Kartoza's GIS Consultancy services help organisations make informed decisions about their geospatial strategy, technology choices, and implementation approaches. Our experienced consultants bring deep technical knowledge and practical insights to every engagement.
 
 Whether you're starting your GIS journey or optimizing an existing infrastructure, we provide the guidance you need to succeed.
 
@@ -21,7 +21,7 @@ Whether you're starting your GIS journey or optimizing an existing infrastructur
 - GIS strategy development and roadmapping
 - Technology assessment and selection
 - Architecture design and review
-- Data model design and optimization
+- Data model design and optimisation
 - Workflow analysis and improvement
 - Vendor-neutral technology recommendations
 - Open source migration planning
@@ -31,10 +31,10 @@ Whether you're starting your GIS journey or optimizing an existing infrastructur
 ## How We Work
 
 ### Discovery
-We start by understanding your organization's goals, current capabilities, and challenges through stakeholder interviews and technical assessments.
+We start by understanding your organisation's goals, current capabilities, and challenges through stakeholder interviews and technical assessments.
 
 ### Analysis
-Our team analyzes your requirements, evaluates options, and identifies opportunities for improvement or optimization.
+Our team analyses your requirements, evaluates options, and identifies opportunities for improvement or optimisation.
 
 ### Recommendations
 We deliver clear, actionable recommendations with implementation roadmaps, cost estimates, and risk assessments.

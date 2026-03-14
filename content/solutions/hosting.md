@@ -14,7 +14,7 @@ date: 2024-01-01
 
 Kartoza's Hosting and Maintenance services provide fully managed infrastructure for your geospatial applications. We handle the technical complexity so you can focus on using your GIS tools effectively.
 
-Our team monitors, maintains, and optimizes your systems around the clock, ensuring reliable performance and minimal downtime.
+Our team monitors, maintains, and optimises your systems around the clock, ensuring reliable performance and minimal downtime.
 
 ## What We Host
 
@@ -51,7 +51,7 @@ Mission-critical deployments requiring maximum uptime, performance, and dedicate
 
 - No server administration headaches
 - Predictable monthly costs
-- Expert optimization and tuning
+- Expert optimisation and tuning
 - Rapid deployment of new services
 - Disaster recovery included
 - Scale up or down as needed

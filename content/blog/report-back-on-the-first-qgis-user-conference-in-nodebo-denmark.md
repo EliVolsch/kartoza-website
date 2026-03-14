@@ -21,7 +21,7 @@ A comprehensive overview of the inaugural QGIS User Conference and Developer Mee
 
 ## Content
 
-The author provides a comprehensive overview of the inaugural QGIS User Conference and Developer Meeting held in Nødebo, Denmark. He opens by extending gratitude to organizer Lene Fischer and the University of Copenhagen School of Forestry for hosting the event at their forest venue.
+The author provides a comprehensive overview of the inaugural QGIS User Conference and Developer Meeting held in Nødebo, Denmark. He opens by extending gratitude to organiser Lene Fischer and the University of Copenhagen School of Forestry for hosting the event at their forest venue.
 
 ## Key Highlights
 

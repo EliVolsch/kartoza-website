@@ -30,7 +30,7 @@ The World Health Organisation emphasizes that "nearly 40% of the global populati
 
 ## Kartoza's Initiative
 
-Kartoza previously contributed to electricity access initiatives supporting SDG 7 goals alongside ESMAP and the World Bank. The organization now announces a partnership among the Clean Cooking Alliance, World Resources Institute, KTH Energy Systems Division, and Kartoza to develop data-driven planning solutions.
+Kartoza previously contributed to electricity access initiatives supporting SDG 7 goals alongside ESMAP and the World Bank. The organisation now announces a partnership among the Clean Cooking Alliance, World Resources Institute, KTH Energy Systems Division, and Kartoza to develop data-driven planning solutions.
 
 ## Technical Approach
 
@@ -43,4 +43,4 @@ The project addresses clean cooking through geospatial analysis, considering nat
 
 ## Conclusion
 
-Kartoza views this collaboration as aligned with organizational values of leveraging open source technology for humanitarian benefit, with outcomes anticipated by end of 2021.
+Kartoza views this collaboration as aligned with organisational values of leveraging open source technology for humanitarian benefit, with outcomes anticipated by end of 2021.

@@ -38,7 +38,7 @@ A new platform launched at [https://hub.qgis.org](https://hub.qgis.org) serves a
 **Key features include:**
 
 1. Visually appealing homepage with featured resources
-2. Well-organized list view for browsing assets
+2. Well-organised list view for browsing assets
 3. Detailed resource pages with previews and descriptions
 4. Advanced search functionality
 5. Seamless submission process for contributors

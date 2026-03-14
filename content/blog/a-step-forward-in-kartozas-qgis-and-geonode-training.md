@@ -22,9 +22,9 @@ Learning online has become an essential part of education globally. Kartoza has 
 
 ## Modernizing Training Platforms
 
-Learning online has become an essential part of education globally. Kartoza has responded to the need for current, interactive teaching materials by updating their QGIS and GeoNode training platforms. The organization uses an open source 'changelog' platform enabling continuous content updates and customization for state-of-the-art instruction.
+Learning online has become an essential part of education globally. Kartoza has responded to the need for current, interactive teaching materials by updating their QGIS and GeoNode training platforms. The organisation uses an open source 'changelog' platform enabling continuous content updates and customization for state-of-the-art instruction.
 
-The Kartoza Changelog functions as a comprehensive educational web platform where software projects and training courses can be organized and presented. Lessons appear in sequential sections with worksheets containing instructions and downloadable sample data, plus links to supplementary resources.
+The Kartoza Changelog functions as a comprehensive educational web platform where software projects and training courses can be organised and presented. Lessons appear in sequential sections with worksheets containing instructions and downloadable sample data, plus links to supplementary resources.
 
 ## Video Content Development
 

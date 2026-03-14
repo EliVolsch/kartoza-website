@@ -37,7 +37,7 @@ Team members registered accounts on the Mergin cloud platform, which facilitates
 
 Creating a fieldwork project begins with establishing contextual framework through basemap layers. The team selected OpenStreetMap for urban context and added Google satellite and street-level imagery. For offline functionality, mapping services must be converted to MBTiles format.
 
-## Data Schema and Layer Organization
+## Data Schema and Layer Organisation
 
 Before implementing collection mechanisms, establishing clear data structure proves essential. The team discovered that organizing information into separate layers by category—rather than combining related data into single layers—improves efficiency and usability. Attribute fields define what information gets captured during surveys.
 
@@ -52,11 +52,11 @@ The Attributes Form tab contains a drag-and-drop interface for creating data ent
 
 ## Completing and Uploading Projects
 
-Layer organization requires sequencing elements logically—points above lines, lines above polygons. Map themes separate online and offline basemap configurations. The Mergin plugin's browser panel facilitates uploading completed projects to the cloud infrastructure.
+Layer organisation requires sequencing elements logically—points above lines, lines above polygons. Map themes separate online and offline basemap configurations. The Mergin plugin's browser panel facilitates uploading completed projects to the cloud infrastructure.
 
 ## Mobile Data Collection with Input
 
-After downloading Input from app stores and logging in with Mergin credentials, users access projects through the projects tab. The More menu provides access to layer browsing, theme switching, and configuration options. Record buttons activate geometry collection tools, with GPS accuracy indicated by pointer color changes. Completed surveys synchronize back to the cloud when online connectivity resumes.
+After downloading Input from app stores and logging in with Mergin credentials, users access projects through the projects tab. The More menu provides access to layer browsing, theme switching, and configuration options. Record buttons activate geometry collection tools, with GPS accuracy indicated by pointer colour changes. Completed surveys synchronise back to the cloud when online connectivity resumes.
 
 ## Applications Beyond Parks
 

@@ -45,7 +45,7 @@ The company's vision is to provide a service where customers select a service an
 
 ### Future Direction
 
-The company maintains focus on both present and future needs. They begin with geospatial staple favorites but will soon add next-generation Cloud Native geospatial options.
+The company maintains focus on both present and future needs. They begin with geospatial staple favourites but will soon add next-generation Cloud Native geospatial options.
 
 **We'd love to hear from you** if you're overwhelmed by technical requirements for deploying cloud services. Their platform helps navigate complex technological choices and eliminates self-management burdens.
 

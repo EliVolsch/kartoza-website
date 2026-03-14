@@ -180,7 +180,7 @@ nix develop --command ./scripts/pre-build.sh
 
 **Cache Location**: `.cache/training_schedule_cache.json`
 
-**Fallback Behavior**:
+**Fallback Behaviour**:
 1. Try to fetch from ERPNext
 2. If fails, use cache (any age)
 3. If no cache, keep existing YAML file
@@ -335,6 +335,6 @@ rm -rf .cache/
 
 ## 📞 Support
 
-The sync script includes helpful error messages and fallback behavior. If you need help customizing it for your specific ERPNext setup, the script is well-documented with comments explaining each section.
+The sync script includes helpful error messages and fallback behaviour. If you need help customizing it for your specific ERPNext setup, the script is well-documented with comments explaining each section.
 
 Current maintainer: Can be customized for your specific ERPNext DocType structure.

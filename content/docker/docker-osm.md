@@ -118,7 +118,7 @@ volumes:
 - **Basemap rendering** - Generate tiles for your own basemap
 - **Geocoding** - Build address search functionality
 - **Routing** - Create a routing database with PgRouting
-- **Analysis** - Analyze OSM data for your area of interest
+- **Analysis** - Analyse OSM data for your area of interest
 - **Offline maps** - Host OSM data in air-gapped environments
 
 ## Upstream Project

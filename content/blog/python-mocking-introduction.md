@@ -25,7 +25,7 @@ This comprehensive guide explores mocking in unit testing, focusing on isolating
 
 ## Core Purpose of Mocking
 
-The author explains that mocking allows developers to "isolate our code during the test, without having to worry about the unexpected behavior" of external dependencies like Firebase or third-party libraries.
+The author explains that mocking allows developers to "isolate our code during the test, without having to worry about the unexpected behaviour" of external dependencies like Firebase or third-party libraries.
 
 ## Key Concepts Covered
 

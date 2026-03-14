@@ -41,7 +41,7 @@ jobs:
         cd ./qgis-website
         pipenv run ./scripts/hub_images_harvest.py
 
-    - name: '🏢 Update Contributing Organizations'
+    - name: '🏢 Update Contributing Organisations'
       run: |
         cd ./qgis-website
         pipenv run ./scripts/update_contributing_orgs.py

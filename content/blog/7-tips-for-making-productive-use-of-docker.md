@@ -45,7 +45,7 @@ Publish images to hub.docker.com with automated builds triggered by repository p
 
 ### 6. Layered image construction
 
-Build progressively (Ubuntu base → add Python → add Django) to minimize configuration per image and maximize layer sharing across services.
+Build progressively (Ubuntu base → add Python → add Django) to minimise configuration per image and maximise layer sharing across services.
 
 ### 7. Multi-host architecture planning
 

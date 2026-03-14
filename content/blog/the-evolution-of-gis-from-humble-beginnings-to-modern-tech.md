@@ -29,7 +29,7 @@ During the mid-20th century, GIS involved labor-intensive processes. Analysts de
 
 The 1960s witnessed the emergence of digital GIS technology. Dr. Roger Tomlinson, recognized as the "Father of GIS," created the Canada Geographic Information System (CGIS) to oversee Canada's land inventory. This system could store, evaluate, and access spatial data—a breakthrough that established the foundation for contemporary GIS.
 
-However, early systems remained limited to government and research organizations because of their substantial expense and specialized hardware requirements. Data processing moved slowly, with outcomes sometimes needing hours or days to produce.
+However, early systems remained limited to government and research organisations because of their substantial expense and specialized hardware requirements. Data processing moved slowly, with outcomes sometimes needing hours or days to produce.
 
 ### Data Scarcity and Accessibility Issues
 
@@ -53,7 +53,7 @@ Static maps represent the past. Modern GIS applications offer interactive compon
 
 GIS has extended well beyond its original applications. Current uses encompass urban growth, farming, crisis response, transportation, and commerce. Specific examples include:
 
-1. **Agriculture:** Precision farming uses GIS to examine terrain properties and maximize production.
+1. **Agriculture:** Precision farming uses GIS to examine terrain properties and maximise production.
 2. **Retail:** Companies leverage GIS to discover optimal business premises using demographic and location metrics.
 3. **Disaster Management:** GIS facilitates crisis prediction, evacuation coordination, and damage evaluation.
 
@@ -69,4 +69,4 @@ Additionally, as ecological sustainability gains prominence globally, GIS will b
 
 GIS has undergone remarkable transformation—from conventional cartography to intelligence powered by algorithms. This advancement demonstrates our improving capacity to apply innovation for comprehending and improving our surroundings. As technology continues advancing, GIS applications remain boundless.
 
-Whether engaging as an investigator, organizational executive, or interested individual, contemporary GIS furnishes capabilities and understanding previously unimaginable just decades past. Innovation momentum suggests extraordinary developments remain ahead.
+Whether engaging as an investigator, organisational executive, or interested individual, contemporary GIS furnishes capabilities and understanding previously unimaginable just decades past. Innovation momentum suggests extraordinary developments remain ahead.

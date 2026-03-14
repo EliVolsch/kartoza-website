@@ -28,7 +28,7 @@ Tharanath is a DevOps and System Administrator based in Kerala, India, bringing 
 
 His career journey from Linux System Administrator to DevOps professional reflects the evolution of modern infrastructure management. Tharanath has embraced containerization, orchestration, and automation as the future of system administration.
 
-As a Linux specialist, Tharanath ensures that Kartoza's infrastructure runs smoothly and securely. His deep knowledge of Linux systems enables him to troubleshoot complex issues and optimize performance across diverse environments.
+As a Linux specialist, Tharanath ensures that Kartoza's infrastructure runs smoothly and securely. His deep knowledge of Linux systems enables him to troubleshoot complex issues and optimise performance across diverse environments.
 
 His DevOps focus means he's involved in building CI/CD pipelines, managing container deployments, and ensuring that development teams have the infrastructure they need to be productive. He understands that good DevOps practices accelerate delivery while maintaining reliability.
 

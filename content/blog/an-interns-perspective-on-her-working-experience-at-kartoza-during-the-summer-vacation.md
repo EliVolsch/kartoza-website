@@ -1,6 +1,6 @@
 ---
 title: "An Intern's Perspective on Her Working Experience at Kartoza During the Summer Vacation"
-description: "Kartoza, a Free and Open Source GIS organization in South Africa, actively recruits talented students for internship and vacation work programs."
+description: "Kartoza, a Free and Open Source GIS organisation in South Africa, actively recruits talented students for internship and vacation work programs."
 tags:
   - Education
   - Internship
@@ -15,12 +15,12 @@ thumbnail: "/img/blog/placeholder.png"
     class="is-primary"
     sub-block-side="bottom"
 >}}
-Kartoza, a Free and Open Source GIS organization in South Africa, actively recruits talented students for internship and vacation work programs.
+Kartoza, a Free and Open Source GIS organisation in South Africa, actively recruits talented students for internship and vacation work programs.
 {{< /block >}}
 
 ## Overview
 
-Kartoza, a Free and Open Source GIS organization in South Africa, actively recruits talented students for internship and vacation work programs. The company aims to promote open-source geospatial solutions in regions where proprietary software dominates educational institutions.
+Kartoza, a Free and Open Source GIS organisation in South Africa, actively recruits talented students for internship and vacation work programs. The company aims to promote open-source geospatial solutions in regions where proprietary software dominates educational institutions.
 
 ## Intern Profile
 

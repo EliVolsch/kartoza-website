@@ -51,7 +51,7 @@ Downloads the Cesium workshop materials and modifies HTML/JavaScript files for m
 
 ### 7. Implement App.js
 
-A custom JavaScript file defines geographic boundaries and initializes a Cesium viewer with specific configuration options and terrain provider settings.
+A custom JavaScript file defines geographic boundaries and initialises a Cesium viewer with specific configuration options and terrain provider settings.
 
 ### 8. Add Terrain Provider
 

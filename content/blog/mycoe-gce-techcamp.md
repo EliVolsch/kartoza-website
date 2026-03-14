@@ -1,6 +1,6 @@
 ---
 title: "MyCOE GCE TechCamp"
-description: "The American Association of Geographers and U.S. State Department, working through EIS Africa, organized a youth technology camp in South Africa from July 13-23, 2014."
+description: "The American Association of Geographers and U.S. State Department, working through EIS Africa, organised a youth technology camp in South Africa from July 13-23, 2014."
 tags:
   - Education
   - GIS
@@ -16,12 +16,12 @@ thumbnail: "/img/blog/placeholder.png"
     class="is-primary"
     sub-block-side="bottom"
 >}}
-The American Association of Geographers and U.S. State Department, working through EIS Africa, organized a youth technology camp in South Africa from July 13-23, 2014.
+The American Association of Geographers and U.S. State Department, working through EIS Africa, organised a youth technology camp in South Africa from July 13-23, 2014.
 {{< /block >}}
 
 ## Overview
 
-The American Association of Geographers and U.S. State Department, working through EIS Africa, organized a youth technology camp in South Africa from July 13-23, 2014. Kartoza and its predecessor company Afrispatial directed the technical instruction and educational components of this initiative.
+The American Association of Geographers and U.S. State Department, working through EIS Africa, organised a youth technology camp in South Africa from July 13-23, 2014. Kartoza and its predecessor company Afrispatial directed the technical instruction and educational components of this initiative.
 
 The program combined cultural exchange with practical GIS training centered on climate change as its core theme. "The main goal of the programme was to stimulate the role of Geography in the students and to teach how new technologies are advancing the use of Geography in the real world to solve problems."
 

@@ -31,7 +31,7 @@ According to the official specification, "Spatio-Temporal Asset Catalog (STAC) s
 
 ## Why use STAC?
 
-STAC addresses challenges with large-scale, multi-source spatio-temporal datasets. While filename-based organization works for small datasets, larger collections from varied sources present inconsistencies in naming formats and properties. STAC standardization enables straightforward comparison across these datasets.
+STAC addresses challenges with large-scale, multi-source spatio-temporal datasets. While filename-based organisation works for small datasets, larger collections from varied sources present inconsistencies in naming formats and properties. STAC standardization enables straightforward comparison across these datasets.
 
 ## STAC Tools
 
