@@ -53,7 +53,7 @@ Enable public participation in biodiversity monitoring with data quality control
 ## Benefits
 
 - Purpose-built for biodiversity data
-- Standardisd taxonomic management
+- Standardised taxonomic management
 - Powerful spatial analysis tools
 - Open source with no license fees
 - Active development and support
