@@ -15,6 +15,8 @@ services:
   - Training
   - Support
   - Maintenance
+related_plugins:
+  - inasafe
 ---
 
 {{< block

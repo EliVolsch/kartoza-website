@@ -10,6 +10,8 @@ date: 2022-09-01
 endDate: 2024-09-01
 services:
   - Development
+related_plugins:
+  - planet-explorer
 ---
 
 {{< block

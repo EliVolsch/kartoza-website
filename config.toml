@@ -203,6 +203,12 @@ matomoSiteId = ''
 
 [[menu.main]]
   parent = "Our Work"
+  name = "QGIS Plugins"
+  url = "/plugins/"
+  weight = 35
+
+[[menu.main]]
+  parent = "Our Work"
   name = "Docker Images"
   url = "/docker/"
   weight = 40
@@ -225,10 +231,10 @@ matomoSiteId = ''
   url = "/solutions/"
   weight = 40
 
-# -- GeoSpatialHosting (external) --
+# -- Hosting --
 [[menu.main]]
-  name = "GeoSpatialHosting"
-  url = "https://geospatialhosting.com"
+  name = "Hosting"
+  url = "/hosting/"
   weight = 50
 
 # -- Blog --
@@ -291,8 +297,8 @@ matomoSiteId = ''
 
 [[menu.footer]]
   parent = "Services"
-  name = "GeoSpatial Hosting"
-  url = "https://geospatialhosting.com"
+  name = "Hosting Services"
+  url = "/hosting/"
   weight = 30
 
 # -- Community column --

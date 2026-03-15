@@ -9,6 +9,8 @@ client: "Cadasta Foundation"
 date: 2016-01-01
 services:
   - Development
+related_plugins:
+  - cadasta
 ---
 
 {{< block

@@ -41,9 +41,9 @@
             type: 'tip',
             icon: 'fa-cloud',
             title: 'Need hosting?',
-            message: 'GeoSpatial Hosting provides managed GIS infrastructure.',
+            message: 'Kartoza provides managed GIS infrastructure and more.',
             cta: 'Learn More',
-            ctaUrl: 'https://geospatialhosting.com',
+            ctaUrl: '/hosting/',
             accent: 'primary'
         },
         {

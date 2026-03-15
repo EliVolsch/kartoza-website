@@ -11,6 +11,8 @@ date: 2022-03-21
 endDate: 2022-09-01
 services:
   - Development
+related_plugins:
+  - trends-earth
 ---
 
 {{< block

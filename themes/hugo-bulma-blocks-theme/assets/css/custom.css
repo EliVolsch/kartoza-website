@@ -1,23 +1,9 @@
 /**
-* Kartoza background wallpaper
+* Kartoza site body - clean background
 */
 body {
     position: relative;
-}
-
-body::before {
-    content: "";
-    position: fixed;
-    top: 80px;
-    left: 0;
-    width: 60%;
-    height: 80%;
-    background-image: url("/img/home-page-back-left.png");
-    background-repeat: no-repeat;
-    background-size: contain;
-    z-index: -1;
-    pointer-events: none;
-    opacity: 0.15;
+    background: var(--white);
 }
 
 /**

@@ -13,6 +13,10 @@ services:
   - Design
   - Development
   - Hosting
+related_plugins:
+  - species-explorer
+related_apps:
+  - bims
 ---
 
 {{< block

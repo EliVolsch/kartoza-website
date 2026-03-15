@@ -11,6 +11,8 @@ date: 2021-10-18
 endDate: 2022-03-31
 services:
   - Development
+related_plugins:
+  - stac-api-browser
 ---
 
 {{< block
