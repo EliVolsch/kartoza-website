@@ -18,7 +18,7 @@ date: 2024-01-01
 
 ## Course Overview
 
-This hands-on course provides comprehensive training in GeoServer administration and configuration. Participants will learn how to install and configure GeoServer, publish vector and raster data as OGC-compliant web services, create beautiful styled maps, implement security and access controls, and optimize performance for production environments.
+This hands-on course provides comprehensive training in GeoServer administration and configuration. Participants will learn how to install and configure GeoServer, publish vector and raster data as OGC-compliant web services, create beautiful styled maps, implement security and access controls, and optimise performance for production environments.
 
 The course covers WMS, WFS, WCS, and WPS services, advanced styling with SLD and CSS, tile caching with GeoWebCache, and integration with various data sources.
 
@@ -47,7 +47,7 @@ This course is designed for:
 - System administrators managing spatial infrastructure
 - Web developers building map-enabled applications
 - IT staff responsible for GIS services
-- Organizations implementing SDI solutions
+- Organisations implementing SDI solutions
 
 Participants should have basic knowledge of GIS concepts and web technologies.
 

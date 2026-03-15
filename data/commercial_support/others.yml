@@ -62,7 +62,7 @@
   image: "img/contributors/geoicon.png"
   width: "75 px"
   url: "http://www.geoicon.com/"
-  description: "(based in Singapore and operating in South East Asia) has been working with Government organizations for over 10 years and offers a full range of services around QGIS including training and commercial support."
+  description: "(based in Singapore and operating in South East Asia) has been working with Government organisations for over 10 years and offers a full range of services around QGIS including training and commercial support."
 
 - name: "Geospatial Training Solutions (Dr Nick Bearman)"
   image: "img/contributors/geospatial-training-solutions.png"
@@ -128,7 +128,7 @@
   image: "img/contributors/MIERUNE.png"
   width: "75 px"
   url: "http://www.mierune.co.jp/"
-  description: "(based in Japan) provides commercial consulting, training, support and customization of QGIS and FOSS4G software. We also organize hands-on workshops with these tools. Please contact us if you have questions regarding system development, visualization or analysis involving positioning data."
+  description: "(based in Japan) provides commercial consulting, training, support and customization of QGIS and FOSS4G software. We also organise hands-on workshops with these tools. Please contact us if you have questions regarding system development, visualization or analysis involving positioning data."
 
 - name: "nGNUity.net-"
   image: "img/contributors/ngnuity.png"
@@ -140,7 +140,7 @@
   image: "img/contributors/northriver.jpg"
   width: "75 px"
   url: "http://www.northrivergeographic.com"
-  description: "is a geospatial consulting firm located in the United States. We provide support for QGIS, PostGIS, and a whole host of FOSS4G Software. NRGS also provides project based support for your organization including data support, cartography, and analysis."
+  description: "is a geospatial consulting firm located in the United States. We provide support for QGIS, PostGIS, and a whole host of FOSS4G Software. NRGS also provides project based support for your organisation including data support, cartography, and analysis."
 
 - name: "OpenGeoLabs s.r.o"
   image: "img/contributors/opengeolabs.png"

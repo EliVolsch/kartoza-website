@@ -32,6 +32,6 @@ His experience with geospatial infrastructure components - GeoNode, GeoServer, a
 
 Moloko's modern DevOps skills include Docker containerization, Terraform infrastructure-as-code, and Kubernetes orchestration. This toolset represents the current state of the art in infrastructure management and positions him well for future growth.
 
-His experience spans multiple cloud platforms including AWS, DigitalOcean, and Hetzner, giving him flexibility to work with whatever hosting solution best fits a project's needs. This multi-cloud experience is increasingly valuable as organizations adopt hybrid strategies.
+His experience spans multiple cloud platforms including AWS, DigitalOcean, and Hetzner, giving him flexibility to work with whatever hosting solution best fits a project's needs. This multi-cloud experience is increasingly valuable as organisations adopt hybrid strategies.
 
 Based in South Africa, Moloko represents Kartoza's commitment to developing local talent. His combination of geospatial knowledge and DevOps skills is relatively rare, making him a valuable contributor to projects that require both types of expertise.

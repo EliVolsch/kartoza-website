@@ -23,7 +23,7 @@ In a world where data can make the difference between disaster and resilience, t
 
 The DomiNode platform, originally developed with World Bank support through the Pilot Programme for Climate Resilience, underwent significant modernization in Phase 2. The objective centered on enhancing performance, security, and data handling while ensuring users regularly adopted the platform into their workflows.
 
-Kartoza and Piensa collaborated on this transformation. Kartoza optimized GIS components for modern standards and user-friendliness, while Piensa developed the updated GeoNode infrastructure. The team simplified DomiNode into a read-only front-end for official spatial data, employing static, cloud-optimized data stores indexed with STAC (spatio-temporal asset catalog). This approach allows government departments to manage their GIS work independently while sharing core datasets through DomiNode's object store.
+Kartoza and Piensa collaborated on this transformation. Kartoza optimised GIS components for modern standards and user-friendliness, while Piensa developed the updated GeoNode infrastructure. The team simplified DomiNode into a read-only front-end for official spatial data, employing static, cloud-optimised data stores indexed with STAC (spatio-temporal asset catalog). This approach allows government departments to manage their GIS work independently while sharing core datasets through DomiNode's object store.
 
 ## Why It Matters
 
@@ -36,8 +36,8 @@ For Dominica, DomiNode transcends technical infrastructure—it serves as critic
 - **GeoNode Upgrade:** Transformed into a read-only front-end with disabled upload/editing, removed traditional backends (PostGIS, GeoServer), and integrated STAC client functionality
 - **Deployment:** Implemented on NixOS for sustainable on-premise maintenance without complex DevOps requirements
 - **MinIO:** S3-emulating object store ensuring data accessibility during outages
-- **STAC:** Efficient data organization integrating with QGIS and ArcGIS
-- **GeoParquet:** Cloud-optimized vector data storage eliminating RDBMS dependency
+- **STAC:** Efficient data organisation integrating with QGIS and ArcGIS
+- **GeoParquet:** Cloud-optimised vector data storage eliminating RDBMS dependency
 - **COG (Cloud-Optimised GeoTiff):** Raster data storage for DEMs, orthoimagery, satellite imagery
 - **COPC (Cloud Optimised Point Cloud):** Lidar survey data storage
 

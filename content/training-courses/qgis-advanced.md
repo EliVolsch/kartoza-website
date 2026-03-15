@@ -31,7 +31,7 @@ The course emphasizes practical, real-world applications and includes extensive 
 - Working with spatial databases (PostGIS integration)
 - Creating and managing virtual layers
 - Advanced attribute management and SQL queries
-- Performance optimization for large datasets
+- Performance optimisation for large datasets
 - Creating custom QGIS expressions and functions
 - Developing simple QGIS plugins
 - Integrating QGIS with web services (WMS, WFS, WCS)

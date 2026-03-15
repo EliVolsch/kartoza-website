@@ -47,7 +47,7 @@ Resources identified include the QGIS user guide with tutorials and exercises. A
 
 ### Vector Data
 
-OpenStreetMap (OSM) identified as a "global Open Data platform" where students can map neighborhoods. The Humanitarian OpenStreetMap Team offers volunteer mapping opportunities.
+OpenStreetMap (OSM) identified as a "global Open Data platform" where students can map neighbourhoods. The Humanitarian OpenStreetMap Team offers volunteer mapping opportunities.
 
 ### Raster Data
 

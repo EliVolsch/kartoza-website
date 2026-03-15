@@ -77,7 +77,7 @@ im-convert.exe FlowerPot.gif -scale 25% FlowerPotSmall.gif
 
 ### Option Two: ODM Command Line
 
-Organize images in a subfolder structure:
+Organise images in a subfolder structure:
 
 ```
 FlowerPot
@@ -98,7 +98,7 @@ docker run -ti --rm -v "pwd":/datasets opendronemap/odm --project-path /datasets
 
 Download textured model assets from WebODM processing. The relevant file is `textured_model/odm_textured_model_geo.obj` or `odm_texturing/odm_textured_model_geo.obj` (depending on processing method).
 
-Launch Blender, create a new General project, delete the default cube, and import the OBJ file. Enable Viewport Shading mode to visualize the loaded model.
+Launch Blender, create a new General project, delete the default cube, and import the OBJ file. Enable Viewport Shading mode to visualise the loaded model.
 
 ### Correcting Model Orientation
 
@@ -132,4 +132,4 @@ Create a new QGIS project using OpenStreetMap XYZ layer with EPSG:3857 CRS. Crea
 
 Add a 3D map view to your project. In point layer properties, disable 2D symbology and set 3D symbology to use your OBJ object file.
 
-Navigate to your model in the 3D map view to visualize the real-world 3D model within QGIS.
+Navigate to your model in the 3D map view to visualise the real-world 3D model within QGIS.

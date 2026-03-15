@@ -30,7 +30,7 @@ The tutorial demonstrates generating PDFs by leveraging a QGIS project file (.qg
 ## Code Implementation
 
 The author provides a Python script that:
-- Initializes a QGIS application instance
+- Initialises a QGIS application instance
 - Loads a project from a specified path
 - Reads template content from a .qpt file
 - Creates a QgsComposition object from the template

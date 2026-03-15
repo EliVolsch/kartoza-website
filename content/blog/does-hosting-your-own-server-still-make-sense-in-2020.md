@@ -47,11 +47,11 @@ For typical applications, particularly general-purpose websites, proximity argum
 
 - **Data Residency Requirements:** Some governments (Canada, Indonesia, others) legislate that government datasets remain within national borders. Solution: seek local cloud providers. Amazon maintains Canadian data centers for government services.
 
-- **Security Mandates:** Organizations prohibiting external data transfer may require on-premises hosting. Consider cooling, power, dust management, and physical security carefully.
+- **Security Mandates:** Organisations prohibiting external data transfer may require on-premises hosting. Consider cooling, power, dust management, and physical security carefully.
 
 - **Cost Management:** Cloud expenses escalate without oversight. Some vendors suit dynamic scaling better than long-running servers. Amazon previously demonstrated this; Hetzner offers superior long-running server value.
 
-- **Contention Issues:** Shared physical storage creates performance problems. One Kartoza US-client project experienced severe database slowness from neighboring servers degrading shared disk performance.
+- **Contention Issues:** Shared physical storage creates performance problems. One Kartoza US-client project experienced severe database slowness from neighbouring servers degrading shared disk performance.
 
 ## Conclusion
 

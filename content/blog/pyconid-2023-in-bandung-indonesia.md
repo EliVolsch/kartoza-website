@@ -44,7 +44,7 @@ Three foundational resources were highlighted:
 2. **Specificity** - Maintaining narrow scope in modifications
 3. **Preserve signatures** - Careful handling of method signatures and types
 4. **Compiler reliance** - Limited applicability to Python's interpreted nature
-5. **Harness implementation** - Safety mechanisms ensuring behavioral consistency
+5. **Harness implementation** - Safety mechanisms ensuring behavioural consistency
 6. **Collaborative approaches** - Pair or mob programming when necessary
 7. **Dependency clarity** - Familiar, repeating patterns with well-documented decisions
 

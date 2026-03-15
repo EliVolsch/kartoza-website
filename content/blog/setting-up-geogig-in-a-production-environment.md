@@ -43,7 +43,7 @@ The provided docker-compose.yml file orchestrates three services:
 
 ### Data Import
 
-After containers initialize, users import spatial data from PostGIS into GeoGig's version control system using pg import functionality.
+After containers initialise, users import spatial data from PostGIS into GeoGig's version control system using pg import functionality.
 
 ### Version Control Operations
 

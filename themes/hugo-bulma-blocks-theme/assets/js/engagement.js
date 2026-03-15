@@ -32,7 +32,7 @@
             type: 'discovery',
             icon: 'fa-map-location-dot',
             title: 'Discover',
-            message: 'See how we\'ve helped organizations visualize their spatial data.',
+            message: 'See how we\'ve helped organisations visualise their spatial data.',
             cta: 'View Portfolio',
             ctaUrl: '/portfolio/',
             accent: 'gold'

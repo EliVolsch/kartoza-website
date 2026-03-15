@@ -51,7 +51,7 @@ Users should be familiar with:
 
 ## Quickstart: Angola Buildings Example
 
-Download docker-osm-examples, navigate to the angola-buildings folder, and execute `make deploy`. The system initializes the PostGIS database, imports the country PBF file via imposm, and runs osm-enrich to add usernames and timestamps.
+Download docker-osm-examples, navigate to the angola-buildings folder, and execute `make deploy`. The system initialises the PostGIS database, imports the country PBF file via imposm, and runs osm-enrich to add usernames and timestamps.
 
 ## Time Series Visualization
 

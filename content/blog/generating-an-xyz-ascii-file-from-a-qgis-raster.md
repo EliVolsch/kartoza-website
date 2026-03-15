@@ -22,7 +22,7 @@ Someone wrote to me asking if it would be possible to generate an XYZ ASCII file
 
 ## Introduction
 
-Someone inquired about creating an XYZ ASCII file from a single-band raster layer in QGIS. While not optimized for speed, this approach demonstrates iterating through raster cells and outputting each cell's value alongside its centroid coordinates to a text file.
+Someone inquired about creating an XYZ ASCII file from a single-band raster layer in QGIS. While not optimised for speed, this approach demonstrates iterating through raster cells and outputting each cell's value alongside its centroid coordinates to a text file.
 
 ## Instructions for Use
 

@@ -1,6 +1,6 @@
 ---
 title: "BIMS"
-description: "Biodiversity Information Management System - Collect, manage, and analyze species occurrence data for conservation."
+description: "Biodiversity Information Management System - Collect, manage, and analyse species occurrence data for conservation."
 thumbnail: "/img/solutions/bims.svg"
 tags:
   - Biodiversity
@@ -12,7 +12,7 @@ date: 2024-01-01
 
 ## Overview
 
-BIMS (Biodiversity Information Management System) is a comprehensive platform for collecting, managing, and analyzing species occurrence data. Designed for conservation organizations, research institutions, and government agencies, BIMS provides powerful tools for biodiversity monitoring and decision-making.
+BIMS (Biodiversity Information Management System) is a comprehensive platform for collecting, managing, and analysing species occurrence data. Designed for conservation organisations, research institutions, and government agencies, BIMS provides powerful tools for biodiversity monitoring and decision-making.
 
 Built on open source technology, BIMS combines spatial data management with biological data standards to deliver actionable insights for conservation.
 
@@ -48,12 +48,12 @@ Enable public participation in biodiversity monitoring with data quality control
 - RESTful API for integrations
 - Darwin Core compatible
 - GBIF data publishing ready
-- Customizable data models
+- Customisable data models
 
 ## Benefits
 
 - Purpose-built for biodiversity data
-- Standardized taxonomic management
+- Standardisd taxonomic management
 - Powerful spatial analysis tools
 - Open source with no license fees
 - Active development and support

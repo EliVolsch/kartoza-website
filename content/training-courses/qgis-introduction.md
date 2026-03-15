@@ -18,7 +18,7 @@ date: 2024-01-01
 
 ## Course Overview
 
-This comprehensive introductory course provides participants with a solid foundation in desktop GIS concepts and practices using QGIS. Participants will learn how to create, edit, analyze, and visualize spatial data through hands-on exercises and real-world examples.
+This comprehensive introductory course provides participants with a solid foundation in desktop GIS concepts and practices using QGIS. Participants will learn how to create, edit,analyse, and visualise spatial data through hands-on exercises and real-world examples.
 
 The course covers essential GIS workflows including data acquisition, layer management, coordinate reference systems, spatial analysis, and map production. By the end of the course, participants will be confident in using QGIS for their day-to-day mapping and spatial analysis needs.
 
@@ -33,7 +33,7 @@ The course covers essential GIS workflows including data acquisition, layer mana
 - Using the field calculator and expressions
 - Creating print-ready maps with the layout manager
 - Installing and using QGIS plugins
-- Best practices for data organization and project management
+- Best practices for data organisation and project management
 
 ## Who Should Attend
 

@@ -130,7 +130,7 @@ FcgidMinProcesses 2
 FcgidMaxRequestsPerProcess 1000
 ```
 
-### Project Optimization
+### Project Optimisation
 
 1. **Use PostgreSQL** - Database layers are faster than files
 2. **Simplify geometries** - Use ST_Simplify for display layers

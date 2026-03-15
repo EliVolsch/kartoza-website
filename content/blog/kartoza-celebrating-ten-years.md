@@ -26,7 +26,7 @@ Kartoza celebrated its tenth anniversary in July 2024. Founded by Gavin and Tim 
 
 ## Initial Business Development Goals
 
-The founders identified five key areas for scaling the organization:
+The founders identified five key areas for scaling the organisation:
 
 1. Implementing an open source ERP system for administrative functions
 2. Establishing a team collaboration platform
@@ -55,7 +55,7 @@ The article acknowledges unavoidable business mistakes: hiring missteps, non-pay
 
 ## Building Infrastructure
 
-Tim noted that "bureaucracy is an inevitable consequence of business." The organization adopted an agile approach initially, then added processes where needed. Current systems include HR protocols, financial management, coding practices, documentation, testing, and DevOps frameworks. The board includes two non-executive directors providing strategic guidance.
+Tim noted that "bureaucracy is an inevitable consequence of business." The organisation adopted an agile approach initially, then added processes where needed. Current systems include HR protocols, financial management, coding practices, documentation, testing, and DevOps frameworks. The board includes two non-executive directors providing strategic guidance.
 
 ## Major Accomplishments
 
@@ -86,7 +86,7 @@ The company contributed significantly:
 
 ### Additional Contributions
 
-Gavin and Tim helped organize FOSS4G2018 in Tanzania.
+Gavin and Tim helped organise FOSS4G2018 in Tanzania.
 
 ### Docker Images
 

@@ -110,7 +110,7 @@ The `json` parameter defines the response payload, while `status_code` specifies
 The final implementation includes three test cases:
 
 1. **Success scenario** (201 status code)
-2. **Authorization error** (401 status code with "Unauthorized" message)
+2. **Authorization error** (401 status code with "Unauthorised" message)
 3. **Overlapping subscription** (400 status code with conflict message)
 
 All tests pass successfully, demonstrating the library's effectiveness.

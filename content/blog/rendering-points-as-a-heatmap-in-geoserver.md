@@ -44,7 +44,7 @@ Key modifications included adjusting radius and resolution values, adding color 
 
 **Challenge encountered:** GeoServer's built-in style previewer did not accurately display heatmap styling, requiring front-end testing after each modification.
 
-## Enhanced Solution: Heatmap with Labeled Clusters
+## Enhanced Solution: Heatmap with Labelled Clusters
 
 The client requested additional functionality: displaying relative counts of heatmap surfaces. This prompted research into similar implementations. Finding none, a custom solution using Point Stacker logic was developed.
 

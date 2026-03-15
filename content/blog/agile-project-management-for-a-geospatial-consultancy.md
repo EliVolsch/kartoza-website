@@ -77,7 +77,7 @@ By understanding these challenges and proactively addressing them, geospatial co
 
 To effectively manage the complexities of geospatial projects, Kartoza has adopted Agile project management, a flexible and iterative approach that emphasizes collaboration, adaptability, and continuous value delivery. Agile allows teams to break projects into smaller, manageable tasks, ensuring steady progress while remaining responsive to changes and stakeholder needs.
 
-One of the key frameworks we use is Scrum, which structures projects into short, focused work cycles called sprints. Scrum helps teams stay organized, improve efficiency, and maintain clear communication throughout the project life cycle.
+One of the key frameworks we use is Scrum, which structures projects into short, focused work cycles called sprints. Scrum helps teams stay organised, improve efficiency, and maintain clear communication throughout the project life cycle.
 
 ### How Scrum Works
 

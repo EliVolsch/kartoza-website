@@ -26,7 +26,7 @@ bio: "Based in Vizag, India. Bachelor's Electronics & Communication Engineering.
 
 Bhaskar is a DevOps Engineer based in Vizag, Andhra Pradesh, India, specializing in cloud services and infrastructure automation. His Bachelor's degree in Electronics & Communication Engineering provides a strong technical foundation for his infrastructure work.
 
-His expertise in cloud services spans multiple platforms, enabling Kartoza to choose the best hosting solutions for each project's needs. Bhaskar understands the nuances of different cloud providers and can architect solutions that optimize for cost, performance, and reliability.
+His expertise in cloud services spans multiple platforms, enabling Kartoza to choose the best hosting solutions for each project's needs. Bhaskar understands the nuances of different cloud providers and can architect solutions that optimise for cost, performance, and reliability.
 
 Application monitoring is another area of Bhaskar's expertise. He implements comprehensive monitoring solutions that provide visibility into system health and enable proactive issue resolution before users are affected.
 

@@ -20,6 +20,6 @@ thumbnail: "/img/blog/placeholder.png"
 Tim Sutton takes you along for the ride as he picks a long-time irritation in QGIS: The first run dialog.
 {{< /block >}}
 
-## Improving the First Run Dialog
+## Improving the First Run Dialogue
 
 In this episode, Tim Sutton takes you along for the ride as he picks a long-time irritation in QGIS: The first run dialog. He tweaks it to make it look nice to submit it as a pull request to QGIS. Enjoy!

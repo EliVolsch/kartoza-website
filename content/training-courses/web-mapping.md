@@ -35,7 +35,7 @@ Through hands-on projects, participants will build fully functional web mapping 
 - Implementing search and geocoding functionality
 - Building responsive maps for mobile devices
 - Cartographic principles for web mapping
-- Performance optimization techniques
+- Performance optimisation techniques
 - Integrating spatial data from APIs and databases
 - Deploying web mapping applications
 

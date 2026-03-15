@@ -1,6 +1,6 @@
 ---
 title: "MyCivitas"
-description: "Municipal Asset Lifecycle Management System - Track, maintain, and optimize your infrastructure with spatial intelligence."
+description: "Municipal Asset Lifecycle Management System - Track, maintain, and optimise your infrastructure with spatial intelligence."
 thumbnail: "/img/solutions/mycivitas.svg"
 tags:
   - Asset Management
@@ -12,7 +12,7 @@ date: 2024-01-01
 
 ## Overview
 
-MyCivitas is a comprehensive municipal asset lifecycle management system that helps local governments track, maintain, and optimize their infrastructure investments. By combining spatial data with asset management best practices, MyCivitas enables data-driven decisions about infrastructure spending.
+MyCivitas is a comprehensive municipal asset lifecycle management system that helps local governments track, maintain, and optimise their infrastructure investments. By combining spatial data with asset management best practices, MyCivitas enables data-driven decisions about infrastructure spending.
 
 From water networks to roads, buildings to parks, MyCivitas provides visibility into your entire asset portfolio.
 
@@ -44,7 +44,7 @@ From water networks to roads, buildings to parks, MyCivitas provides visibility 
 Make informed decisions about infrastructure investments based on condition data and lifecycle costs.
 
 ### Reduced Costs
-Optimize maintenance schedules and extend asset life through proactive management.
+Optimise maintenance schedules and extend asset life through proactive management.
 
 ### Regulatory Compliance
 Meet reporting requirements with comprehensive asset data and documentation.

@@ -4,7 +4,7 @@ description: "A GeoPackage file exceeded the 5MB upload limit due to excessive v
 tags:
   - QGIS
   - GeoPackage
-  - Optimization
+  - Optimisation
 date: 2025-04-15
 author: "Lindie Strijdom"
 thumbnail: "/img/blog/placeholder.png"
@@ -63,18 +63,18 @@ Since symbology wasn't automatically included:
 
 Using the Processing Toolbox "Simplify" tool:
 - Selected input layer
-- Set Tolerance to 0.001 to maximize vertex removal while preserving geometry
+- Set Tolerance to 0.001 to maximise vertex removal while preserving geometry
 - Saved to the new GeoPackage
 - Used identical layer names to allow style file recognition
 - Applied the simplified data to the project
 
 **6. Compact Database**
 
-The final optimization step involved executing "Compact Database (VACUUM)" by right-clicking the GeoPackage file to remove any residual data from editing operations.
+The final optimisation step involved executing "Compact Database (VACUUM)" by right-clicking the GeoPackage file to remove any residual data from editing operations.
 
 ### Results
 
-The optimization process successfully reduced the GeoPackage from 9.7MB to 1.6MB, exceeding the 5MB requirement and enabling upload eligibility.
+The optimisation process successfully reduced the GeoPackage from 9.7MB to 1.6MB, exceeding the 5MB requirement and enabling upload eligibility.
 
 **Additional Resources:**
 - GeoPackage download: https://hub.qgis.org/geopackages/22/

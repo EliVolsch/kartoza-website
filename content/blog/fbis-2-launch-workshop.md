@@ -23,4 +23,4 @@ Toni Olsen from Freshwater Research Center presenting the Freshwater Biodiversit
 
 Toni Olsen from Freshwater Research Center (http://frcsa.org.za) presenting the Freshwater Biodiversity Informations System (FBIS) version 2 at the launch workshop. FBIS is developed by Kartoza based on design specifications and legacy data provided by FRC and other partners. The project is funded by JRS (http://jrsbiodiversity.org) and SANBI (https://www.sanbi.org).
 
-The system was developed by Kartoza using specifications and legacy data from FRC and partner organizations, representing a significant milestone in freshwater biodiversity information management.
+The system was developed by Kartoza using specifications and legacy data from FRC and partner organisations, representing a significant milestone in freshwater biodiversity information management.

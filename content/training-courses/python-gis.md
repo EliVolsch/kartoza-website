@@ -36,7 +36,7 @@ The course covers spatial data manipulation, automated geoprocessing, spatial an
 - Creating maps and visualizations with matplotlib and folium
 - Building command-line tools for batch processing
 - Error handling and debugging techniques
-- Best practices for code organization and documentation
+- Best practices for code organisation and documentation
 - Introduction to web mapping with Flask or Django
 
 ## Who Should Attend

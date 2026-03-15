@@ -18,7 +18,7 @@ date: 2024-01-01
 
 ## Course Overview
 
-This strategic course provides participants with the knowledge and tools to design, implement, and manage spatial data infrastructure (SDI) and open data initiatives. Participants will learn about SDI components, international standards and best practices, metadata creation and management, data quality assurance, licensing and legal frameworks, and organizational change management.
+This strategic course provides participants with the knowledge and tools to design, implement, and manage spatial data infrastructure (SDI) and open data initiatives. Participants will learn about SDI components, international standards and best practices, metadata creation and management, data quality assurance, licensing and legal frameworks, and organisational change management.
 
 The course combines policy, technical, and practical perspectives, ensuring participants understand both the "why" and "how" of successful SDI implementation.
 
@@ -35,7 +35,7 @@ The course combines policy, technical, and practical perspectives, ensuring part
 - Building stakeholder engagement and partnerships
 - Implementing catalogue services for data discovery
 - Managing master data and authoritative sources
-- Ensuring interoperability across systems and organizations
+- Ensuring interoperability across systems and organisations
 - Measuring SDI impact and value
 - Change management and capacity building strategies
 
@@ -55,7 +55,7 @@ No technical prerequisites are required, though GIS experience is beneficial.
 
 - Understanding of GIS concepts
 - Interest in data management and sharing
-- Organizational perspective on data challenges
+- Organisational perspective on data challenges
 - Willingness to think strategically
 
 ## Course Materials

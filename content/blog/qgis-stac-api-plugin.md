@@ -38,7 +38,7 @@ The plugin's capabilities split into two primary categories:
 
 - Displays GeoJSON geometry footprints for items
 - Provides dedicated dialog for viewing, loading, and downloading assets
-- Supports Cloud Optimized GeoTIFF (CoG) layer loading in QGIS
+- Supports Cloud Optimised GeoTIFF (CoG) layer loading in QGIS
 
 ## Installation Instructions
 

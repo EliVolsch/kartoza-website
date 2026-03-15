@@ -1,4 +1,4 @@
-# This workflow updates individual contributors and contributing organizations data
+# This workflow updates individual contributors and contributing organisations data
 # and commits the updates to the repository.
 
 name: ⚒️ Update contributors and commit
@@ -40,16 +40,16 @@ jobs:
         pipenv run python scripts/update_individual_contributors.py
         echo "Individual contributors update completed"
 
-    - name: '🏢 Update contributing organizations'
+    - name: '🏢 Update contributing organisations'
       run: |
         cd ./qgis-website
-        echo "Starting contributing organizations update..."
+        echo "Starting contributing organisations update..."
         pipenv run python scripts/update_contributing_orgs.py
-        echo "Contributing organizations update completed"
+        echo "Contributing organisations update completed"
 
     - name: '✉️ Commit and push changes'
       uses: stefanzweifel/git-auto-commit-action@v7
       with:
-        commit_message: '🤖 Contributors and organizations data updated via GitHub Action'
+        commit_message: '🤖 Contributors and organisations data updated via GitHub Action'
         repository: ./qgis-website
         file_pattern: 'data/contributors/*.json'

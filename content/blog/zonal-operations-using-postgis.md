@@ -50,7 +50,7 @@ The workflow includes:
 4. Loading raster data using raster2pgsql command
 5. Accessing spatial data via GDAL and GDAL's /vsicurl protocol
 6. Creating remote servers and foreign tables using ogr_fdw
-7. Generating materialized views for performance optimization
+7. Generating materialized views for performance optimisation
 8. Executing SQL queries for generating zonal statistics
 
 ## Key SQL Operations

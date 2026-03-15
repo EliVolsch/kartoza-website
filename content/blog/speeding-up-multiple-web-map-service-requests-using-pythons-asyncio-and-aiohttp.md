@@ -21,7 +21,7 @@ Geocontext is a Django application designed to retrieve information from multipl
 
 ## Overview
 
-Geocontext is a Django application designed to retrieve information from multiple web-based services for specific query points. The application organizes services hierarchically, supporting WMS, WFS, and ArcREST service queries.
+Geocontext is a Django application designed to retrieve information from multiple web-based services for specific query points. The application organises services hierarchically, supporting WMS, WFS, and ArcREST service queries.
 
 ## Problem Statement
 
@@ -48,7 +48,7 @@ results = [requests.get(url) for url in urls]
 
 **Performance:** 80 seconds for 100 requests
 
-### Asynchronous Approach (Optimized)
+### Asynchronous Approach (Optimised)
 
 ```python
 import aiohttp

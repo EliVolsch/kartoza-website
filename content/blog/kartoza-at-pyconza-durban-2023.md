@@ -44,7 +44,7 @@ Admire delivered a presentation titled "Leveraging Python in GeoSpatial Applicat
 
 The talk addressed:
 
-- Automating data loading from diverse sources into normalized databases using Python scripts within QGIS
+- Automating data loading from diverse sources into normalised databases using Python scripts within QGIS
 - Creating custom Python functions for QGIS form constraints
 - Developing Python actions to automate QGIS processes accessible via attribute tables
 - Practical workflows demonstrating QGIS form setup, mobile data capture through MerginMaps, database synchronization, and GeoNode-based SDI integration

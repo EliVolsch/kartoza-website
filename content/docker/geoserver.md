@@ -115,7 +115,7 @@ volumes:
 
 ### Community Extensions
 - `ogcapi-plugin` - OGC API Features/Tiles
-- `s3-geotiff-plugin` - Cloud Optimized GeoTIFFs from S3
+- `s3-geotiff-plugin` - Cloud Optimised GeoTIFFs from S3
 
 ## Available Tags
 

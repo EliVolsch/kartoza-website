@@ -28,7 +28,7 @@ Jeremy is a GIS Specialist with a passion for transforming raw data into meaning
 
 At the core of Jeremy's work is cartography - the art and science of map making. He understands that maps are not just technical products but communication tools that tell stories and reveal patterns hidden in data.
 
-His focus on visual interpretation means that Jeremy pays careful attention to how information is presented. Color choices, symbol design, layout, and hierarchy all play into creating maps that are not only accurate but also beautiful and easy to understand.
+His focus on visual interpretation means that Jeremy pays careful attention to how information is presented. Colour choices, symbol design, layout, and hierarchy all play into creating maps that are not only accurate but also beautiful and easy to understand.
 
 Jeremy is an advocate for open source technology, believing that powerful GIS tools should be accessible to everyone. His work at Kartoza often involves helping clients achieve professional cartographic results using QGIS and other open source software.
 

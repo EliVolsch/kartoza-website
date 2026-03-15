@@ -18,7 +18,7 @@ date: 2024-01-01
 
 ## Course Overview
 
-This comprehensive course introduces participants to spatial database concepts and practices using PostgreSQL and PostGIS, the industry-leading open source spatial database solution. Participants will learn how to design efficient spatial database schemas, import and export spatial data, write complex spatial SQL queries, perform advanced spatial analysis, and optimize database performance.
+This comprehensive course introduces participants to spatial database concepts and practices using PostgreSQL and PostGIS, the industry-leading open source spatial database solution. Participants will learn how to design efficient spatial database schemas, import and export spatial data, write complex spatial SQL queries, perform advanced spatial analysis, and optimise database performance.
 
 The course combines theoretical concepts with extensive hands-on practice, ensuring participants can immediately apply their knowledge to real-world scenarios.
 
@@ -37,7 +37,7 @@ The course combines theoretical concepts with extensive hands-on practice, ensur
 - Managing topology and ensuring data quality
 - Database backup, recovery, and maintenance
 - Connecting PostGIS to QGIS, GeoServer, and web applications
-- Performance tuning and optimization strategies
+- Performance tuning and optimisation strategies
 
 ## Who Should Attend
 

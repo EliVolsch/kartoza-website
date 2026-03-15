@@ -47,7 +47,7 @@ Dynamic magnetic declination calculations (via NOAA methodology) and custom grid
 
 ### Elevation Profiles
 
-Users draw lines to visualize cross-sectional terrain data interpolated from PostgreSQL-stored digital elevation models.
+Users draw lines to visualise cross-sectional terrain data interpolated from PostgreSQL-stored digital elevation models.
 
 ### Redlining
 
