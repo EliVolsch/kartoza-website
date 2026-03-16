@@ -12,8 +12,9 @@
         {{ end }}
 
         <!-- Portfolio Grid -->
+        {{- $reviewedPages := where .RegularPages "Params.reviewedBy" "!=" nil -}}
         <div class="portfolio-grid columns is-multiline">
-            {{ range (.Paginator 50).Pages }}
+            {{ range $reviewedPages }}
             <div class="column is-6-desktop is-12-tablet">
                 <article class="portfolio-card">
                     <div class="portfolio-card-image">

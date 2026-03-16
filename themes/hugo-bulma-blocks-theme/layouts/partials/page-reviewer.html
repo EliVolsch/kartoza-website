@@ -1,0 +1,20 @@
+{{/* Page reviewer partial - displays reviewed-by info in page footer */}}
+{{ if .Params.reviewedBy }}
+<div class="page-reviewer-section">
+    <div class="container">
+        <div class="page-reviewer-content">
+            <span class="reviewer-icon">
+                <i class="fas fa-user-check"></i>
+            </span>
+            <span class="reviewer-text">
+                Reviewed by: <strong>{{ .Params.reviewedBy }}</strong>
+                {{ if .Params.reviewedDate }}
+                <span class="reviewer-date">
+                    on {{ dateFormat "2 January 2006" .Params.reviewedDate }}
+                </span>
+                {{ end }}
+            </span>
+        </div>
+    </div>
+</div>
+{{ end }}

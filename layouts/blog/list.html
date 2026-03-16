@@ -61,7 +61,8 @@
 <!-- Blog Posts Data -->
 <script id="blog-data" type="application/json">
 {{- $posts := slice -}}
-{{- range .RegularPages -}}
+{{- $reviewedPages := where .RegularPages "Params.reviewedBy" "!=" nil -}}
+{{- range $reviewedPages -}}
     {{- $thumbnail := .Params.thumbnail -}}
     {{- if or (not $thumbnail) (eq $thumbnail "/img/blog/placeholder.png") -}}
         {{- $thumbnail = "/img/banner-blog.png" -}}

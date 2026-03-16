@@ -8,6 +8,8 @@ tags:
 date: 2024-06-17
 author: "Eli Volschenk"
 thumbnail: "/img/blog/placeholder.png"
+reviewedBy: "Tim Sutton"
+reviewedDate: 2026-03-15
 ---
 
 {{< block

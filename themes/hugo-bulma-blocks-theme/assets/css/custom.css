@@ -184,3 +184,64 @@ section.is-fluid > .container.is-fluid {
 .pulldown-toggle:hover {
     opacity: 0.85;
 }
+
+/* Page Reviewer Section */
+.page-reviewer-section {
+    background: linear-gradient(135deg, #f8fafb 0%, #e8f4f8 100%);
+    border-top: 1px solid rgba(59, 157, 217, 0.15);
+    padding: 1rem 0;
+    margin-top: 2rem;
+}
+
+.page-reviewer-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    font-size: 0.9rem;
+    color: #4a5568;
+}
+
+.page-reviewer-content .reviewer-icon {
+    color: #3B9DD9;
+    font-size: 1.1rem;
+}
+
+.page-reviewer-content .reviewer-text strong {
+    color: #1B6B9B;
+}
+
+.page-reviewer-content .reviewer-date {
+    color: #718096;
+    font-style: italic;
+}
+
+@media screen and (max-width: 768px) {
+    .page-reviewer-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+    }
+}
+
+/* Page Under Review Section */
+.page-under-review {
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(135deg, #f8fafb 0%, #e8f4f8 100%);
+}
+
+.page-under-review .review-icon {
+    color: #3B9DD9;
+    margin-bottom: 2rem;
+    opacity: 0.8;
+}
+
+.page-under-review .title {
+    color: #1B6B9B;
+}
+
+.page-under-review .subtitle {
+    color: #4a5568;
+}
