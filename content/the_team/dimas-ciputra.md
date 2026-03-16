@@ -23,6 +23,8 @@ achievements:
   - "8+ years building mobile and web applications"
   - "Open source contributor since 2015"
 bio: "Informatics Engineering graduate with 8+ years building mobile and web applications."
+reviewedBy: "Tim Sutton"
+reviewedDate: 2026-03-16
 ---
 
 Dimas is a versatile senior developer with extensive experience across mobile and web platforms. His dual Bachelor's degree in Informatics Engineering provided him with a comprehensive understanding of software architecture and development methodologies.

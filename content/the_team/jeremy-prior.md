@@ -22,6 +22,8 @@ skills:
 achievements:
   - "Focus on cartographic excellence and visual interpretation"
 bio: "BSc Geoinformatics. Enjoys the conversion of raw data into useful visual interpretations."
+reviewedBy: "Tim Sutton"
+reviewedDate: 2026-03-16
 ---
 
 Jeremy is a GIS Specialist with a passion for transforming raw data into meaningful visual interpretations. His BSc in Geoinformatics from the University of Pretoria provided a strong foundation in both the technical and creative aspects of geographic information systems.

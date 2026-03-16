@@ -29,6 +29,8 @@ achievements:
   - "13+ years ESRI software experience"
   - "FOSS GIS advocate since 2002"
 bio: "Professional GISc Practitioner with an MSc in Genetics. Charter OSGeo member passionate about open source and open data."
+reviewedBy: "Tim Sutton"
+reviewedDate: 2026-03-16
 ---
 
 Gavin brings over two decades of experience in the geospatial industry, combining deep technical expertise with strategic business acumen. His journey began with 13+ years working with ESRI software before discovering the transformative potential of Free and Open Source GIS in 2002.

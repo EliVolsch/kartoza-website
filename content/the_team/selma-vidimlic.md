@@ -23,6 +23,8 @@ skills:
 achievements:
   - "Specialization in cartography and GIS documentation"
 bio: "From Sarajevo. Studied Geography and Urban Planning. Passionate about protecting nature."
+reviewedBy: "Tim Sutton"
+reviewedDate: 2026-03-16
 ---
 
 Selma brings her expertise in Geography and Urban Planning to her role as QGIS Document Writer at Kartoza. Based in Sarajevo, Bosnia and Herzegovina, she represents the company's commitment to building a diverse, global team.
@@ -33,4 +35,4 @@ Selma specializes in creating documentation that helps users at all levels under
 
 Beyond her professional work, Selma is passionate about protecting nature. This environmental consciousness informs her work, as she understands that GIS tools play a crucial role in conservation efforts and environmental monitoring worldwide.
 
-Her contribution to QGIS documentation helps users around the world access and benefit from this powerful open source tool. By lowering the barrier to entry through clear documentation, Selma is helping expand the reach and impact of open source GIS.
+Selmas's work is funded by the QGIS project and community and she works full time on QGIS project related activities, especially the QGIS documentation effort. Her contribution to QGIS documentation helps users around the world access and benefit from this powerful open source tool. By lowering the barrier to entry through clear documentation, Selma is helping expand the reach and impact of open source GIS.

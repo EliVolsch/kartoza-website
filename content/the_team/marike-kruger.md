@@ -20,6 +20,8 @@ achievements:
   - "13+ years project management experience"
   - "Proven track record in organisational growth"
 bio: "Over 13 years of management experience. Project manager with a proven track record in making significant contributions to organisational growth."
+reviewedBy: "Tim Sutton"
+reviewedDate: 2026-03-16
 ---
 
 Marike is the driving force behind Kartoza's operational excellence. With over 13 years of project management experience, she brings a wealth of knowledge in coordinating complex initiatives and leading diverse teams.
