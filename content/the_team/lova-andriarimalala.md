@@ -20,6 +20,8 @@ skills:
 achievements:
   - "Focus on humanitarian geospatial initiatives"
 bio: "Based in Madagascar. Passionate Web GIS Developer with expertise in Python, Django, JavaScript."
+reviewedBy: "Tim Sutton"
+reviewedDate: 2026-03-16
 ---
 
 Lova is a passionate Web GIS developer specializing in building geospatial web applications. Based in Antananarivo, Madagascar, he brings a unique perspective from one of the world's most biodiverse regions.
@@ -31,3 +33,8 @@ Lova's focus on humanitarian geospatial initiatives aligns perfectly with Kartoz
 As a QGIS Full Stack Developer, Lova works on both desktop and web-based GIS solutions. His understanding of the entire stack enables him to create seamless workflows between different platforms and ensure data flows smoothly from collection to visualization.
 
 Lova's passion for geospatial technology extends beyond his work. He believes that maps have the power to tell stories, reveal patterns, and drive positive change - and he dedicates his skills to making that happen.
+
+Lova's work is fully funded by the QGIS.org project and as such he is a
+dedicated resource, committed to improving and maintining the QGIS.org
+infrastructure.
+

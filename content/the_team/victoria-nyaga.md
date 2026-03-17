@@ -25,6 +25,8 @@ skills:
 achievements:
   - "Developed methods to map paddy rice using remote sensing"
 bio: "Based in Nairobi, Kenya. BA Engineering (Geospatial). Developed methods to map paddy rice using remote sensing."
+reviewedBy: "Tim Sutton"
+reviewedDate: 2026-03-17
 ---
 
 Victoria is a GIS Product Developer based in Nairobi, Kenya, bringing together geospatial engineering and data science expertise. Her BA in Engineering (Geospatial) from 2022, combined with studies in Applied Data Science at World Quant University, creates a powerful combination of spatial and analytical skills.

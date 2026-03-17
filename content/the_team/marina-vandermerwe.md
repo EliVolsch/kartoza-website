@@ -19,6 +19,8 @@ skills:
 achievements:
   - "Aligning customer engagement with technical workflows"
 bio: "Strategic and customer-focused. Specialising in CRM optimisation and enhancing client interactions."
+reviewedBy: "Tim Sutton"
+reviewedDate: 2026-03-16
 ---
 
 Marina is Kartoza's Relationship Manager, responsible for ensuring that client interactions are smooth, productive, and aligned with the company's technical capabilities. Her strategic, customer-focused approach helps bridge the gap between client needs and internal operations.

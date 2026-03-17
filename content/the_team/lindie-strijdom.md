@@ -22,9 +22,11 @@ skills:
 achievements:
   - "Focus on QGIS and coding automation"
 bio: "Diploma in Geo-Information and Technology. Focused on spatial problem-solving and cartographic design."
+reviewedBy: "Tim Sutton"
+reviewedDate: 2026-03-16
 ---
 
-Lindie is a Junior Consultant bringing fresh energy and formal GIS training to Kartoza's team. Her Diploma in Geo-Information and Technology from Esri College provided comprehensive grounding in geospatial concepts and technologies.
+Lindie is a Junior Consultant bringing fresh energy and her formal GIS training to Kartoza's team. Her Diploma in Geo-Information and Technology from Esri College provided comprehensive grounding in geospatial concepts and technologies.
 
 Based in South Africa, Lindie focuses on QGIS and coding automation, helping clients streamline their workflows and solve spatial problems efficiently. Her interest in automation reflects the growing importance of scripting and programming skills in modern GIS work.
 
