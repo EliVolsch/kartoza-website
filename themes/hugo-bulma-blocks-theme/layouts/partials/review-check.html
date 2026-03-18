@@ -1,12 +1,12 @@
 {{/*
 Review Check Partial
-If a page doesn't have reviewedBy set, it should not be rendered.
+If a page doesn't have both reviewedBy AND reviewedDate set, it should not be rendered.
 This partial returns true if the page should be rendered, false otherwise.
 For _index.md pages and homepage, we skip the review check.
 */}}
 {{- $shouldRender := true -}}
 {{- if and (not .IsHome) (not .IsSection) -}}
-    {{- if not .Params.reviewedBy -}}
+    {{- if not (and .Params.reviewedBy .Params.reviewedDate) -}}
         {{- $shouldRender = false -}}
     {{- end -}}
 {{- end -}}

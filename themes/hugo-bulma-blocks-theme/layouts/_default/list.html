@@ -14,9 +14,9 @@
                 <p class="is-size-5">{{ .Params.subtitle }}</p>
             {{ end }}
 
-                {{/* Filter to only show reviewed pages */}}
-                {{ $reviewedPages := where .Pages "Params.reviewedBy" "!=" nil }}
-                {{ range $reviewedPages }}
+                {{/* Filter to only show pages with both reviewedBy and reviewedDate */}}
+                {{ range .Pages }}
+                {{ if and .Params.reviewedBy .Params.reviewedDate }}
                 {{ $thumbnail_url := .Params.thumbnail }}
                 {{ $has_right := cond (eq $thumbnail_url nil) "" "has-right" }}
 
@@ -34,7 +34,8 @@
                     </div>
                     {{end}}
                 </div>
-                {{ end }}
+                {{ end }}{{/* end if reviewedBy and reviewedDate */}}
+                {{ end }}{{/* end range */}}
                </div>
         </div>  
     </div>
