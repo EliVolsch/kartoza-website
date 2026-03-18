@@ -30,15 +30,27 @@
 
 ## Table of Contents
 
+- [Table of Contents](#table-of-contents)
 - [About Kartoza](#about-kartoza)
+  - [Our Vision](#our-vision)
+  - [What We Do](#what-we-do)
 - [Technology Stack](#technology-stack)
 - [Prerequisites](#prerequisites)
 - [Quick Start](#quick-start)
+  - [Using Nix (Recommended)](#using-nix-recommended)
+  - [Using Docker](#using-docker)
+  - [Manual Setup](#manual-setup)
 - [Project Structure](#project-structure)
 - [Content Management](#content-management)
+  - [Adding Content](#adding-content)
+  - [Front Matter Example](#front-matter-example)
+  - [Images](#images)
 - [Development](#development)
+  - [Available Commands](#available-commands)
+  - [CI/CD Workflows](#cicd-workflows)
 - [Security](#security)
 - [Contributing](#contributing)
+  - [Code Style](#code-style)
 - [License](#license)
 - [Contact](#contact)
 - [Acknowledgements](#acknowledgements)
@@ -336,5 +348,5 @@ This project was originally derived from the [QGIS Hugo Website Theme](https://g
 </p>
 
 <p align="center">
-  <sub>🌍 Empowering the world with Open Source Geospatial Solutions since 2008</sub>
+  <sub>🌍 Empowering the world with Open Source Geospatial Solutions since 2008.</sub>
 </p>
