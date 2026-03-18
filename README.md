@@ -348,5 +348,5 @@ This project was originally derived from the [QGIS Hugo Website Theme](https://g
 </p>
 
 <p align="center">
-  <sub>🌍 Empowering the world with Open Source Geospatial Solutions since 2008</sub>
+  <sub>🌍 Empowering the world with Open Source Geospatial Solutions since 2008.</sub>
 </p>
