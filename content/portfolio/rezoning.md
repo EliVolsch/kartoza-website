@@ -30,7 +30,7 @@ Extending the ESMAP platform for renewable energy zone identification worldwide.
 
 ## Overview
 
-The REZoning platform version 1.0 was developed and deployed by devseed, working in partnership with Derilinx. Kartoza was contracted to extend the platform and implement a number of additional features for a version 2.0 deployment. The application is a complex and multifaceted web application which consumes and analyzes multiple preprocessed data stores against the criteria specified by users in the front-end, and then processes and retrieves these results to display for end users.
+The REZoning platform version 1.0 was developed and deployed by devseed, working in partnership with Derilinx. Kartoza was contracted to extend the platform and implement a number of additional features for a version 2.0 deployment. The application is a complex and multifaceted web application which consumes and analyses multiple preprocessed data stores against the criteria specified by users in the front-end, and then processes and retrieves these results to display for end users.
 
 ![REZoning Platform](/img/portfolio/rezoning.png)
 
