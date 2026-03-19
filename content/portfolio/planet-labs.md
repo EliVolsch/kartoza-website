@@ -12,6 +12,8 @@ services:
   - Development
 related_plugins:
   - planet-explorer
+reviewedBy: "Jeff Osundwa"
+reviewedDate: "2026-03-19"
 ---
 
 {{< block
@@ -28,6 +30,10 @@ Enhancing Planet Labs' QGIS Plugin for improved satellite imagery access.
 Planet Labs, a leading provider of daily Earth data and insights, engaged Kartoza to enhance their QGIS Plugin. The company needed updates to existing features, new functionality, and bug fixes to improve the plugin's performance and usability.
 
 ![Planet Labs Plugin](/img/portfolio/planet-labs.png)
+
+![Planet Labs Search](../img/planet-labs-2.png)
+
+![Planet Labs Ordering](../img/planet-labs-3.png)
 
 ## Scope of Work
 
