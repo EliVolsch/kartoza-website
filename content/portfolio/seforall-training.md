@@ -9,6 +9,8 @@ client: "Sustainable Energy for All / ICTP"
 date: 2019-01-01
 services:
   - Training
+reviewedBy: "Jeff Osundwa"
+reviewedDate: "2026-03-19"
 ---
 
 {{< block
