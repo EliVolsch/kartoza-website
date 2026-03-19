@@ -1,0 +1,161 @@
+name: PR Checks
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'content/**'
+      - '*.md'
+      - '.markdownlint.json'
+      - 'cspell.json'
+      - '.cspell/**'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  markdown-lint:
+    name: Markdown Lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install markdownlint-cli
+        run: npm install -g markdownlint-cli
+
+      - name: Get changed files
+        id: changed-files
+        uses: tj-actions/changed-files@v44
+        with:
+          files: |
+            **/*.md
+
+      - name: Run markdownlint
+        if: steps.changed-files.outputs.any_changed == 'true'
+        run: |
+          echo "Checking markdown files..."
+          echo "${{ steps.changed-files.outputs.all_changed_files }}" | tr ' ' '\n' | while read file; do
+            if [[ -f "$file" ]]; then
+              echo "Checking: $file"
+              markdownlint "$file" || exit 1
+            fi
+          done
+          echo "All markdown files pass linting!"
+
+  spell-check:
+    name: Spell Check (British English)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install cspell
+        run: npm install -g cspell@latest
+
+      - name: Get changed content files
+        id: changed-files
+        uses: tj-actions/changed-files@v44
+        with:
+          files: |
+            content/**/*.md
+
+      - name: Run cspell
+        if: steps.changed-files.outputs.any_changed == 'true'
+        run: |
+          echo "Checking spelling in content files..."
+          ERRORS=0
+          for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
+            if [[ -f "$file" ]]; then
+              echo "Checking: $file"
+              if ! cspell --no-progress "$file"; then
+                ERRORS=$((ERRORS + 1))
+              fi
+            fi
+          done
+          if [[ $ERRORS -gt 0 ]]; then
+            echo ""
+            echo "::error::$ERRORS file(s) have spelling errors"
+            echo ""
+            echo "To fix:"
+            echo "  1. Correct the spelling in the file"
+            echo "  2. Or add valid words to .cspell/project-words.txt"
+            exit 1
+          fi
+          echo "All content files pass spell check!"
+
+  reviewer-check:
+    name: Reviewer Verification
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Get changed content files
+        id: changed-files
+        uses: tj-actions/changed-files@v44
+        with:
+          files: |
+            content/**/*.md
+          files_ignore: |
+            content/**/_index.md
+
+      - name: Check reviewer tags
+        if: steps.changed-files.outputs.any_changed == 'true'
+        run: |
+          echo "Checking reviewer tags on changed content files..."
+          ERRORS=0
+          TODAY=$(date +%Y-%m-%d)
+
+          for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
+            if [[ ! -f "$file" ]]; then
+              continue
+            fi
+
+            # Extract front matter
+            FRONT_MATTER=$(sed -n '/^---$/,/^---$/p' "$file" | head -n -1 | tail -n +2)
+
+            REVIEWED_BY=$(echo "$FRONT_MATTER" | grep -E '^reviewedBy:' | sed 's/reviewedBy:\s*//' | tr -d '"' | tr -d "'" | xargs || true)
+            REVIEWED_DATE=$(echo "$FRONT_MATTER" | grep -E '^reviewedDate:' | sed 's/reviewedDate:\s*//' | tr -d '"' | tr -d "'" | xargs || true)
+
+            if [[ -z "$REVIEWED_BY" ]]; then
+              echo "::error file=$file::Missing reviewedBy in front matter"
+              ERRORS=$((ERRORS + 1))
+            fi
+
+            if [[ -z "$REVIEWED_DATE" ]]; then
+              echo "::error file=$file::Missing reviewedDate in front matter"
+              ERRORS=$((ERRORS + 1))
+            elif [[ "$REVIEWED_DATE" != "$TODAY" ]]; then
+              echo "::warning file=$file::reviewedDate ($REVIEWED_DATE) is not today ($TODAY)"
+            fi
+
+            if [[ -n "$REVIEWED_BY" && -n "$REVIEWED_DATE" ]]; then
+              echo "✓ $file (reviewed by $REVIEWED_BY on $REVIEWED_DATE)"
+            fi
+          done
+
+          if [[ $ERRORS -gt 0 ]]; then
+            echo ""
+            echo "::error::$ERRORS file(s) are missing reviewer information"
+            echo ""
+            echo "Please add to front matter:"
+            echo "  reviewedBy: \"Your Name\""
+            echo "  reviewedDate: $TODAY"
+            exit 1
+          fi
+
+          echo "All changed content files have reviewer tags!"

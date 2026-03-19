@@ -118,6 +118,10 @@
               pkgs.vscode # VSCode for development
               pythonEnv # Python with all packages from unstable
               pkgs.gnumake # GNU Make for build automation
+              # Linting and formatting tools
+              pkgs.nodePackages.markdownlint-cli # Markdown linting
+              pkgs.nodePackages.prettier # Code formatting
+              pkgs.nodePackages.cspell # Spell checking
             ];
             shellHook = ''
               export DIRENV_LOG_FORMAT=

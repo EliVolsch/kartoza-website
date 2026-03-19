@@ -383,31 +383,42 @@ Total: 45 | Identical: 30 | Modified: 5 | No ERPNext link: 10
 
 ### Git Hooks
 
-The project includes a pre-commit hook that enforces reviewer tracking on content pages.
+The project includes pre-commit hooks that enforce quality standards.
 
 **Install hooks:**
 ```bash
 ./scripts/install-hooks.sh
 ```
 
-**What the pre-commit hook checks:**
-- Modified markdown files in `content/` must have `reviewedBy` and `reviewedDate`
-- `reviewedBy` must match the current git user (`git config user.name`)
-- `reviewedDate` must be today's date
+**Pre-commit checks:**
+
+| Check | Description | Autofix |
+|-------|-------------|---------|
+| **Reviewer verification** | Content pages must have `reviewedBy` (git user) and `reviewedDate` (today) | No |
+| **Markdown lint** | Validates markdown syntax and style | Yes |
+| **Spell check** | British English spelling (cspell) | No |
 
 **If the hook rejects your commit:**
-1. Open the file in Neovim and press `<leader>pr` to update reviewer
-2. Or manually update the front matter:
-   ```yaml
-   reviewedBy: "Your Name"
-   reviewedDate: 2024-01-15
-   ```
-3. Re-stage and commit
+
+1. **Reviewer issues**: Press `<leader>pr` in Neovim to update reviewer tags
+2. **Markdown issues**: Run `<leader>pfl` to lint and fix, or fix manually
+3. **Spelling issues**: Fix the spelling, or add valid words to `.cspell/project-words.txt`
 
 **Bypass (not recommended):**
 ```bash
 git commit --no-verify
 ```
+
+### Branch Protection
+
+The `main` branch is protected with the following rules:
+- Changes must be made through pull requests
+- Required status checks must pass:
+  - Markdown Lint
+  - Spell Check (British English)
+  - Reviewer Verification
+- At least 1 approving review required
+- Stale reviews are dismissed on new commits
 
 ### Neovim Integration
 
@@ -436,6 +447,14 @@ If using Neovim with which-key, the `.nvim.lua` config provides shortcuts under 
 | `pir` | Insert rich box |
 | `pit` | Insert tabs |
 | `pis` | Insert spoiler |
+| **Format/Lint** (`pf`) | |
+| `pfl` | Lint file (markdownlint) |
+| `pfL` | Lint all content |
+| `pfp` | Format file (prettier) |
+| `pfs` | Spell check file |
+| `pfS` | Spell check all content |
+| `pfa` | Run all checks on file |
+| `pfw` | Add word under cursor to dictionary |
 | **Update stats** (`pu`) | |
 | `pud` | Update Docker stats |
 | `pup` | Update Plugin stats |

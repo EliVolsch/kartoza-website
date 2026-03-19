@@ -528,6 +528,78 @@ local function compare_erpnext_verbose()
   vim.cmd("!python3 " .. scripts_dir .. "/compare-erpnext-content.py --verbose")
 end
 
+-- Linting and formatting functions
+local function lint_current_file()
+  local filename = vim.api.nvim_buf_get_name(0)
+  if not filename:match("%.md$") then
+    vim.notify("Not a markdown file", vim.log.levels.WARN)
+    return
+  end
+  vim.cmd("!markdownlint --fix " .. vim.fn.shellescape(filename))
+  vim.cmd("edit!")  -- Reload the file
+  vim.notify("Markdown lint complete", vim.log.levels.INFO)
+end
+
+local function lint_all_content()
+  vim.cmd("!markdownlint --fix 'content/**/*.md'")
+  vim.notify("All content files linted", vim.log.levels.INFO)
+end
+
+local function format_current_file()
+  local filename = vim.api.nvim_buf_get_name(0)
+  if not filename:match("%.md$") then
+    vim.notify("Not a markdown file", vim.log.levels.WARN)
+    return
+  end
+  vim.cmd("!prettier --write --prose-wrap preserve " .. vim.fn.shellescape(filename))
+  vim.cmd("edit!")  -- Reload the file
+  vim.notify("Prettier formatting complete", vim.log.levels.INFO)
+end
+
+local function spell_check_current()
+  local filename = vim.api.nvim_buf_get_name(0)
+  if not filename:match("%.md$") then
+    vim.notify("Not a markdown file", vim.log.levels.WARN)
+    return
+  end
+  vim.cmd("!cspell --no-progress " .. vim.fn.shellescape(filename))
+end
+
+local function spell_check_content()
+  vim.cmd("!cspell --no-progress 'content/**/*.md'")
+end
+
+local function add_word_to_dictionary()
+  local word = vim.fn.expand("<cword>")
+  if word == "" then
+    word = vim.fn.input("Word to add: ")
+  end
+  if word == "" then
+    vim.notify("No word provided", vim.log.levels.WARN)
+    return
+  end
+  local dict_file = vim.fn.getcwd() .. "/.cspell/project-words.txt"
+  local f = io.open(dict_file, "a")
+  if f then
+    f:write(word .. "\n")
+    f:close()
+    vim.notify("Added '" .. word .. "' to dictionary", vim.log.levels.INFO)
+  else
+    vim.notify("Could not open dictionary file", vim.log.levels.ERROR)
+  end
+end
+
+local function run_all_checks()
+  local filename = vim.api.nvim_buf_get_name(0)
+  if not filename:match("%.md$") then
+    vim.notify("Not a markdown file", vim.log.levels.WARN)
+    return
+  end
+  vim.notify("Running all checks on current file...", vim.log.levels.INFO)
+  vim.cmd("!markdownlint --fix " .. vim.fn.shellescape(filename) .. " && cspell --no-progress " .. vim.fn.shellescape(filename))
+  vim.cmd("edit!")
+end
+
 -- Register which-key mappings (flat structure for fewer key presses)
 wk.add({
   { "<leader>p", group = "Project" },
@@ -585,6 +657,16 @@ wk.add({
   { "<leader>peP", fetch_erpnext_portfolio_list, desc = "List portfolio" },
   { "<leader>pec", compare_erpnext_all, desc = "Compare all" },
   { "<leader>peC", compare_erpnext_verbose, desc = "Compare verbose" },
+
+  -- Linting and formatting (f = format/fix)
+  { "<leader>pf", group = "Format/Lint" },
+  { "<leader>pfl", lint_current_file, desc = "Lint file (markdownlint)" },
+  { "<leader>pfL", lint_all_content, desc = "Lint all content" },
+  { "<leader>pfp", format_current_file, desc = "Format file (prettier)" },
+  { "<leader>pfs", spell_check_current, desc = "Spell check file" },
+  { "<leader>pfS", spell_check_content, desc = "Spell check all" },
+  { "<leader>pfa", run_all_checks, desc = "Run all checks" },
+  { "<leader>pfw", add_word_to_dictionary, desc = "Add word to dictionary" },
 
   -- Quick navigation
   { "<leader>pc", "<cmd>e content/<CR>", desc = "Content" },

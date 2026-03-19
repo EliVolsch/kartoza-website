@@ -1,0 +1,106 @@
+#!/usr/bin/env bash
+#
+# Pre-commit hook for markdown linting and formatting.
+#
+# Checks:
+# 1. Markdown validity and style (markdownlint)
+# 2. Formatting consistency (prettier)
+#
+# Autofixes issues where possible before rejecting.
+
+set -euo pipefail
+
+# Colors
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+NC='\033[0m'
+
+# Get staged markdown files
+STAGED_MD_FILES=$(git diff --cached --name-only --diff-filter=ACMR | grep -E '\.md$' || true)
+
+if [[ -z "$STAGED_MD_FILES" ]]; then
+    exit 0
+fi
+
+echo -e "${YELLOW}Checking markdown formatting and linting...${NC}"
+echo ""
+
+ERRORS=0
+
+# Check if tools are available
+HAS_MARKDOWNLINT=false
+HAS_PRETTIER=false
+
+if command -v markdownlint &> /dev/null; then
+    HAS_MARKDOWNLINT=true
+fi
+
+if command -v prettier &> /dev/null; then
+    HAS_PRETTIER=true
+fi
+
+if [[ "$HAS_MARKDOWNLINT" == "false" && "$HAS_PRETTIER" == "false" ]]; then
+    echo -e "${YELLOW}Warning: markdownlint and prettier not found. Skipping markdown checks.${NC}"
+    echo "Run 'nix develop' to get the required tools."
+    exit 0
+fi
+
+# Run prettier to autofix formatting
+if [[ "$HAS_PRETTIER" == "true" ]]; then
+    echo "Running prettier..."
+    for file in $STAGED_MD_FILES; do
+        if [[ -f "$file" ]]; then
+            # Autofix with prettier
+            prettier --write "$file" --prose-wrap preserve 2>/dev/null || true
+            # Re-stage if modified
+            git add "$file"
+        fi
+    done
+    echo -e "  ${GREEN}✓${NC} Prettier formatting applied"
+fi
+
+# Run markdownlint
+if [[ "$HAS_MARKDOWNLINT" == "true" ]]; then
+    echo "Running markdownlint..."
+    LINT_ERRORS=""
+
+    for file in $STAGED_MD_FILES; do
+        if [[ -f "$file" ]]; then
+            # Try to fix what can be fixed
+            markdownlint --fix "$file" 2>/dev/null || true
+            git add "$file"
+
+            # Check for remaining errors
+            OUTPUT=$(markdownlint "$file" 2>&1 || true)
+            if [[ -n "$OUTPUT" ]]; then
+                LINT_ERRORS="${LINT_ERRORS}${OUTPUT}\n"
+                echo -e "  ${RED}✗${NC} $file"
+                ERRORS=$((ERRORS + 1))
+            else
+                echo -e "  ${GREEN}✓${NC} $file"
+            fi
+        fi
+    done
+
+    if [[ -n "$LINT_ERRORS" ]]; then
+        echo ""
+        echo -e "${RED}Markdown lint errors:${NC}"
+        echo -e "$LINT_ERRORS"
+    fi
+fi
+
+echo ""
+
+if [[ $ERRORS -gt 0 ]]; then
+    echo -e "${RED}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+    echo -e "${RED}COMMIT REJECTED: $ERRORS file(s) have markdown errors${NC}"
+    echo -e "${RED}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+    echo ""
+    echo "Please fix the errors above and try again."
+    echo "To bypass (not recommended): git commit --no-verify"
+    exit 1
+fi
+
+echo -e "${GREEN}All markdown files pass linting.${NC}"
+exit 0
