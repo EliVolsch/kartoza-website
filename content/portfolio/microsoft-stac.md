@@ -13,6 +13,8 @@ services:
   - Development
 related_plugins:
   - stac-api-browser
+reviewedBy: "Jeff Osundwa"
+reviewedDate: "2026-03-19"
 ---
 
 {{< block
@@ -28,7 +30,7 @@ Developed for Microsoft to bring Planetary Computer data into the QGIS desktop.
 
 ## Overview
 
-Kartoza developed a QGIS plugin enabling exploration of Spatiotemporal Asset Catalog (STAC) API data, with primary focus on Microsoft's Planetary Computer. The plugin was set by default to pull data from Microsoft's Planetary Computer, but allowed users to access any other available STAC catalogues.
+Kartoza was contracted by Microsoft to develop a QGIS plugin enabling exploration of Spatiotemporal Asset Catalog (STAC) API data, with primary focus on Microsoft's Planetary Computer. The plugin was designed to mimic standard QGIS user experience and integrate seamlessly into the QGIS platform. The plugin was set by default to pull data from Microsoft's Planetary Computer, but allowed users to access any other available STAC catalogues. Since its development, the plugin has been popular with users.
 
 ![Microsoft STAC Explorer](/img/portfolio/microsoft-stac.png)
 
@@ -40,10 +42,6 @@ Kartoza developed a QGIS plugin enabling exploration of Spatiotemporal Asset Cat
 - Search functionality across catalogues
 - Item downloading and loading directly into QGIS
 - Settings management for multiple connections
-
-## Outcomes
-
-The STAC plugin became popular with users following its 2021 launch. STAC support now exists in QGIS Core, though not yet at full feature parity with Kartoza's implementation.
 
 ## Links
 
