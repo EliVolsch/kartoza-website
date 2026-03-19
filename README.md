@@ -362,6 +362,7 @@ Fetch and update stats from Docker Hub and QGIS Plugin Repository:
 ```
 
 Output example:
+
 ```
 ======================================================
 DOCKER HUB STATS UPDATE
@@ -381,6 +382,7 @@ Total: 8 | Updated: 3 | Unchanged: 4 | Errors: 1
 Fetch content from ERPNext (erp.kartoza.com) and compare with local files.
 
 **Environment variables** (optional, for private content):
+
 ```bash
 export ERPNEXT_URL="https://erp.kartoza.com"
 export ERPNEXT_API_KEY="your-api-key"
@@ -388,6 +390,7 @@ export ERPNEXT_API_SECRET="your-api-secret"
 ```
 
 **Fetch blogs from ERPNext:**
+
 ```bash
 # List available blogs
 ./scripts/fetch-erpnext-blogs.py --list
@@ -398,6 +401,7 @@ export ERPNEXT_API_SECRET="your-api-secret"
 ```
 
 **Fetch portfolio items from ERPNext:**
+
 ```bash
 # List available portfolio items
 ./scripts/fetch-erpnext-portfolio.py --list
@@ -408,6 +412,7 @@ export ERPNEXT_API_SECRET="your-api-secret"
 ```
 
 **Compare local content with ERPNext:**
+
 ```bash
 # Compare all content
 ./scripts/compare-erpnext-content.py
@@ -421,6 +426,7 @@ export ERPNEXT_API_SECRET="your-api-secret"
 ```
 
 Output example:
+
 ```
 ============================================================
 BLOG COMPARISON
@@ -440,6 +446,7 @@ Total: 45 | Identical: 30 | Modified: 5 | No ERPNext link: 10
 The project includes pre-commit hooks that enforce quality standards.
 
 **Install hooks:**
+
 ```bash
 ./scripts/install-hooks.sh
 ```
@@ -459,6 +466,7 @@ The project includes pre-commit hooks that enforce quality standards.
 3. **Spelling issues**: Fix the spelling, or add valid words to `.cspell/project-words.txt`
 
 **Bypass (not recommended):**
+
 ```bash
 git commit --no-verify
 ```
@@ -466,6 +474,7 @@ git commit --no-verify
 ### Branch Protection
 
 The `main` branch is protected with the following rules:
+
 - Changes must be made through pull requests
 - Required status checks must pass:
   - Markdown Lint
