@@ -1,0 +1,61 @@
+name: 🔄 Daily ERPNext Content Sync
+
+on:
+  schedule:
+    # Run at 07:00 UTC every day (after stats update)
+    - cron: '0 7 * * *'
+  workflow_dispatch:  # Allow manual triggering
+
+jobs:
+  sync-content:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+
+    steps:
+      - name: 🛒 Checkout
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: 🐍 Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: 📦 Install dependencies
+        run: |
+          pip install requests pyyaml beautifulsoup4 html2text python-dateutil tabulate
+
+      - name: 🔄 Sync ERPNext content
+        run: python3 scripts/sync-erpnext-content.py
+        env:
+          ERPNEXT_URL: https://erp.kartoza.com
+
+      - name: 🔍 Check for changes
+        id: git-check
+        run: |
+          git diff --quiet && echo "changed=false" >> $GITHUB_OUTPUT || echo "changed=true" >> $GITHUB_OUTPUT
+
+      - name: 📝 Create Pull Request
+        if: steps.git-check.outputs.changed == 'true'
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: 'chore: sync new content from ERPNext'
+          title: '🔄 New content from ERPNext'
+          body: |
+            This PR contains new content automatically synced from ERPNext.
+
+            Please review the new content and ensure:
+            - Images are correct and appropriately sized
+            - Content formatting looks good
+            - Front matter is complete and accurate
+
+            **Note:** This PR was created automatically. Please add reviewer information before merging.
+          branch: automated/erpnext-content-sync
+          delete-branch: true
+          labels: |
+            automated
+            content

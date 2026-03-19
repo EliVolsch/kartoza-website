@@ -14,7 +14,8 @@ test.describe('Homepage', () => {
 
   test('should display footer', async ({ page }) => {
     await page.goto('/');
-    const footer = page.locator('footer');
+    // Use the main site footer (footer-new class) to avoid matching other footer elements
+    const footer = page.locator('footer.footer-new');
     await expect(footer).toBeVisible();
   });
 
