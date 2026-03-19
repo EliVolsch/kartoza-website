@@ -12,6 +12,8 @@ endDate: 2023-12-31
 services:
   - Development
   - Technical Lead
+reviewedBy: "Jeff Osundwa"
+reviewedDate: "2026-03-19"
 ---
 
 {{< block
@@ -27,9 +29,13 @@ Supporting SDG7 through robust, data-driven energy planning for Kenya.
 
 Kartoza served as Project Technical Lead for an initiative addressing energy access challenges in Kenya, which had a 71% national electrification rate (94% urban, 63% rural) with 54 million residents. The endeavour sought to integrate electricity and clean cooking planning.
 
-The platform expanded the OnStove tool to Kenya as an open-source platform for analysing energy supply and demand data, supporting investment decisions for clean cooking and electricity access.
+Globally, 2.4 billion people lack clean cooking access, leading to 3.2 million deaths and fuel collection burdens. 760 million people lack electricity, mostly in sub-Saharan Africa and South Asia, with rural areas disproportionately affected. Efforts were insufficient to meet Sustainable Development Goal 7 for universal energy access.
+
+The platform expanded the [OnStove](https://onstove-documentation.readthedocs.io/en/latest/index.html) tool to Kenya as an open-source platform for analysing energy supply and demand data, supporting investment decisions for clean cooking and electricity access. The project combines OnStove with existing platforms (EAE and CCE) and the OnSSET electrification model to provide detailed insights into investment needs and technology choices.
 
 ![EnergyAccess Explorer](/img/portfolio/energy-access-kenya.png)
+
+![EnergyAccess Explorer Kenya](../img/energyaccess-kenya.png)
 
 ## Objectives
 
