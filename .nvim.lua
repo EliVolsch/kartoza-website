@@ -222,28 +222,281 @@ local function hugo_build()
   vim.cmd("!hugo")
 end
 
--- Register which-key mappings
-wk.add({
-  { "<leader>p", group = "Project (Kartoza Hugo)" },
+-- Script directory
+local scripts_dir = vim.fn.getcwd() .. "/scripts"
 
-  -- Review management
-  { "<leader>pr", group = "Review" },
-  { "<leader>prl", open_unreviewed_telescope, desc = "List unreviewed pages" },
-  { "<leader>prq", show_unreviewed_quickfix, desc = "Unreviewed to quickfix" },
-  { "<leader>prA", approve_current_file, desc = "Approve file (auto)" },
-  { "<leader>pra", add_reviewer_to_current, desc = "Add reviewer (manual)" },
-  { "<leader>prc", count_unreviewed, desc = "Count unreviewed pages" },
+-- Generic function to create new content and open the file
+local function create_content(script_name, prompt_text)
+  local title = vim.fn.input(prompt_text .. ": ")
+  if title == "" then
+    vim.notify("Cancelled", vim.log.levels.WARN)
+    return
+  end
+  local cmd = string.format('%s/%s "%s"', scripts_dir, script_name, title)
+  local handle = io.popen(cmd)
+  if handle then
+    local filepath = handle:read("*l")
+    handle:close()
+    if filepath and filepath ~= "" and not filepath:match("^Error") then
+      vim.cmd("edit " .. filepath)
+      vim.notify("Created: " .. filepath, vim.log.levels.INFO)
+    else
+      vim.notify("Failed to create content", vim.log.levels.ERROR)
+    end
+  end
+end
+
+-- Content creation functions
+local function new_blog() create_content("new-blog.sh", "Blog title") end
+local function new_app() create_content("new-app.sh", "App name") end
+local function new_plugin() create_content("new-plugin.sh", "Plugin name") end
+local function new_portfolio() create_content("new-portfolio.sh", "Project name") end
+local function new_team() create_content("new-team-member.sh", "Team member name") end
+local function new_training() create_content("new-training.sh", "Course title") end
+local function new_docker() create_content("new-docker.sh", "Docker image name") end
+
+-- Insert text at cursor position
+local function insert_at_cursor(text)
+  local lines = vim.split(text, "\n")
+  local row, col = unpack(vim.api.nvim_win_get_cursor(0))
+  vim.api.nvim_buf_set_text(0, row - 1, col, row - 1, col, lines)
+  -- Move cursor to end of inserted text
+  local new_row = row + #lines - 1
+  local new_col = #lines > 1 and #lines[#lines] or col + #lines[1]
+  vim.api.nvim_win_set_cursor(0, { new_row, new_col })
+end
+
+-- Shortcode insertion functions
+local function insert_block()
+  insert_at_cursor([[{{< block
+    title="Title"
+    subtitle="Subtitle"
+    class="is-primary"
+    sub-block-side="bottom"
+>}}
+Content here.
+{{< /block >}}]])
+end
+
+local function insert_columns()
+  insert_at_cursor([[{{< columns-start >}}
+{{< column-start >}}
+
+Column 1 content
+
+{{< column-end >}}
+{{< column-start >}}
+
+Column 2 content
+
+{{< column-end >}}
+{{< columns-end >}}]])
+end
+
+local function insert_box()
+  insert_at_cursor([[{{< box-start >}}
+
+Box content here.
+
+{{< box-end >}}]])
+end
+
+local function insert_rich_box()
+  insert_at_cursor([[{{< rich-box-start >}}
+{{< rich-content-start themeClass="is-primary" >}}
+
+## Title
+
+Content here.
+
+{{< rich-content-end >}}
+{{< rich-right-start >}}
+
+![Image](/img/placeholder.png)
+
+{{< rich-right-end >}}
+{{< rich-box-end >}}]])
+end
+
+local function insert_image()
+  insert_at_cursor([[{{< image
+    src="/img/placeholder.png"
+    alt="Description"
+    caption="Caption text"
+>}}]])
+end
+
+local function insert_button()
+  insert_at_cursor([[{{< button
+    link="https://example.com"
+    text="Button Text"
+    class="is-primary"
+>}}]])
+end
+
+local function insert_button_bar()
+  insert_at_cursor([[{{< button-bar >}}
+{{< button link="https://example.com" text="Button 1" class="is-primary" >}}
+{{< button link="https://example.com" text="Button 2" class="is-secondary" >}}
+{{< /button-bar >}}]])
+end
+
+local function insert_tabs()
+  insert_at_cursor([[{{< tabs >}}
+{{< tab-content-start name="Tab 1" >}}
+
+Tab 1 content
+
+{{< tab-content-end >}}
+{{< tab-content-start name="Tab 2" >}}
+
+Tab 2 content
+
+{{< tab-content-end >}}
+{{< /tabs >}}]])
+end
+
+local function insert_spoiler()
+  insert_at_cursor([[{{< spoiler-start title="Click to expand" >}}
+
+Hidden content here.
+
+{{< spoiler-end >}}]])
+end
+
+local function insert_info_bar()
+  insert_at_cursor([[{{< info-bar
+    title="Title"
+    text="Information text here."
+    class="is-info"
+>}}]])
+end
+
+local function insert_feature()
+  insert_at_cursor([[{{< feature
+    title="Feature Title"
+    description="Feature description."
+    icon="fa-check"
+>}}]])
+end
+
+local function insert_hero_banner()
+  insert_at_cursor([[{{< hero-banner
+    title="Hero Title"
+    subtitle="Hero subtitle"
+    background="/img/banner.png"
+    class="is-primary"
+>}}]])
+end
+
+-- Stats update functions
+local function update_docker_stats()
+  vim.cmd("!python3 " .. scripts_dir .. "/update-docker-stats.py")
+end
+
+local function update_plugin_stats()
+  vim.cmd("!python3 " .. scripts_dir .. "/update-plugin-stats.py")
+end
+
+local function update_all_stats()
+  vim.cmd("!python3 " .. scripts_dir .. "/update-all-stats.py")
+end
+
+local function update_docker_stats_dry()
+  vim.cmd("!python3 " .. scripts_dir .. "/update-docker-stats.py --dry-run")
+end
+
+local function update_plugin_stats_dry()
+  vim.cmd("!python3 " .. scripts_dir .. "/update-plugin-stats.py --dry-run")
+end
+
+-- ERPNext functions
+local function fetch_erpnext_blogs()
+  vim.cmd("!python3 " .. scripts_dir .. "/fetch-erpnext-blogs.py")
+end
+
+local function fetch_erpnext_blogs_list()
+  vim.cmd("!python3 " .. scripts_dir .. "/fetch-erpnext-blogs.py --list")
+end
+
+local function fetch_erpnext_portfolio()
+  vim.cmd("!python3 " .. scripts_dir .. "/fetch-erpnext-portfolio.py")
+end
+
+local function fetch_erpnext_portfolio_list()
+  vim.cmd("!python3 " .. scripts_dir .. "/fetch-erpnext-portfolio.py --list")
+end
+
+local function compare_erpnext_all()
+  vim.cmd("!python3 " .. scripts_dir .. "/compare-erpnext-content.py")
+end
+
+local function compare_erpnext_verbose()
+  vim.cmd("!python3 " .. scripts_dir .. "/compare-erpnext-content.py --verbose")
+end
+
+-- Register which-key mappings (flat structure for fewer key presses)
+wk.add({
+  { "<leader>p", group = "Project" },
 
   -- Hugo commands
-  { "<leader>ph", group = "Hugo" },
-  { "<leader>phs", hugo_serve, desc = "Start Hugo server" },
-  { "<leader>phb", hugo_build, desc = "Build site" },
+  { "<leader>ps", hugo_serve, desc = "Serve" },
+  { "<leader>pb", hugo_build, desc = "Build" },
+
+  -- Review management
+  { "<leader>pl", open_unreviewed_telescope, desc = "List unreviewed" },
+  { "<leader>pq", show_unreviewed_quickfix, desc = "Quickfix unreviewed" },
+  { "<leader>pa", approve_current_file, desc = "Approve" },
+  { "<leader>pR", add_reviewer_to_current, desc = "Add reviewer" },
+  { "<leader>p#", count_unreviewed, desc = "Count unreviewed" },
+
+  -- New content (n = new)
+  { "<leader>pn", group = "New content" },
+  { "<leader>pnb", new_blog, desc = "Blog" },
+  { "<leader>pna", new_app, desc = "App" },
+  { "<leader>pnp", new_plugin, desc = "Plugin" },
+  { "<leader>pnP", new_portfolio, desc = "Portfolio" },
+  { "<leader>pnt", new_team, desc = "Team member" },
+  { "<leader>pnT", new_training, desc = "Training" },
+  { "<leader>pnd", new_docker, desc = "Docker" },
+
+  -- Insert shortcodes (i = insert)
+  { "<leader>pi", group = "Insert shortcode" },
+  { "<leader>pib", insert_block, desc = "Block" },
+  { "<leader>pic", insert_columns, desc = "Columns" },
+  { "<leader>pix", insert_box, desc = "Box" },
+  { "<leader>pir", insert_rich_box, desc = "Rich box" },
+  { "<leader>pii", insert_image, desc = "Image" },
+  { "<leader>piB", insert_button, desc = "Button" },
+  { "<leader>piA", insert_button_bar, desc = "Button bar" },
+  { "<leader>pit", insert_tabs, desc = "Tabs" },
+  { "<leader>pis", insert_spoiler, desc = "Spoiler" },
+  { "<leader>piI", insert_info_bar, desc = "Info bar" },
+  { "<leader>pif", insert_feature, desc = "Feature" },
+  { "<leader>pih", insert_hero_banner, desc = "Hero banner" },
+
+  -- Update stats (u = update)
+  { "<leader>pu", group = "Update stats" },
+  { "<leader>pud", update_docker_stats, desc = "Docker stats" },
+  { "<leader>pup", update_plugin_stats, desc = "Plugin stats" },
+  { "<leader>pua", update_all_stats, desc = "All stats" },
+  { "<leader>puD", update_docker_stats_dry, desc = "Docker (dry run)" },
+  { "<leader>puP", update_plugin_stats_dry, desc = "Plugin (dry run)" },
+
+  -- ERPNext (e = erpnext)
+  { "<leader>pe", group = "ERPNext" },
+  { "<leader>peb", fetch_erpnext_blogs, desc = "Fetch blogs" },
+  { "<leader>peB", fetch_erpnext_blogs_list, desc = "List blogs" },
+  { "<leader>pep", fetch_erpnext_portfolio, desc = "Fetch portfolio" },
+  { "<leader>peP", fetch_erpnext_portfolio_list, desc = "List portfolio" },
+  { "<leader>pec", compare_erpnext_all, desc = "Compare all" },
+  { "<leader>peC", compare_erpnext_verbose, desc = "Compare verbose" },
 
   -- Quick navigation
-  { "<leader>pf", group = "Files" },
-  { "<leader>pfc", "<cmd>e content/<CR>", desc = "Open content folder" },
-  { "<leader>pfl", "<cmd>e layouts/<CR>", desc = "Open layouts folder" },
-  { "<leader>pft", "<cmd>e themes/<CR>", desc = "Open themes folder" },
+  { "<leader>pc", "<cmd>e content/<CR>", desc = "Content" },
+  { "<leader>pL", "<cmd>e layouts/<CR>", desc = "Layouts" },
+  { "<leader>pt", "<cmd>e themes/<CR>", desc = "Themes" },
+  { "<leader>pS", "<cmd>e scripts/<CR>", desc = "Scripts" },
 })
 
 vim.notify("Kartoza Hugo project config loaded. Use <leader>p for project commands.", vim.log.levels.INFO)

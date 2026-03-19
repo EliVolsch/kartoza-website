@@ -270,6 +270,150 @@ Place images in the `static/img/` directory and reference them in markdown:
 
 ---
 
+## Scripts
+
+The `scripts/` directory contains automation scripts for content management. All scripts require the Nix development environment (`nix develop`) for dependencies.
+
+### Content Creation Scripts
+
+Create new content pages with proper templates:
+
+```bash
+# Create new content (prompts for title/name)
+./scripts/new-blog.sh "My Blog Post Title"
+./scripts/new-app.sh "My App Name"
+./scripts/new-plugin.sh "My QGIS Plugin"
+./scripts/new-portfolio.sh "Project Name"
+./scripts/new-team-member.sh "First Last"
+./scripts/new-training.sh "Course Title"
+./scripts/new-docker.sh "Docker Image Name"
+```
+
+### Stats Update Scripts
+
+Fetch and update stats from Docker Hub and QGIS Plugin Repository:
+
+```bash
+# Update Docker Hub stats (pulls, stars)
+./scripts/update-docker-stats.py
+./scripts/update-docker-stats.py --dry-run  # Preview changes
+
+# Update QGIS plugin stats (downloads, rating, votes, version)
+./scripts/update-plugin-stats.py
+./scripts/update-plugin-stats.py --dry-run  # Preview changes
+
+# Update all stats at once
+./scripts/update-all-stats.py
+./scripts/update-all-stats.py --dry-run     # Preview changes
+```
+
+Output example:
+```
+======================================================
+DOCKER HUB STATS UPDATE
+======================================================
+Image       Pulls               Stars         Status
+            Old → New           Old → New
+------------------------------------------------------
+postgis     21M+ → 22M+         198 → 205     Updated
+geoserver   5M+ → 5M+           89 → 89       No change
+------------------------------------------------------
+Total: 8 | Updated: 3 | Unchanged: 4 | Errors: 1
+======================================================
+```
+
+### ERPNext Integration Scripts
+
+Fetch content from ERPNext (erp.kartoza.com) and compare with local files.
+
+**Environment variables** (optional, for private content):
+```bash
+export ERPNEXT_URL="https://erp.kartoza.com"
+export ERPNEXT_API_KEY="your-api-key"
+export ERPNEXT_API_SECRET="your-api-secret"
+```
+
+**Fetch blogs from ERPNext:**
+```bash
+# List available blogs
+./scripts/fetch-erpnext-blogs.py --list
+
+# Fetch new blogs (won't overwrite existing local files)
+./scripts/fetch-erpnext-blogs.py
+./scripts/fetch-erpnext-blogs.py --dry-run  # Preview only
+```
+
+**Fetch portfolio items from ERPNext:**
+```bash
+# List available portfolio items
+./scripts/fetch-erpnext-portfolio.py --list
+
+# Fetch new portfolio items
+./scripts/fetch-erpnext-portfolio.py
+./scripts/fetch-erpnext-portfolio.py --dry-run  # Preview only
+```
+
+**Compare local content with ERPNext:**
+```bash
+# Compare all content
+./scripts/compare-erpnext-content.py
+
+# Compare specific content types
+./scripts/compare-erpnext-content.py --blogs
+./scripts/compare-erpnext-content.py --portfolio
+
+# Verbose output with diff preview
+./scripts/compare-erpnext-content.py --verbose
+```
+
+Output example:
+```
+============================================================
+BLOG COMPARISON
+============================================================
+File                Title                 Similarity  Status
+------------------------------------------------------------
+my-blog-post.md     My Blog Post          95%         Minor changes
+another-post.md     Another Post          100%        Identical
+local-only.md       Local Only            -           No ERPNext ID
+------------------------------------------------------------
+Total: 45 | Identical: 30 | Modified: 5 | No ERPNext link: 10
+============================================================
+```
+
+### Neovim Integration
+
+If using Neovim with which-key, the `.nvim.lua` config provides shortcuts under `<leader>p`:
+
+| Keys | Action |
+|------|--------|
+| **Hugo** | |
+| `ps` | Start Hugo server |
+| `pb` | Build site |
+| **Review** | |
+| `pl` | List unreviewed pages |
+| `pa` | Approve current file |
+| **New content** (`pn`) | |
+| `pnb` | New blog post |
+| `pna` | New app |
+| `pnp` | New plugin |
+| `pnP` | New portfolio |
+| `pnt` | New team member |
+| `pnT` | New training course |
+| `pnd` | New Docker image |
+| **Insert shortcode** (`pi`) | |
+| `pib` | Insert block |
+| `pic` | Insert columns |
+| `pir` | Insert rich box |
+| `pit` | Insert tabs |
+| `pis` | Insert spoiler |
+| **Update stats** (`pu`) | |
+| `pud` | Update Docker stats |
+| `pup` | Update Plugin stats |
+| `pua` | Update all stats |
+
+---
+
 ## Security
 
 This project follows security best practices:

@@ -104,6 +104,10 @@
             pyyaml # YAML generation
             pillow # Image processing (12.1.0 - patched for CVE-2026-25990)
             stripe # Donor management
+            beautifulsoup4 # HTML parsing - for content comparison
+            html2text # HTML to markdown conversion
+            python-dateutil # Date parsing
+            tabulate # Nice table output
           ]);
         in
         {
