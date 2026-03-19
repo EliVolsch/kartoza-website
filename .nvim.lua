@@ -212,6 +212,99 @@ local function approve_current_file()
   end
 end
 
+-- Update reviewer to current git user and today's date (adds or updates)
+local function update_reviewer()
+  -- Get git user name
+  local handle = io.popen("git config user.name 2>/dev/null")
+  local reviewer = ""
+  if handle then
+    reviewer = handle:read("*l") or ""
+    handle:close()
+  end
+
+  if reviewer == "" then
+    vim.notify("Could not get git user.name - please configure git", vim.log.levels.ERROR)
+    return
+  end
+
+  local date = os.date("%Y-%m-%d")
+  local bufnr = vim.api.nvim_get_current_buf()
+  local lines = vim.api.nvim_buf_get_lines(bufnr, 0, -1, false)
+
+  -- Check if file is a markdown file
+  local filename = vim.api.nvim_buf_get_name(bufnr)
+  if not filename:match("%.md$") then
+    vim.notify("Not a markdown file", vim.log.levels.WARN)
+    return
+  end
+
+  -- Check if file is in content/ directory
+  if not filename:match("/content/") then
+    vim.notify("Not a content file", vim.log.levels.WARN)
+    return
+  end
+
+  -- Find front matter boundaries and existing reviewer lines
+  local front_matter_start = nil
+  local front_matter_end = nil
+  local reviewed_by_line = nil
+  local reviewed_date_line = nil
+  local dash_count = 0
+
+  for i, line in ipairs(lines) do
+    if line:match("^%-%-%-") then
+      dash_count = dash_count + 1
+      if dash_count == 1 then
+        front_matter_start = i
+      elseif dash_count == 2 then
+        front_matter_end = i
+        break
+      end
+    end
+    if dash_count == 1 then
+      if line:match("^reviewedBy:") then
+        reviewed_by_line = i
+      elseif line:match("^reviewedDate:") then
+        reviewed_date_line = i
+      end
+    end
+  end
+
+  if not front_matter_end then
+    vim.notify("Could not find front matter in this file", vim.log.levels.ERROR)
+    return
+  end
+
+  -- Update or add reviewedBy
+  if reviewed_by_line then
+    lines[reviewed_by_line] = 'reviewedBy: "' .. reviewer .. '"'
+  end
+
+  -- Update or add reviewedDate
+  if reviewed_date_line then
+    lines[reviewed_date_line] = 'reviewedDate: ' .. date
+  end
+
+  -- If either is missing, add them before the closing ---
+  if not reviewed_by_line or not reviewed_date_line then
+    local insert_lines = {}
+    if not reviewed_by_line then
+      table.insert(insert_lines, 'reviewedBy: "' .. reviewer .. '"')
+    end
+    if not reviewed_date_line then
+      table.insert(insert_lines, 'reviewedDate: ' .. date)
+    end
+    -- Insert before the closing ---
+    for i, line in ipairs(insert_lines) do
+      table.insert(lines, front_matter_end + i - 1, line)
+    end
+  end
+
+  -- Write back all lines
+  vim.api.nvim_buf_set_lines(bufnr, 0, -1, false, lines)
+  vim.notify("Updated reviewer: " .. reviewer .. " on " .. date, vim.log.levels.INFO)
+end
+
 -- Hugo server commands
 local function hugo_serve()
   vim.cmd("!hugo server -D &")
@@ -446,8 +539,9 @@ wk.add({
   -- Review management
   { "<leader>pl", open_unreviewed_telescope, desc = "List unreviewed" },
   { "<leader>pq", show_unreviewed_quickfix, desc = "Quickfix unreviewed" },
-  { "<leader>pa", approve_current_file, desc = "Approve" },
-  { "<leader>pR", add_reviewer_to_current, desc = "Add reviewer" },
+  { "<leader>pr", update_reviewer, desc = "Update reviewer" },
+  { "<leader>pa", approve_current_file, desc = "Approve (new only)" },
+  { "<leader>pR", add_reviewer_to_current, desc = "Add reviewer (manual)" },
   { "<leader>p#", count_unreviewed, desc = "Count unreviewed" },
 
   -- New content (n = new)

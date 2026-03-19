@@ -381,6 +381,34 @@ Total: 45 | Identical: 30 | Modified: 5 | No ERPNext link: 10
 ============================================================
 ```
 
+### Git Hooks
+
+The project includes a pre-commit hook that enforces reviewer tracking on content pages.
+
+**Install hooks:**
+```bash
+./scripts/install-hooks.sh
+```
+
+**What the pre-commit hook checks:**
+- Modified markdown files in `content/` must have `reviewedBy` and `reviewedDate`
+- `reviewedBy` must match the current git user (`git config user.name`)
+- `reviewedDate` must be today's date
+
+**If the hook rejects your commit:**
+1. Open the file in Neovim and press `<leader>pr` to update reviewer
+2. Or manually update the front matter:
+   ```yaml
+   reviewedBy: "Your Name"
+   reviewedDate: 2024-01-15
+   ```
+3. Re-stage and commit
+
+**Bypass (not recommended):**
+```bash
+git commit --no-verify
+```
+
 ### Neovim Integration
 
 If using Neovim with which-key, the `.nvim.lua` config provides shortcuts under `<leader>p`:
@@ -392,7 +420,8 @@ If using Neovim with which-key, the `.nvim.lua` config provides shortcuts under 
 | `pb` | Build site |
 | **Review** | |
 | `pl` | List unreviewed pages |
-| `pa` | Approve current file |
+| `pr` | Update reviewer (current user + today) |
+| `pa` | Approve file (new only) |
 | **New content** (`pn`) | |
 | `pnb` | New blog post |
 | `pna` | New app |
