@@ -1,0 +1,22 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Kartoza//Training Calendar//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Kartoza Training Schedule
+X-WR-CALDESC:Upcoming GIS training courses from Kartoza
+{{ $events := site.Data.training.events }}
+{{ range $events }}
+BEGIN:VEVENT
+UID:{{ .title | urlize }}-{{ .start }}@kartoza.com
+DTSTAMP:{{ now.Format "20060102T150405Z" }}
+{{ if .start }}DTSTART:{{ (time .start).Format "20060102" }}{{ end }}
+{{ if .end }}DTEND:{{ (time .end).Format "20060102" }}{{ end }}
+SUMMARY:{{ .title }}
+{{ if .description }}DESCRIPTION:{{ .description | replaceRE "\n" "\\n" }}{{ end }}
+{{ if .location }}LOCATION:{{ .location }}{{ end }}
+URL:{{ site.BaseURL }}{{ .url | default "training-courses/" }}
+STATUS:CONFIRMED
+END:VEVENT
+{{ end }}
+END:VCALENDAR

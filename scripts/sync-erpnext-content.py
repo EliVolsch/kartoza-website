@@ -29,6 +29,16 @@ FETCHERS = [
         "script": "fetch-erpnext-portfolio.py",
         "description": "Fetches portfolio/project items from ERPNext"
     },
+    {
+        "name": "Team Members",
+        "script": "fetch-erpnext-team.py",
+        "description": "Syncs team members - adds new, marks departed"
+    },
+    {
+        "name": "Training Courses",
+        "script": "fetch-erpnext-training.py",
+        "description": "Fetches training courses and scheduled events"
+    },
 ]
 
 

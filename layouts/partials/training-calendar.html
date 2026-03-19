@@ -1,0 +1,266 @@
+{{/* Training Calendar Partial */}}
+{{/* Displays upcoming training events with links to courses and registration */}}
+
+<div class="training-calendar" id="training-calendar">
+    <div class="training-calendar-header">
+        <div class="training-calendar-title">
+            <i class="fas fa-calendar-alt"></i>
+            <h2>Upcoming Training Schedule</h2>
+        </div>
+        <div class="training-calendar-actions">
+            <a href="/training-calendar.ics" class="button is-small is-outlined" title="Subscribe to calendar">
+                <span class="icon"><i class="fas fa-calendar-plus"></i></span>
+                <span>Subscribe (iCal)</span>
+            </a>
+        </div>
+    </div>
+
+    {{ $events := site.Data.training.events }}
+    {{ if $events }}
+    <div class="training-calendar-grid">
+        {{ range $events }}
+        {{ $courseSlug := .url | default "#" }}
+        <div class="training-event-card">
+            <div class="training-event-date">
+                {{ $startDate := time .start }}
+                <span class="event-month">{{ $startDate.Format "Jan" }}</span>
+                <span class="event-day">{{ $startDate.Format "02" }}</span>
+                <span class="event-year">{{ $startDate.Format "2006" }}</span>
+            </div>
+            <div class="training-event-details">
+                <h3 class="event-title">
+                    <a href="{{ $courseSlug }}">{{ .title }}</a>
+                </h3>
+                {{ if .location }}
+                <p class="event-location">
+                    <i class="fas fa-map-marker-alt"></i>
+                    {{ .location }}
+                </p>
+                {{ end }}
+                {{ if and .start .end }}
+                <p class="event-time">
+                    <i class="fas fa-clock"></i>
+                    {{ (time .start).Format "Jan 2" }} - {{ (time .end).Format "Jan 2, 2006" }}
+                </p>
+                {{ end }}
+                {{ if .price }}
+                <p class="event-price">
+                    <i class="fas fa-tag"></i>
+                    {{ .price }}
+                </p>
+                {{ end }}
+                {{ if .spots_available }}
+                <p class="event-spots {{ if lt (int .spots_available) 5 }}spots-low{{ end }}">
+                    <i class="fas fa-users"></i>
+                    {{ .spots_available }} spots available
+                </p>
+                {{ end }}
+            </div>
+            <div class="training-event-actions">
+                <a href="{{ $courseSlug }}" class="button is-small is-light">
+                    <span class="icon"><i class="fas fa-info-circle"></i></span>
+                    <span>Details</span>
+                </a>
+                <a href="{{ .registration_url | default "/contact-us/" }}" class="button is-small is-primary">
+                    <span class="icon"><i class="fas fa-user-plus"></i></span>
+                    <span>Register</span>
+                </a>
+            </div>
+        </div>
+        {{ end }}
+    </div>
+    {{ else }}
+    <div class="training-calendar-empty">
+        <div class="empty-calendar-icon">
+            <i class="fas fa-calendar-times"></i>
+        </div>
+        <h3>No Scheduled Events</h3>
+        <p>We don't have any public training sessions scheduled at the moment.</p>
+        <p>Contact us to arrange custom training for your organisation.</p>
+        <a href="/contact-us/" class="button is-primary">
+            <span class="icon"><i class="fas fa-envelope"></i></span>
+            <span>Request Training</span>
+        </a>
+    </div>
+    {{ end }}
+</div>
+
+<style>
+.training-calendar {
+    margin: 0;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 12px;
+    position: sticky;
+    top: 100px;
+}
+
+.training-calendar-header {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    gap: 0.75rem;
+}
+
+.training-calendar-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.training-calendar-title i {
+    font-size: 1.25rem;
+    color: #00b388;
+}
+
+.training-calendar-title h2 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: #2c3e50;
+}
+
+.training-calendar-actions .button {
+    width: 100%;
+    justify-content: center;
+}
+
+.training-calendar-grid {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.training-event-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 1rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.training-event-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+}
+
+.training-event-date {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    background: #00b388;
+    color: white;
+    border-radius: 8px;
+    min-width: 80px;
+}
+
+.event-month {
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.event-day {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.event-year {
+    font-size: 0.75rem;
+    opacity: 0.8;
+}
+
+.training-event-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.event-title {
+    margin: 0 0 0.5rem;
+    font-size: 1.25rem;
+}
+
+.event-title a {
+    color: #2c3e50;
+    text-decoration: none;
+}
+
+.event-title a:hover {
+    color: #00b388;
+}
+
+.training-event-details p {
+    margin: 0.25rem 0;
+    font-size: 0.875rem;
+    color: #6c757d;
+}
+
+.training-event-details i {
+    width: 20px;
+    margin-right: 0.5rem;
+    color: #00b388;
+}
+
+.event-spots.spots-low {
+    color: #dc3545;
+}
+
+.event-spots.spots-low i {
+    color: #dc3545;
+}
+
+.training-event-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    justify-content: center;
+}
+
+.training-calendar-empty {
+    text-align: center;
+    padding: 3rem;
+}
+
+.empty-calendar-icon {
+    font-size: 4rem;
+    color: #dee2e6;
+    margin-bottom: 1rem;
+}
+
+.training-calendar-empty h3 {
+    color: #6c757d;
+    margin-bottom: 0.5rem;
+}
+
+.training-calendar-empty p {
+    color: #868e96;
+    margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+    .training-event-card {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .training-event-date {
+        flex-direction: row;
+        gap: 0.5rem;
+        justify-content: center;
+    }
+
+    .event-day {
+        font-size: 1.5rem;
+    }
+
+    .training-event-actions {
+        flex-direction: row;
+        justify-content: center;
+    }
+}
+</style>
