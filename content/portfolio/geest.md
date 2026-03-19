@@ -1,5 +1,5 @@
 ---
-title: "Gender Enabling Environments Spatial Tool (GEEST)"
+title: "GEOE3 - Geospatial Enabling Environments for Employment Spatial Tool (formerly GEEST)"
 description: "A QGIS plugin leveraging geospatial data to identify and address barriers to women's employment, developed for the World Bank."
 thumbnail: "/img/portfolio/geest.png"
 tags:
@@ -13,11 +13,13 @@ services:
   - Development
 related_plugins:
   - geest
+reviewedBy: "Jeff Osundwa"
+reviewedDate: "2026-03-19"
 ---
 
 {{< block
-    title="GEEST"
-    subtitle="Geospatial insights for gender-inclusive workforce development"
+    title="GEOE3"
+    subtitle="Geospatial Enabling Environments for Employment Spatial Tool"
     class="is-primary"
     sub-block-side="bottom"
     link="https://github.com/worldbank/GEEST/"
@@ -28,11 +30,15 @@ Developed for the World Bank Group to address barriers to women's employment thr
 
 ## Overview
 
-The Gender Enabling Environments Spatial Tool (GEEST) leverages geospatial data to identify and address barriers to employment for women. Developed as a QGIS plugin, it generates spatial insights on transportation, education, digital inclusion, and socio-economic conditions affecting workforce participation.
+The GEOE3 (Geospatial Enabling Environments for Employment Spatial Tool) project is designed to enhance women's access to employment and business opportunities by leveraging geospatial data to identify and address barriers in their environments. Supported by the World Bank Group (WBG), the project integrates open-source spatial analysis to assess critical factors such as transportation, education, digital inclusion, and socio-economic conditions that influence women's workforce participation.
 
-The final phase refined the tool by incorporating comprehensive demographic factors to deliver actionable insights supporting inclusive workforce development.
+Developed as a QGIS plugin, GEOE3 generates spatial insights to highlight areas where interventions can strengthen enabling conditions for women, empowering policymakers and stakeholders to make data-driven decisions. By mapping gaps and opportunities, the tool provides a systematic approach to fostering gender equality through spatial planning.
 
-![GEEST Plugin](/img/portfolio/geest.png)
+The final phase of the project focuses on refining the tool by incorporating a more comprehensive set of socio-economic and demographic factors. This will ensure that GEOE3 delivers more accurate, actionable insights to support inclusive workforce development and address gender disparities.
+
+![GEOE3 Plugin](/img/portfolio/geest.png)
+
+![GEOE3 Dashboard](../img/geoe3_1.gif)
 
 ## Key Outcomes
 
