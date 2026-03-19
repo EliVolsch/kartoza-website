@@ -22,6 +22,8 @@ skills:
 achievements:
   - "Python Jogja community volunteer"
 bio: "Based in Central Java. Python/Django specialist and volunteer in the Python Jogja community."
+reviewedBy: "Tim Sutton"
+reviewedDate: 2026-03-19
 ---
 
 Zakki is a dedicated software developer specializing in Python and Django web development. His education in Information Systems from Universitas Indonesia provided him with a strong foundation in software engineering principles and best practices.
