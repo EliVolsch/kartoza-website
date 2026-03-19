@@ -42,10 +42,12 @@ jobs:
         working-directory: playwright/ci-test
         run: |
           npm install
-          npm ci
           npx playwright install --with-deps
       - name: ⚡️ Run Playwright tests
         working-directory: playwright/ci-test
+        env:
+          CI: true
+          BASE_URL: http://127.0.0.1:1313
         run: npx playwright test
       - uses: actions/upload-artifact@v6
         if: always()

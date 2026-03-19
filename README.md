@@ -68,6 +68,22 @@
   <a href="https://github.com/kartoza/kartoza-website/actions/workflows/playwright-e2e.yml">
     <img src="https://github.com/kartoza/kartoza-website/actions/workflows/playwright-e2e.yml/badge.svg" alt="E2E Tests">
   </a>
+  <a href="https://github.com/kartoza/kartoza-website/actions/workflows/pr-checks.yml">
+    <img src="https://github.com/kartoza/kartoza-website/actions/workflows/pr-checks.yml/badge.svg" alt="PR Checks">
+  </a>
+</p>
+
+<p align="center">
+  <!-- Version & Release -->
+  <a href="https://github.com/kartoza/kartoza-website/releases/latest">
+    <img src="https://img.shields.io/github/v/release/kartoza/kartoza-website?style=flat&logo=github&label=Latest%20Release" alt="Latest Release">
+  </a>
+  <a href="https://github.com/kartoza/kartoza-website/releases">
+    <img src="https://img.shields.io/github/release-date/kartoza/kartoza-website?style=flat&label=Released" alt="Release Date">
+  </a>
+  <a href="https://github.com/kartoza/kartoza-website">
+    <img src="https://img.shields.io/github/repo-size/kartoza/kartoza-website?style=flat&label=Repo%20Size" alt="Repo Size">
+  </a>
 </p>
 
 <p align="center">
@@ -86,22 +102,60 @@
   <a href="https://github.com/kartoza/kartoza-website/commits/main">
     <img src="https://img.shields.io/github/last-commit/kartoza/kartoza-website?style=flat" alt="Last Commit">
   </a>
-  <a href="https://github.com/kartoza/kartoza-website/issues">
-    <img src="https://img.shields.io/github/issues/kartoza/kartoza-website?style=flat" alt="Open Issues">
+  <a href="https://github.com/kartoza/kartoza-website/graphs/commit-activity">
+    <img src="https://img.shields.io/github/commit-activity/m/kartoza/kartoza-website?style=flat&label=Commits/Month" alt="Commit Activity">
   </a>
-  <a href="https://github.com/kartoza/kartoza-website/pulls">
-    <img src="https://img.shields.io/github/issues-pr/kartoza/kartoza-website?style=flat" alt="Pull Requests">
+  <a href="https://github.com/kartoza/kartoza-website/graphs/contributors">
+    <img src="https://img.shields.io/github/contributors/kartoza/kartoza-website?style=flat" alt="Contributors">
   </a>
 </p>
 
 <p align="center">
-  <!-- Security -->
-  <a href="https://github.com/kartoza/kartoza-website/security/dependabot">
-    <img src="https://img.shields.io/badge/Dependabot-0_alerts-success?style=flat&logo=dependabot&logoColor=white" alt="Dependabot">
+  <!-- Issues & PRs -->
+  <a href="https://github.com/kartoza/kartoza-website/issues">
+    <img src="https://img.shields.io/github/issues/kartoza/kartoza-website?style=flat" alt="Open Issues">
   </a>
-  <img src="https://img.shields.io/badge/Security-Audited-success?style=flat&logo=shieldsdotio" alt="Security Audited">
+  <a href="https://github.com/kartoza/kartoza-website/issues?q=is%3Aissue+is%3Aclosed">
+    <img src="https://img.shields.io/github/issues-closed/kartoza/kartoza-website?style=flat&color=success" alt="Closed Issues">
+  </a>
+  <a href="https://github.com/kartoza/kartoza-website/pulls">
+    <img src="https://img.shields.io/github/issues-pr/kartoza/kartoza-website?style=flat" alt="Open PRs">
+  </a>
+  <a href="https://github.com/kartoza/kartoza-website/pulls?q=is%3Apr+is%3Aclosed">
+    <img src="https://img.shields.io/github/issues-pr-closed/kartoza/kartoza-website?style=flat&color=success" alt="Closed PRs">
+  </a>
+</p>
+
+<p align="center">
+  <!-- Community -->
+  <a href="https://github.com/kartoza/kartoza-website/stargazers">
+    <img src="https://img.shields.io/github/stars/kartoza/kartoza-website?style=flat&logo=github" alt="Stars">
+  </a>
+  <a href="https://github.com/kartoza/kartoza-website/network/members">
+    <img src="https://img.shields.io/github/forks/kartoza/kartoza-website?style=flat&logo=github" alt="Forks">
+  </a>
+  <a href="https://github.com/kartoza/kartoza-website/watchers">
+    <img src="https://img.shields.io/github/watchers/kartoza/kartoza-website?style=flat&logo=github" alt="Watchers">
+  </a>
+</p>
+
+<p align="center">
+  <!-- Security & Quality -->
+  <a href="https://github.com/kartoza/kartoza-website/security/dependabot">
+    <img src="https://img.shields.io/badge/Dependabot-enabled-success?style=flat&logo=dependabot&logoColor=white" alt="Dependabot">
+  </a>
+  <img src="https://img.shields.io/badge/Spell%20Check-British%20English-blue?style=flat&logo=googledocs&logoColor=white" alt="Spell Check">
+  <img src="https://img.shields.io/badge/Markdown-Lint-blue?style=flat&logo=markdown&logoColor=white" alt="Markdown Lint">
+  <img src="https://img.shields.io/badge/Pre--commit-enabled-brightgreen?style=flat&logo=pre-commit&logoColor=white" alt="Pre-commit">
+</p>
+
+<p align="center">
+  <!-- Infrastructure -->
   <img src="https://img.shields.io/badge/nginx-1.28.2-009639?style=flat&logo=nginx&logoColor=white" alt="nginx">
   <img src="https://img.shields.io/badge/Python-3.12-3776AB?style=flat&logo=python&logoColor=white" alt="Python">
+  <a href="https://github.com/kartoza/kartoza-website/blob/main/flake.nix">
+    <img src="https://img.shields.io/badge/Nix-Reproducible-5277C3?style=flat&logo=nixos&logoColor=white" alt="Nix Reproducible">
+  </a>
 </p>
 
 ---
@@ -308,6 +362,7 @@ Fetch and update stats from Docker Hub and QGIS Plugin Repository:
 ```
 
 Output example:
+
 ```
 ======================================================
 DOCKER HUB STATS UPDATE
@@ -327,6 +382,7 @@ Total: 8 | Updated: 3 | Unchanged: 4 | Errors: 1
 Fetch content from ERPNext (erp.kartoza.com) and compare with local files.
 
 **Environment variables** (optional, for private content):
+
 ```bash
 export ERPNEXT_URL="https://erp.kartoza.com"
 export ERPNEXT_API_KEY="your-api-key"
@@ -334,6 +390,7 @@ export ERPNEXT_API_SECRET="your-api-secret"
 ```
 
 **Fetch blogs from ERPNext:**
+
 ```bash
 # List available blogs
 ./scripts/fetch-erpnext-blogs.py --list
@@ -344,6 +401,7 @@ export ERPNEXT_API_SECRET="your-api-secret"
 ```
 
 **Fetch portfolio items from ERPNext:**
+
 ```bash
 # List available portfolio items
 ./scripts/fetch-erpnext-portfolio.py --list
@@ -354,6 +412,7 @@ export ERPNEXT_API_SECRET="your-api-secret"
 ```
 
 **Compare local content with ERPNext:**
+
 ```bash
 # Compare all content
 ./scripts/compare-erpnext-content.py
@@ -367,6 +426,7 @@ export ERPNEXT_API_SECRET="your-api-secret"
 ```
 
 Output example:
+
 ```
 ============================================================
 BLOG COMPARISON
@@ -386,6 +446,7 @@ Total: 45 | Identical: 30 | Modified: 5 | No ERPNext link: 10
 The project includes pre-commit hooks that enforce quality standards.
 
 **Install hooks:**
+
 ```bash
 ./scripts/install-hooks.sh
 ```
@@ -405,6 +466,7 @@ The project includes pre-commit hooks that enforce quality standards.
 3. **Spelling issues**: Fix the spelling, or add valid words to `.cspell/project-words.txt`
 
 **Bypass (not recommended):**
+
 ```bash
 git commit --no-verify
 ```
@@ -412,6 +474,7 @@ git commit --no-verify
 ### Branch Protection
 
 The `main` branch is protected with the following rules:
+
 - Changes must be made through pull requests
 - Required status checks must pass:
   - Markdown Lint
@@ -534,7 +597,7 @@ This project was originally derived from the [QGIS Hugo Website Theme](https://g
 ---
 
 <p align="center">
-  Made with ❤️ by <a href="https://kartoza.com">Kartoza</a> |
+  Made with :heart: by <a href="https://kartoza.com">Kartoza</a> |
   <a href="https://github.com/sponsors/kartoza">Donate!</a> |
   <a href="https://github.com/kartoza/kartoza-website">GitHub</a>
 </p>

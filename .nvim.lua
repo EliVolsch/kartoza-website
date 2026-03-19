@@ -600,6 +600,58 @@ local function run_all_checks()
   vim.cmd("edit!")
 end
 
+-- Playwright test functions
+local playwright_dir = vim.fn.getcwd() .. "/playwright/ci-test"
+
+local function playwright_test_all()
+  vim.cmd("!cd " .. playwright_dir .. " && npm test")
+end
+
+local function playwright_test_chromium()
+  vim.cmd("!cd " .. playwright_dir .. " && npx playwright test --project=chromium")
+end
+
+local function playwright_test_firefox()
+  vim.cmd("!cd " .. playwright_dir .. " && npx playwright test --project=firefox")
+end
+
+local function playwright_test_webkit()
+  vim.cmd("!cd " .. playwright_dir .. " && npx playwright test --project=webkit")
+end
+
+local function playwright_test_headed()
+  vim.cmd("!cd " .. playwright_dir .. " && npm run test:headed")
+end
+
+local function playwright_test_ui()
+  vim.cmd("!cd " .. playwright_dir .. " && npm run test:ui &")
+  vim.notify("Playwright UI started in background", vim.log.levels.INFO)
+end
+
+local function playwright_test_debug()
+  vim.cmd("!cd " .. playwright_dir .. " && npm run test:debug")
+end
+
+local function playwright_show_report()
+  vim.cmd("!cd " .. playwright_dir .. " && npm run report &")
+  vim.notify("Playwright report opened in browser", vim.log.levels.INFO)
+end
+
+local function playwright_test_file()
+  local filename = vim.api.nvim_buf_get_name(0)
+  if not filename:match("%.spec%.ts$") then
+    vim.notify("Not a Playwright spec file", vim.log.levels.WARN)
+    return
+  end
+  local relative = filename:gsub(playwright_dir .. "/", "")
+  vim.cmd("!cd " .. playwright_dir .. " && npx playwright test " .. vim.fn.shellescape(relative))
+end
+
+local function playwright_install()
+  vim.cmd("!cd " .. playwright_dir .. " && npm install && npx playwright install")
+  vim.notify("Playwright dependencies installed", vim.log.levels.INFO)
+end
+
 -- Register which-key mappings (flat structure for fewer key presses)
 wk.add({
   { "<leader>p", group = "Project" },
@@ -668,11 +720,25 @@ wk.add({
   { "<leader>pfa", run_all_checks, desc = "Run all checks" },
   { "<leader>pfw", add_word_to_dictionary, desc = "Add word to dictionary" },
 
+  -- Playwright e2e tests (T = tests)
+  { "<leader>pT", group = "Playwright tests" },
+  { "<leader>pTa", playwright_test_all, desc = "Run all tests" },
+  { "<leader>pTc", playwright_test_chromium, desc = "Chromium only" },
+  { "<leader>pTf", playwright_test_firefox, desc = "Firefox only" },
+  { "<leader>pTw", playwright_test_webkit, desc = "WebKit only" },
+  { "<leader>pTh", playwright_test_headed, desc = "Headed mode" },
+  { "<leader>pTu", playwright_test_ui, desc = "UI mode" },
+  { "<leader>pTd", playwright_test_debug, desc = "Debug mode" },
+  { "<leader>pTr", playwright_show_report, desc = "Show report" },
+  { "<leader>pTt", playwright_test_file, desc = "Test current file" },
+  { "<leader>pTi", playwright_install, desc = "Install deps" },
+
   -- Quick navigation
   { "<leader>pc", "<cmd>e content/<CR>", desc = "Content" },
   { "<leader>pL", "<cmd>e layouts/<CR>", desc = "Layouts" },
   { "<leader>pt", "<cmd>e themes/<CR>", desc = "Themes" },
   { "<leader>pS", "<cmd>e scripts/<CR>", desc = "Scripts" },
+  { "<leader>pP", "<cmd>e playwright/ci-test/tests/<CR>", desc = "Playwright tests" },
 })
 
 vim.notify("Kartoza Hugo project config loaded. Use <leader>p for project commands.", vim.log.levels.INFO)
