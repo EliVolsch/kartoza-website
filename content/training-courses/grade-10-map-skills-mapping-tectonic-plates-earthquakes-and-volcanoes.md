@@ -4,6 +4,8 @@ description: "This lesson offers Grade 10 learners materials aligned with their 
 thumbnail: "/img/training/grade-10-map-skills-mapping-tectonic-plates-earthquakes-and-volcanoes.jpg"
 item_code: "Grade 10 Map Skills: Mapping Tectonic Plates, Earthquakes and Volcanoes"
 shop_url: "https://erp.kartoza.com/shop/product/grade-10-map-skills-mapping-tectonic-plates-earthquakes-and-volcanoes"
+tags:
+  - Training
 draft: false
 reviewedBy: "Tim Sutton"
 reviewedDate: 2026-03-20

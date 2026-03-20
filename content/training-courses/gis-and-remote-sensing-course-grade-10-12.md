@@ -4,6 +4,8 @@ description: ""
 thumbnail: "/img/training/gis-and-remote-sensing-course-grade-10-12.jpg"
 item_code: "GIS and Remote Sensing Course: Grade 10-12"
 shop_url: "https://erp.kartoza.com/shop/product/gis-and-remote-sensing-course-grade-10-12"
+tags:
+  - Training
 draft: false
 reviewedBy: "Tim Sutton"
 reviewedDate: 2026-03-20

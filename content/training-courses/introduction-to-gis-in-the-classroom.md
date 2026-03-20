@@ -4,6 +4,8 @@ description: ""
 thumbnail: "/img/training/introduction-to-gis-in-the-classroom.jpg"
 item_code: "CGIS"
 shop_url: "https://erp.kartoza.com/shop/product/introduction-to-gis-in-the-classroom"
+tags:
+  - Training
 draft: false
 reviewedBy: "Tim Sutton"
 reviewedDate: 2026-03-20

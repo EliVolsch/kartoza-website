@@ -4,6 +4,8 @@ description: "PostGIS is a spatial database that is more than just a spatial dat
 thumbnail: "/img/training/geospatial-data-in-postgis-course.jpg"
 item_code: "Geospatial Data in PostGIS"
 shop_url: "https://erp.kartoza.com/shop/product/geospatial-data-in-postgis-course"
+tags:
+  - Training
 draft: false
 reviewedBy: "Tim Sutton"
 reviewedDate: 2026-03-20

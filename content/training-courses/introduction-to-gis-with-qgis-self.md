@@ -4,6 +4,8 @@ description: "A practical, beginner-friendly introduction to GIS using QGIS."
 thumbnail: "/img/training/introduction-to-gis-with-qgis-self.jpg"
 item_code: "Introduction to GIS with QGIS (Self-paced)"
 shop_url: "https://erp.kartoza.com/shop/product/introduction-to-gis-with-qgis-self"
+tags:
+  - Training
 draft: false
 reviewedBy: "Tim Sutton"
 reviewedDate: 2026-03-20

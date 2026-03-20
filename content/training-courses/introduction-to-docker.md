@@ -4,6 +4,8 @@ description: "Docker is a new way of deploying applications on the web. With doc
 thumbnail: "/img/training/introduction-to-docker.jpg"
 item_code: "DOCKER101"
 shop_url: "https://erp.kartoza.com/shop/product/introduction-to-docker"
+tags:
+  - Training
 draft: false
 reviewedBy: "Tim Sutton"
 reviewedDate: 2026-03-20

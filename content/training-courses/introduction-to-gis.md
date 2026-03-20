@@ -4,6 +4,8 @@ description: "The course is developed and delivered by experienced teachers and 
 thumbnail: "/img/training/introduction-to-gis.jpg"
 item_code: "GIS Fundamentals for Educators"
 shop_url: "https://erp.kartoza.com/shop/product/introduction-to-gis"
+tags:
+  - Training
 draft: false
 reviewedBy: "Tim Sutton"
 reviewedDate: 2026-03-20

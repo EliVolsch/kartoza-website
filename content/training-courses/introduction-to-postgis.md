@@ -4,6 +4,8 @@ description: "Welcome to our Geospatial Data in PostGIS course, where we delve i
 thumbnail: "/img/training/introduction-to-postgis.jpg"
 item_code: "POSTGIS101"
 shop_url: "https://erp.kartoza.com/shop/product/introduction-to-postgis"
+tags:
+  - Training
 draft: false
 reviewedBy: "Tim Sutton"
 reviewedDate: 2026-03-20

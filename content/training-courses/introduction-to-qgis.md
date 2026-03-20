@@ -4,6 +4,8 @@ description: "The training agenda is based mainly on the QGIS Training Manual wi
 thumbnail: "/img/training/introduction-to-qgis.jpg"
 item_code: "Introduction to QGIS Course"
 shop_url: "https://erp.kartoza.com/shop/product/introduction-to-qgis"
+tags:
+  - Training
 draft: false
 reviewedBy: "Tim Sutton"
 reviewedDate: 2026-03-20

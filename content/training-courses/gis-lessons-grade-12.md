@@ -4,6 +4,8 @@ description: "These four stand-alone extension GIS lessons cover the entire Grad
 thumbnail: "/img/training/gis-lessons-grade-12.jpg"
 item_code: "GR 12 GIS Course"
 shop_url: "https://erp.kartoza.com/shop/product/gis-lessons-grade-12"
+tags:
+  - Training
 draft: false
 reviewedBy: "Tim Sutton"
 reviewedDate: 2026-03-20

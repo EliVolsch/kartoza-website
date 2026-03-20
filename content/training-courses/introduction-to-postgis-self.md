@@ -4,6 +4,8 @@ description: "This course is presented to transfer a working knowledge of SQL to
 thumbnail: "/img/training/introduction-to-postgis-self.jpg"
 item_code: "Introduction to PostGIS (Self-paced)"
 shop_url: "https://erp.kartoza.com/shop/product/introduction-to-postgis-self"
+tags:
+  - Training
 draft: false
 reviewedBy: "Tim Sutton"
 reviewedDate: 2026-03-20

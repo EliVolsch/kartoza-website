@@ -4,6 +4,8 @@ description: ""
 thumbnail: "/img/training/how-to-use-the-sagta-map-downloader.jpg"
 item_code: "TMD"
 shop_url: "https://erp.kartoza.com/shop/product/how-to-use-the-sagta-map-downloader"
+tags:
+  - Training
 draft: false
 reviewedBy: "Tim Sutton"
 reviewedDate: 2026-03-20

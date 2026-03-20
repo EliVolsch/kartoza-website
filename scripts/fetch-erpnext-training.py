@@ -269,6 +269,8 @@ description: "{short_desc}"
 thumbnail: "/img/training/{slug}.jpg"
 item_code: "{course.get('item_code', '')}"
 shop_url: "{shop_url}"
+tags:
+  - Training
 draft: false
 reviewedBy: "Auto-generated"
 reviewedDate: {datetime.now().strftime('%Y-%m-%d')}

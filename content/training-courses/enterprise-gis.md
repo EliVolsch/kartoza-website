@@ -4,6 +4,8 @@ description: "Enterprise GIS (Geographic Information Systems) is all about doing
 thumbnail: "/img/training/enterprise-gis.jpg"
 item_code: "Introduction to Enterprise GIS with FOSS"
 shop_url: "https://erp.kartoza.com/shop/product/enterprise-gis"
+tags:
+  - Training
 draft: false
 reviewedBy: "Tim Sutton"
 reviewedDate: 2026-03-20

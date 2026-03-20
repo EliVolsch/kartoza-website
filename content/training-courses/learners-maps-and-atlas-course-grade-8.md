@@ -4,6 +4,8 @@ description: "This lesson provides Grade 8 learners with access to materials ali
 thumbnail: "/img/training/learners-maps-and-atlas-course-grade-8.jpg"
 item_code: "Grade 8 Map Skills: Provinces of South Africa"
 shop_url: "https://erp.kartoza.com/shop/product/learners-maps-and-atlas-course-grade-8"
+tags:
+  - Training
 draft: false
 reviewedBy: "Tim Sutton"
 reviewedDate: 2026-03-20
