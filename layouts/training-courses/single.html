@@ -41,11 +41,11 @@
                     </div>
                 </div>
                 <div class="course-hero-cta">
-                    <a href="#booking-section" class="button is-primary is-large booking-scroll-btn">
+                    <a href="#booking-section" class="button is-primary is-medium booking-scroll-btn">
                         <span class="icon"><i class="fas fa-calendar-check"></i></span>
                         <span>View Dates & Book</span>
                     </a>
-                    <a href="#course-content" class="button is-light is-large">
+                    <a href="#course-content" class="button is-light is-medium">
                         <span class="icon"><i class="fas fa-info-circle"></i></span>
                         <span>Learn More</span>
                     </a>
@@ -114,13 +114,13 @@
 
                         {{ if gt (len $courseSessions) 0 }}
                             <p class="booking-quick-text">{{ len $courseSessions }} upcoming session{{ if ne (len $courseSessions) 1 }}s{{ end }} available</p>
-                            <a href="#booking-section" class="button is-primary is-fullwidth booking-scroll-btn">
+                            <a href="#booking-section" class="button is-primary is-medium booking-scroll-btn">
                                 <span class="icon"><i class="fas fa-arrow-down"></i></span>
                                 <span>Choose Date & Venue</span>
                             </a>
                         {{ else }}
                             <p class="booking-quick-text">No scheduled sessions yet</p>
-                            <a href="{{ absURL "contact-us/" }}?subject=Training%20Enquiry:%20{{ .Title | urlquery }}" class="button is-primary is-fullwidth">
+                            <a href="{{ absURL "contact-us/" }}?subject=Training%20Enquiry:%20{{ .Title | urlquery }}" class="button is-primary is-medium">
                                 <span class="icon"><i class="fas fa-envelope"></i></span>
                                 <span>Request Custom Training</span>
                             </a>
@@ -290,12 +290,12 @@
 
                         <div class="session-card-footer">
                             {{ if ne .status "full" }}
-                            <button class="button is-primary is-fullwidth select-session-btn">
+                            <button class="button is-primary is-medium select-session-btn">
                                 <span class="icon"><i class="fas fa-check"></i></span>
                                 <span>Select This Session</span>
                             </button>
                             {{ else }}
-                            <button class="button is-light is-fullwidth" disabled>
+                            <button class="button is-light is-medium" disabled>
                                 <span class="icon"><i class="fas fa-ban"></i></span>
                                 <span>Session Full</span>
                             </button>
@@ -315,7 +315,7 @@
                             <h4>Need Custom Training?</h4>
                             <p>We can bring this course to your location or schedule a private session for your team.</p>
                         </div>
-                        <a href="{{ absURL "contact-us/" }}?subject=Custom%20Training%20Enquiry:%20{{ .Title | urlquery }}" class="button is-light">
+                        <a href="{{ absURL "contact-us/" }}?subject=Custom%20Training%20Enquiry:%20{{ .Title | urlquery }}" class="button is-light is-medium">
                             <span class="icon"><i class="fas fa-envelope"></i></span>
                             <span>Request Quote</span>
                         </a>
@@ -386,11 +386,11 @@
                 </div>
 
                 <div class="booking-step-actions">
-                    <button class="button is-light back-btn">
+                    <button class="button is-light is-medium back-btn">
                         <span class="icon"><i class="fas fa-arrow-left"></i></span>
                         <span>Back</span>
                     </button>
-                    <button class="button is-primary next-btn">
+                    <button class="button is-primary is-medium next-btn">
                         <span>Continue</span>
                         <span class="icon"><i class="fas fa-arrow-right"></i></span>
                     </button>
@@ -481,11 +481,11 @@
                 </div>
 
                 <div class="booking-step-actions">
-                    <button class="button is-light back-btn">
+                    <button class="button is-light is-medium back-btn">
                         <span class="icon"><i class="fas fa-arrow-left"></i></span>
                         <span>Back</span>
                     </button>
-                    <button class="button is-primary is-large proceed-checkout-btn">
+                    <button class="button is-primary is-medium proceed-checkout-btn">
                         <span class="icon"><i class="fas fa-lock"></i></span>
                         <span>Proceed to Secure Checkout</span>
                     </button>
@@ -517,7 +517,7 @@
             <i class="fas fa-calendar-times"></i>
             <h3>No Scheduled Sessions Yet</h3>
             <p>We don't have any public sessions scheduled for this course at the moment, but we can arrange custom training for your team.</p>
-            <a href="{{ absURL "contact-us/" }}?subject=Custom%20Training%20Enquiry:%20{{ .Title | urlquery }}" class="button is-primary is-large">
+            <a href="{{ absURL "contact-us/" }}?subject=Custom%20Training%20Enquiry:%20{{ .Title | urlquery }}" class="button is-primary is-medium">
                 <span class="icon"><i class="fas fa-envelope"></i></span>
                 <span>Request Custom Training</span>
             </a>
