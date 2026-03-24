@@ -8,7 +8,7 @@ tags:
   - Training
 draft: false
 reviewedBy: "Tim Sutton"
-reviewedDate: 2026-03-20
+reviewedDate: 2026-03-24
 ---
 
 {{< block
@@ -22,6 +22,15 @@ Enterprise GIS (Geographic Information Systems) is all about doing GIS on a larg
 
 ## Overview
 
-Enterprise GIS (Geographic Information Systems) is all about doing GIS on a larger scale than just your PC with local files. Is this course for you? Here are some aspects of Enterprise GIS to help you decide:you need to supply GIS to a whole department or organisation or enterprisemultiple users, with different rolesintegration with other systems, technologies and datasupplying standards-based servicesmanaging large quantities of data, many different themespowering websites and desktops24/7/365 
+Enterprise GIS (Geographic Information Systems) is all about doing GIS on a larger scale than just your PC with local files. Is this course for you? Here are some aspects of Enterprise GIS to help you decide:
 
+- You need to supply GIS to a whole department or organisation
+- Multiple users, with different roles
+- Integration with other systems, technologies and data
+- Supplying standards-based services
+- Managing large quantities of data, many different themes
+- Powering websites and desktops 24/7/365
+
+<!-- markdownlint-disable MD034 -->
 {{< button-bar "fas fa-shopping-cart:Book This Course:https://erp.kartoza.com/shop/product/enterprise-gis" "fas fa-envelope:Enquire:/contact-us/" >}}
+<!-- markdownlint-enable MD034 -->
