@@ -48,6 +48,13 @@
 - [Development](#development)
   - [Available Commands](#available-commands)
   - [CI/CD Workflows](#cicd-workflows)
+- [Scripts](#scripts)
+  - [Content Creation Scripts](#content-creation-scripts)
+  - [Stats Update Scripts](#stats-update-scripts)
+  - [ERPNext Integration Scripts](#erpnext-integration-scripts)
+  - [Git Hooks](#git-hooks)
+  - [Branch Protection](#branch-protection)
+  - [Neovim Integration](#neovim-integration)
 - [Security](#security)
 - [Contributing](#contributing)
   - [Code Style](#code-style)
@@ -603,5 +610,5 @@ This project was originally derived from the [QGIS Hugo Website Theme](https://g
 </p>
 
 <p align="center">
-  <sub>🌍 Empowering the world with Open Source Geospatial Solutions since 2008</sub>
+  <sub>🌍 Empowering the world with Open Source Geospatial Solutions since 2008.</sub>
 </p>
