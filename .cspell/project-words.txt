@@ -1,10 +1,8 @@
-# Project-specific words for cspell
+
 # Add words here that are valid but not in the dictionary
+CGIS
 # One word per line
-
-# Team member names (add as needed)
-
-# Technical terms specific to this project
-
 # Place names
-
+# Project-specific words for cspell
+# Team member names (add as needed)
+# Technical terms specific to this project

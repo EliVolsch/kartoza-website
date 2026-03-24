@@ -13,8 +13,10 @@
         <div class="course-hero-content">
             <div class="course-hero-info">
                 <div class="course-hero-tags">
-                    {{ range first 3 .Params.tags }}
+                    {{ with .Params.tags }}
+                    {{ range first 3 . }}
                     <span class="course-tag">{{ . }}</span>
+                    {{ end }}
                     {{ end }}
                 </div>
                 <h1 class="course-hero-title">{{ .Title }}</h1>
