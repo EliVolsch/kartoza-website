@@ -11248,10 +11248,6 @@ body:has(.blog-hero) .contextmenu {
     background: linear-gradient(135deg, #0db7ed 0%, #384d54 100%);
 }
 
-.docker-content {
-    /* Inherit blog article content styles */
-}
-
 .docker-content pre {
     background: #1e1e1e !important;
     border-radius: var(--radius-md);
