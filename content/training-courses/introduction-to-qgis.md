@@ -8,7 +8,7 @@ tags:
   - Training
 draft: false
 reviewedBy: "Tim Sutton"
-reviewedDate: 2026-03-20
+reviewedDate: 2026-03-24
 ---
 
 {{< block
@@ -24,4 +24,6 @@ The training agenda is based mainly on the QGIS Training Manual with custom exam
 
 Course OverviewWelcome to the QGIS Training Course! We are thrilled to have you on board for this immersive learning experience designed to enhance your Geographic Information Systems (GIS) skills. Our training agenda is based on the QGIS Training Manual, with custom examples tailored to provide comprehensive learning.The primary objectives of this course include:Migration assistance: Guiding you through the transition from another GIS package.Introduction and understanding: Providing a solid fo
 
+<!-- markdownlint-disable MD034 -->
 {{< button-bar "fas fa-shopping-cart:Book This Course:https://erp.kartoza.com/shop/product/introduction-to-qgis" "fas fa-envelope:Enquire:/contact-us/" >}}
+<!-- markdownlint-enable MD034 -->

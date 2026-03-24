@@ -8,7 +8,7 @@ tags:
   - Training
 draft: false
 reviewedBy: "Tim Sutton"
-reviewedDate: 2026-03-20
+reviewedDate: 2026-03-24
 ---
 
 {{< block
@@ -24,4 +24,6 @@ Professional training course from Kartoza.
 
 Course overview coming soon.
 
+<!-- markdownlint-disable MD034 -->
 {{< button-bar "fas fa-shopping-cart:Book This Course:https://erp.kartoza.com/shop/product/how-to-use-the-sagta-map-downloader" "fas fa-envelope:Enquire:/contact-us/" >}}
+<!-- markdownlint-enable MD034 -->
