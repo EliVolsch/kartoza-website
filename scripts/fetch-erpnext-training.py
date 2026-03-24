@@ -40,6 +40,80 @@ def slugify(text: str) -> str:
     return text
 
 
+def truncate_at_sentence(text: str, max_length: int = 200) -> str:
+    """Truncate text at a sentence boundary, not mid-word."""
+    if not text or len(text) <= max_length:
+        return text
+
+    # Find the last sentence-ending punctuation before max_length
+    truncated = text[:max_length]
+
+    # Try to find a sentence boundary (. ! ?)
+    for punct in ['. ', '! ', '? ']:
+        last_punct = truncated.rfind(punct)
+        if last_punct > max_length // 2:  # At least halfway through
+            return truncated[:last_punct + 1].strip()
+
+    # Fall back to last space to avoid mid-word cut
+    last_space = truncated.rfind(' ')
+    if last_space > max_length // 2:
+        return truncated[:last_space].strip() + '...'
+
+    return truncated.strip() + '...'
+
+
+def clean_html_to_markdown(html: str) -> str:
+    """Convert HTML to clean markdown-friendly text."""
+    if not html:
+        return ""
+
+    # Replace common HTML elements with markdown equivalents
+    text = html
+
+    # Handle line breaks and paragraphs
+    text = re.sub(r'<br\s*/?>', '\n', text)
+    text = re.sub(r'</p>\s*<p[^>]*>', '\n\n', text)
+    text = re.sub(r'<p[^>]*>', '', text)
+    text = re.sub(r'</p>', '\n\n', text)
+
+    # Handle lists
+    text = re.sub(r'<li[^>]*>', '- ', text)
+    text = re.sub(r'</li>', '\n', text)
+    text = re.sub(r'</?[ou]l[^>]*>', '\n', text)
+
+    # Handle headings
+    text = re.sub(r'<h1[^>]*>', '# ', text)
+    text = re.sub(r'<h2[^>]*>', '## ', text)
+    text = re.sub(r'<h3[^>]*>', '### ', text)
+    text = re.sub(r'</h[123456]>', '\n\n', text)
+
+    # Handle bold/italic
+    text = re.sub(r'<strong[^>]*>(.*?)</strong>', r'**\1**', text)
+    text = re.sub(r'<b[^>]*>(.*?)</b>', r'**\1**', text)
+    text = re.sub(r'<em[^>]*>(.*?)</em>', r'*\1*', text)
+    text = re.sub(r'<i[^>]*>(.*?)</i>', r'*\1*', text)
+
+    # Handle HTML entities
+    text = text.replace('&nbsp;', ' ')
+    text = text.replace('&amp;', '&')
+    text = text.replace('&lt;', '<')
+    text = text.replace('&gt;', '>')
+    text = text.replace('&quot;', '"')
+    text = text.replace('&#39;', "'")
+    text = text.replace('&ndash;', '–')
+    text = text.replace('&mdash;', '—')
+
+    # Strip remaining HTML tags
+    text = re.sub(r'<[^>]+>', '', text)
+
+    # Clean up whitespace
+    text = re.sub(r'\n{3,}', '\n\n', text)
+    text = re.sub(r' +', ' ', text)
+    text = text.strip()
+
+    return text
+
+
 def parse_date_range(date_str: str) -> tuple:
     """Parse date range into start and end dates."""
     months = {
@@ -256,16 +330,24 @@ def create_course_page(course: dict, dry_run: bool = False) -> Path:
 
     shop_url = f"{ERPNEXT_URL}/shop/product/{slug}"
 
-    # Clean description HTML
-    description = course.get("description") or course.get("short_description") or ""
-    description = re.sub(r'<[^>]+>', '', description)  # Strip HTML tags
-    description = description[:500] if description and len(description) > 500 else description
+    # Get full description and convert HTML to clean text
+    full_description = course.get("description") or course.get("short_description") or ""
+    full_description = clean_html_to_markdown(full_description)
 
-    short_desc = (course.get('short_description') or '')[:200]
+    # For frontmatter description (SEO), truncate intelligently at sentence boundary
+    short_desc_raw = course.get('short_description') or full_description or ''
+    short_desc_raw = clean_html_to_markdown(short_desc_raw)
+    short_desc = truncate_at_sentence(short_desc_raw, 200)
+
+    # Use full description for the overview section
+    description = full_description if full_description else "Course overview coming soon."
+
+    # Escape quotes in description for YAML frontmatter
+    short_desc_escaped = short_desc.replace('"', '\\"')
 
     content = f'''---
 title: "{course.get('name', 'Training Course')}"
-description: "{short_desc}"
+description: "{short_desc_escaped}"
 thumbnail: "/img/training/{slug}.jpg"
 item_code: "{course.get('item_code', '')}"
 shop_url: "{shop_url}"
@@ -287,9 +369,11 @@ reviewedDate: {datetime.now().strftime('%Y-%m-%d')}
 
 ## Overview
 
-{description or 'Course overview coming soon.'}
+{description}
 
+<!-- markdownlint-disable MD034 -->
 {{{{< button-bar "fas fa-shopping-cart:Book This Course:{shop_url}" "fas fa-envelope:Enquire:/contact-us/" >}}}}
+<!-- markdownlint-enable MD034 -->
 '''
 
     if dry_run:
