@@ -1,6 +1,6 @@
 ---
 title: "GIS Lessons - Grade 12"
-description: "These four stand-alone extension GIS lessons cover the entire Grade 12 Geography curriculum. Case studies include the following topics: Climate, Geomorphology, Economic, and Settlement. Each lesson in"
+description: "These four stand-alone extension GIS lessons cover the entire Grade 12 Geography curriculum. Case studies include the following topics: Climate, Geomorphology, Economic, and Settlement. Each lesson includes an instructional video, notes, GIS data, and a marking guide."
 thumbnail: "/img/training/gis-lessons-grade-12.jpg"
 item_code: "GR 12 GIS Course"
 shop_url: "https://erp.kartoza.com/shop/product/gis-lessons-grade-12"
@@ -17,7 +17,7 @@ reviewedDate: 2026-03-24
     class="is-primary"
     sub-block-side="bottom"
 >}}
-These four stand-alone extension GIS lessons cover the entire Grade 12 Geography curriculum. Case studies include the following topics: Climate, Geomorphology, Economic, and Settlement. Each lesson in
+These four stand-alone extension GIS lessons cover the entire Grade 12 Geography curriculum. Case studies include the following topics: Climate, Geomorphology, Economic, and Settlement. Each lesson includes an instructional video, notes, GIS data, and a marking guide.
 {{< /block >}}
 
 ## Overview

@@ -22,7 +22,7 @@ A practical, beginner-friendly introduction to GIS using QGIS.
 
 ## Overview
 
-A practical, beginner-friendly introduction to GIS using QGIS.Over ~18–20 hours you’ll learn how to create professional maps, work with vector and raster data, georeference scanned maps and imagery, and run basic spatial analyses using real-world case studies.The course is delivered online with a live instructor, in person for groups of 7+ participants, or as a self-paced/asynchronous option with guided exercises, quizzes, and discussion forums.It is ideal for complete GIS beginners, as well as
+A practical, beginner-friendly introduction to GIS using QGIS. Over 18–20 hours you'll learn how to create professional maps, work with vector and raster data, georeference scanned maps and imagery, and run basic spatial analyses using real-world case studies. The course is delivered online with a live instructor, in person for groups of 7+ participants, or as a self-paced/asynchronous option with guided exercises, quizzes, and discussion forums.
 
 <!-- markdownlint-disable MD034 -->
 {{< button-bar "fas fa-shopping-cart:Book This Course:https://erp.kartoza.com/shop/product/introduction-to-gis-with-qgis-self" "fas fa-envelope:Enquire:/contact-us/" >}}

@@ -22,7 +22,7 @@ Docker is a new way of deploying applications on the web. With docker you create
 
 ## Overview
 
-Docker&nbsp;is a new way of deploying applications on the web. With docker you create re-usable application containers that can be combined together to create application stacks. Each container typically serves a single purpose (e.g. database, mail server etc.). Containers are versioned so that your application can be deployed in a ‘known good state’. There is a huge ecosystem of pre-made application containers out there that you can mix and match into your application architecture. Docker can b
+Docker is a new way of deploying applications on the web. With docker you create re-usable application containers that can be combined together to create application stacks. Each container typically serves a single purpose (e.g. database, mail server etc.). Containers are versioned so that your application can be deployed in a 'known good state'. There is a huge ecosystem of pre-made application containers out there that you can mix and match into your application architecture.
 
 <!-- markdownlint-disable MD034 -->
 {{< button-bar "fas fa-shopping-cart:Book This Course:https://erp.kartoza.com/shop/product/introduction-to-docker" "fas fa-envelope:Enquire:/contact-us/" >}}

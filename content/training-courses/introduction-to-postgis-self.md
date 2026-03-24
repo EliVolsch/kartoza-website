@@ -22,7 +22,7 @@ This course is presented to transfer a working knowledge of SQL to the participa
 
 ## Overview
 
-This course is presented to transfer a working knowledge of SQL to the participants. During this course you will learn aboutGeneral database concepts, including what is a relational database?SQL basics including syntax, structure, standards and conventionsConnecting to a databaseBuilding queries including Commands, functions, operators, etcResources - documentation and tutorialsWe understand that the best way to learn is by doing, and we have compiled the course curriculum in such a way as to ma
+This course is presented to transfer a working knowledge of SQL to the participants. During this course you will learn about general database concepts, SQL basics including syntax, structure, standards and conventions, connecting to a database, building queries, and resources for documentation and tutorials.
 
 <!-- markdownlint-disable MD034 -->
 {{< button-bar "fas fa-shopping-cart:Book This Course:https://erp.kartoza.com/shop/product/introduction-to-postgis-self" "fas fa-envelope:Enquire:/contact-us/" >}}

@@ -22,7 +22,7 @@ The training agenda is based mainly on the QGIS Training Manual with custom exam
 
 ## Overview
 
-Course OverviewWelcome to the QGIS Training Course! We are thrilled to have you on board for this immersive learning experience designed to enhance your Geographic Information Systems (GIS) skills. Our training agenda is based on the QGIS Training Manual, with custom examples tailored to provide comprehensive learning.The primary objectives of this course include:Migration assistance: Guiding you through the transition from another GIS package.Introduction and understanding: Providing a solid fo
+Welcome to the QGIS Training Course! This immersive learning experience is designed to enhance your Geographic Information Systems (GIS) skills. Our training agenda is based on the QGIS Training Manual, with custom examples tailored to provide comprehensive learning. The primary objectives include migration assistance from other GIS packages and providing a solid foundation in QGIS.
 
 <!-- markdownlint-disable MD034 -->
 {{< button-bar "fas fa-shopping-cart:Book This Course:https://erp.kartoza.com/shop/product/introduction-to-qgis" "fas fa-envelope:Enquire:/contact-us/" >}}
