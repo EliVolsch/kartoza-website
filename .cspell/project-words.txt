@@ -6,6 +6,7 @@
 Osundwa
 
 # Technical terms specific to this project
+ACLED
 GEOE3
 GEOE
 

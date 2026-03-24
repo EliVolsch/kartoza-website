@@ -30,32 +30,39 @@ The tool helps identify key areas for intervention and enables data-driven decis
 
 ## Key Features
 
-### Comprehensive Spatial Analysis
+GEOE3 analyses **15 spatially varying factors** across three key dimensions, each scored on a 0-5 scale:
 
-GEOE3 offers a comprehensive suite of tools for gender-aware spatial analysis:
+### Contextual Factors
 
-- **Infrastructure Analysis** - Evaluate proximity to roads, public transportation, and utilities
-- **Service Accessibility** - Measure access to healthcare, education, and financial services
-- **Economic Zones** - Identify business hubs and economic corridors
-- **Population Dynamics** - Analyze demographic patterns and workforce distribution
+The Contextual Dimension refers to laws and policies that shape workplace gender discrimination, financial autonomy, and gender empowerment:
 
-### Customizable Scoring Framework
+- **Workplace Discrimination** - Laws addressing gender biases that hinder women's career advancement, using the WBL 2024 Workplace Index
+- **Regulatory Frameworks** - Laws protecting women's employment rights, childcare support, and parental leave (WBL Pay & Parenthood Index)
+- **Financial Inclusion** - Laws concerning women's access to financial resources for starting businesses (WBL Entrepreneurship Index)
 
-The tool allows users to:
+### Accessibility Factors
 
-- Define custom indicator weights based on local context
-- Create composite indices for gender-sensitive analysis
-- Visualize results through interactive maps and charts
-- Export results for further analysis
+The Accessibility Dimension evaluates women's daily mobility and access to essential services using OpenStreetMap data:
 
-### Data Integration
+- **Women's Travel Patterns** - Access to everyday services (kindergartens, primary schools, groceries, pharmacies, green spaces) with 5 subfactors
+- **Access to Public Transport** - Proximity to bus stops, train stations, and other transport facilities
+- **Access to Health Facilities** - Distance to clinics, hospitals, and healthcare services
+- **Access to Education and Training Facilities** - Proximity to universities and technical training centres
+- **Access to Financial Facilities** - Distance to banks and financial institutions
 
-GEOE3 supports various data formats and sources:
+### Place Characterisation
 
-- Vector data (shapefiles, GeoPackage)
-- Raster data (satellite imagery, land cover)
-- OpenStreetMap data
-- World Bank and other global datasets
+The Place Characterisation Dimension refers to the social, environmental, and infrastructural attributes of locations:
+
+- **Active Transport** - Walkability and cycling infrastructure
+- **Safety** - Perceived public safety based on street lighting and nighttime illumination
+- **FCV (Fragility, Conflict & Violence)** - Analysis of conflict and political instability using ACLED data
+- **Education** - Proportion of women with higher education attainment
+- **Digital Inclusion** - Availability of digital infrastructure and internet access
+- **Environmental Hazards** - Vulnerability to natural disasters (floods, droughts, landslides, fires, tropical cyclones)
+- **Water Sanitation** - Access to clean water and sanitation facilities
+
+All factors can be weighted according to local context, and results can be exported for further analysis in QGIS or other GIS software.
 
 ## Installation
 
