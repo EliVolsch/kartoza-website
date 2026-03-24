@@ -7,6 +7,7 @@ Osundwa
 
 # Technical terms specific to this project
 GEOE3
+GEOE
 
 # Place names
 
