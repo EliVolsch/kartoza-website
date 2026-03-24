@@ -8,7 +8,7 @@ tags:
   - Training
 draft: false
 reviewedBy: "Tim Sutton"
-reviewedDate: 2026-03-20
+reviewedDate: 2026-03-24
 ---
 
 {{< block
@@ -22,6 +22,8 @@ PostGIS is a spatial database that is more than just a spatial data store. With 
 
 ## Overview
 
-Geospatial Data in PostGISPostGIS is a spatial database that is more than just a spatial data store. With PostGIS, users, web map servers and other applications can all run off the same database. And beware! Doing spatial analysis in PostGIS can become addictive.PostGIS and PostgreSQL provide a powerful, enterprise-ready geospatial relational database management system. With PostGIS you can insert geometries into a database and then perform spatial queries and analysis on that data. We will show
+Geospatial Data in PostGIS: PostGIS is a spatial database that is more than just a spatial data store. With PostGIS, users, web map servers and other applications can all run off the same database. And beware! Doing spatial analysis in PostGIS can become addictive.PostGIS and PostgreSQL provide a powerful, enterprise-ready geospatial relational database management system. With PostGIS you can insert geometries into a database and then perform spatial queries and analysis on that data. We will show
 
+<!-- markdownlint-disable MD034 -->
 {{< button-bar "fas fa-shopping-cart:Book This Course:https://erp.kartoza.com/shop/product/geospatial-data-in-postgis-course" "fas fa-envelope:Enquire:/contact-us/" >}}
+<!-- markdownlint-enable MD034 -->
