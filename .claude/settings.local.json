@@ -19,7 +19,14 @@
       "Bash(mkdir:*)",
       "Bash(xxd:*)",
       "WebSearch",
-      "Bash(xargs ls:*)"
+      "Bash(xargs ls:*)",
+      "Bash(echo:*)",
+      "Bash(nix develop:*)",
+      "Bash(grep:*)",
+      "Bash(ls:*)",
+      "Bash(wc:*)",
+      "WebFetch(domain:api.github.com)",
+      "WebFetch(domain:plugins.qgis.org)"
     ],
     "deny": [],
     "ask": []

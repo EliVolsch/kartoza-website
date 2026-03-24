@@ -22,6 +22,8 @@ achievements:
   - "Full stack developer since 2011"
   - "Lead developer of Healthsites.io"
 bio: "Full stack web developer with expertise in Python, Java, PostgreSQL/Django. Lead developer of Healthsites.io."
+reviewedBy: "Tim Sutton"
+reviewedDate: 2026-03-16
 ---
 
 Irwan has been building web and mobile applications since 2011, developing deep expertise across the full technology stack. His proficiency spans Python, Java, and PostgreSQL, with Django being one of his core frameworks for web development.

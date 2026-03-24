@@ -1,3 +1,5 @@
+{{- $shouldRender := partial "review-check.html" . -}}
+{{- if $shouldRender -}}
 {{ partial "header.html" . }}
 {{ partial "menu.html" . }}
 
@@ -27,17 +29,17 @@
             <p class="partner-hero-description">{{ .Description }}</p>
             <div class="partner-hero-actions">
                 {{ if .Params.signupUrl }}
-                <a href="{{ .Params.signupUrl }}" target="_blank" rel="noopener" class="button is-warning is-large">
+                <a href="{{ .Params.signupUrl }}" target="_blank" rel="noopener" class="button is-warning is-medium">
                     <span class="icon"><i class="fas fa-user-plus"></i></span>
                     <span>{{ .Params.signupText | default (printf "Sign Up for %s" .Title) }}</span>
                 </a>
                 {{ end }}
-                <a href="#get-started" class="button is-primary is-large">
+                <a href="#get-started" class="button is-primary is-medium">
                     <span class="icon"><i class="fas fa-rocket"></i></span>
                     <span>Get Started</span>
                 </a>
                 {{ if .Params.productUrl }}
-                <a href="{{ .Params.productUrl }}" target="_blank" rel="noopener" class="button is-light is-large">
+                <a href="{{ .Params.productUrl }}" target="_blank" rel="noopener" class="button is-light is-medium">
                     <span class="icon"><i class="fas fa-external-link-alt"></i></span>
                     <span>Visit {{ .Params.productName | default .Title }}</span>
                 </a>
@@ -316,4 +318,11 @@
     </div>
 </section>
 
+{{ partial "page-reviewer.html" . }}
 {{ partial "footer.html" . }}
+{{- else -}}
+{{ partial "header.html" . }}
+{{ partial "menu.html" . }}
+{{ partial "page-under-review.html" . }}
+{{ partial "footer.html" . }}
+{{- end -}}

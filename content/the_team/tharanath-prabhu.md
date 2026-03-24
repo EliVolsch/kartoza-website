@@ -22,6 +22,8 @@ skills:
 achievements:
   - "Linux System Administrator transitioning to DevOps"
 bio: "Based in Kerala, India. BTech Electronics and Communication Engineering. Linux specialist."
+reviewedBy: "Tim Sutton"
+reviewedDate: 2026-03-16
 ---
 
 Tharanath is a DevOps and System Administrator based in Kerala, India, bringing a strong foundation in electronics and engineering to infrastructure management. His BTech in Electronics and Communication Engineering from Cochin University provides understanding of both hardware and software systems.

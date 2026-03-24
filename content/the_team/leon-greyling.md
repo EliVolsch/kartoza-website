@@ -21,6 +21,8 @@ achievements:
   - "20+ years IT industry experience"
   - "DevOps focus since 2013"
 bio: "Over 20 years IT experience. Expertise in development, systems administration, and DevOps."
+reviewedBy: "Tim Sutton"
+reviewedDate: 2026-03-16
 ---
 
 Leon is the DevOps Manager at Kartoza, bringing over 20 years of IT industry experience to the role. His career has spanned development, systems administration, database administration, and solutions architecture - a breadth of experience that provides valuable perspective on infrastructure decisions.

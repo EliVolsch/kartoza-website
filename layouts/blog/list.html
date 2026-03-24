@@ -58,10 +58,11 @@
     </div>
 </section>
 
-<!-- Blog Posts Data -->
+<!-- Blog Posts Data - only pages with both reviewedBy and reviewedDate -->
 <script id="blog-data" type="application/json">
 {{- $posts := slice -}}
 {{- range .RegularPages -}}
+    {{- if and .Params.reviewedBy .Params.reviewedDate -}}
     {{- $thumbnail := .Params.thumbnail -}}
     {{- if or (not $thumbnail) (eq $thumbnail "/img/blog/placeholder.png") -}}
         {{- $thumbnail = "/img/banner-blog.png" -}}
@@ -75,6 +76,7 @@
         "thumbnail" (absURL $thumbnail)
     -}}
     {{- $posts = $posts | append $post -}}
+    {{- end -}}
 {{- end -}}
 {{ $posts | jsonify }}
 </script>

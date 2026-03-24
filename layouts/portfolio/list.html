@@ -11,9 +11,10 @@
         </div>
         {{ end }}
 
-        <!-- Portfolio Grid -->
+        <!-- Portfolio Grid - only show pages with both reviewedBy and reviewedDate -->
         <div class="portfolio-grid columns is-multiline">
-            {{ range (.Paginator 50).Pages }}
+            {{ range .RegularPages }}
+            {{ if and .Params.reviewedBy .Params.reviewedDate }}
             <div class="column is-6-desktop is-12-tablet">
                 <article class="portfolio-card">
                     <div class="portfolio-card-image">
@@ -54,7 +55,8 @@
                     </div>
                 </article>
             </div>
-            {{ end }}
+            {{ end }}{{/* end if reviewedBy and reviewedDate */}}
+            {{ end }}{{/* end range */}}
         </div>
 
         <!-- Pagination -->

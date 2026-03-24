@@ -22,6 +22,8 @@ skills:
 achievements:
   - "Diverse career background including data capture, sales, and warehouse management"
 bio: "Certificate in Bookkeeping to Trial Balance. Training in Pastel and ICDL."
+reviewedBy: "Tim Sutton"
+reviewedDate: 2026-03-19
 ---
 
 Lin-Mari is Kartoza's Bookkeeper, bringing a unique career journey that encompasses diverse roles from data capturer to warehouse manager. This varied background gives her practical understanding of business operations from multiple angles.

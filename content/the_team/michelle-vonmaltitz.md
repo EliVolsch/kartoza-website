@@ -22,6 +22,8 @@ achievements:
   - "10 years leading multi-million-rand projects"
   - "Multiple project management certifications"
 bio: "Honours GIS degree. 10 years leading diverse multi-million-rand projects."
+reviewedBy: "Tim Sutton"
+reviewedDate: 2026-03-16
 ---
 
 Michelle is a Team Lead Scrum Master bringing both academic credentials and extensive practical experience to project leadership. Her Honours degree in GIS provides deep understanding of the geospatial domain in which Kartoza operates.

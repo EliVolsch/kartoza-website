@@ -13,6 +13,12 @@ services:
   - Design
   - Development
   - Hosting
+related_plugins:
+  - species-explorer
+related_apps:
+  - bims
+reviewedBy: "Tim Sutton"
+reviewedDate: 2026-03-19
 ---
 
 {{< block

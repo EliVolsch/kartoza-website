@@ -2,6 +2,8 @@
 title: "About Kartoza"
 subtitle: "A Happy Life is a Mappy Life"
 layout: "single"
+reviewedBy: "Tim Sutton"
+reviewedDate: 2026-03-19
 ---
 
 {{< block

@@ -8,6 +8,11 @@ tags:
   - Data Management
   - GIS
 date: 2024-01-01
+related_portfolio:
+  - sanparks-bims
+  - fbis
+related_plugins:
+  - species-explorer
 ---
 
 ## Overview

@@ -22,9 +22,11 @@ achievements:
   - "Transition from development to project management (2019)"
   - "Managed projects across Middle East and Africa"
 bio: "In IT since 2009, transitioned to project management in 2019. Managed projects across the Middle East and Africa."
+reviewedBy: "Tim Sutton"
+reviewedDate: 2026-03-16
 ---
 
-Fawzy is a Team Lead Scrum Master who brings over 15 years of IT experience to his role. His career journey from software development and GIS into project management gives him deep technical understanding of the work his teams perform.
+Fawzy is our Project Management Team Lead, a Scrum Master who brings over 15 years of IT experience to his role. His career journey from software development and GIS into project management gives him deep technical understanding of the work his teams perform.
 
 Beginning his IT career in 2009, Fawzy spent a decade building technical expertise before transitioning to project management in 2019. This progression means he can effectively bridge the gap between technical teams and stakeholder expectations.
 

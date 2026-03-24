@@ -1,3 +1,5 @@
+{{- $shouldRender := partial "review-check.html" . -}}
+{{- if $shouldRender -}}
 {{ partial "header.html" . }}
 {{ partial "menu.html" . }}
 
@@ -20,11 +22,11 @@
                 <h1 class="solution-hero-title">{{ .Title }}</h1>
                 <p class="solution-hero-description">{{ .Description }}</p>
                 <div class="solution-hero-cta">
-                    <a href="{{ absURL "contact-us/" }}?subject=Enquiry:%20{{ .Title | urlquery }}" class="button is-primary is-large">
+                    <a href="{{ absURL "contact-us/" }}?subject=Enquiry:%20{{ .Title | urlquery }}" class="button is-primary is-medium">
                         <span class="icon"><i class="fas fa-comments"></i></span>
                         <span>Get Started</span>
                     </a>
-                    <a href="#solution-details" class="button is-light is-large">
+                    <a href="#solution-details" class="button is-light is-medium">
                         <span class="icon"><i class="fas fa-info-circle"></i></span>
                         <span>Learn More</span>
                     </a>
@@ -83,7 +85,7 @@
                     </div>
                     <div class="contact-card-body">
                         <p>Let's discuss how {{ .Title }} can help your organisation achieve its goals.</p>
-                        <a href="{{ absURL "contact-us/" }}?subject=Enquiry:%20{{ .Title | urlquery }}" class="button is-primary is-fullwidth">
+                        <a href="{{ absURL "contact-us/" }}?subject=Enquiry:%20{{ .Title | urlquery }}" class="button is-primary is-medium">
                             <span class="icon"><i class="fas fa-envelope"></i></span>
                             <span>Contact Us</span>
                         </a>
@@ -175,11 +177,11 @@
             <h2>Let's Build Something Amazing Together</h2>
             <p>Whether you need a custom solution, expert support, or professional training, we're here to help you succeed with open source GIS.</p>
             <div class="solution-cta-buttons">
-                <a href="{{ absURL "contact-us/" }}" class="button is-primary is-large">
+                <a href="{{ absURL "contact-us/" }}" class="button is-primary is-medium">
                     <span class="icon"><i class="fas fa-paper-plane"></i></span>
                     <span>Start a Conversation</span>
                 </a>
-                <a href="{{ absURL "portfolio/" }}" class="button is-light is-large">
+                <a href="{{ absURL "portfolio/" }}" class="button is-light is-medium">
                     <span class="icon"><i class="fas fa-briefcase"></i></span>
                     <span>View Our Work</span>
                 </a>
@@ -188,4 +190,11 @@
     </div>
 </section>
 
+{{ partial "page-reviewer.html" . }}
 {{ partial "footer.html" . }}
+{{- else -}}
+{{ partial "header.html" . }}
+{{ partial "menu.html" . }}
+{{ partial "page-under-review.html" . }}
+{{ partial "footer.html" . }}
+{{- end -}}

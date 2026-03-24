@@ -17,9 +17,11 @@ skills:
   - "Web Development"
   - "Learning & Growth"
 bio: "Passionate coder focused on continuous learning and knowledge sharing."
+reviewedBy: "Tim Sutton"
+reviewedDate: 2026-03-17
 ---
 
-Juanique is a Junior Full Stack Developer with an infectious enthusiasm for coding and continuous learning. Her curiosity drives her to constantly explore new technologies and improve her skills.
+Juanique is a Full Stack Developer with an infectious enthusiasm for coding and continuous learning. Her curiosity drives her to constantly explore new technologies and improve her skills.
 
 As one of Kartoza's emerging talents, Juanique brings fresh perspectives and a willingness to tackle challenges head-on. Her passion for coding is evident in her approach to every project, treating each task as an opportunity to learn and grow.
 

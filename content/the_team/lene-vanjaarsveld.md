@@ -25,6 +25,8 @@ achievements:
   - "Passion for brand design and storytelling"
   - "Au pair cultural exchange experience in America"
 bio: "BA Information Design. Dedicated graphic designer and marketing professional."
+reviewedBy: "Tim Sutton"
+reviewedDate: 2026-03-16
 ---
 
 Lene is Kartoza's Marketing Co-Ordinator, bringing creative vision and design expertise to the company's brand communications. Her BA in Information Design from the University of Pretoria (2022) provides a strong foundation in visual communication and design thinking.

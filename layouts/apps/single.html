@@ -1,3 +1,5 @@
+{{- $shouldRender := partial "review-check.html" . -}}
+{{- if $shouldRender -}}
 {{ partial "header.html" . }}
 {{ partial "menu.html" . }}
 
@@ -63,6 +65,56 @@
                     <div class="sidebar-tags">
                         {{ range .Params.tags }}
                         <span class="sidebar-tag">{{ . }}</span>
+                        {{ end }}
+                    </div>
+                </div>
+                {{ end }}
+
+                <!-- Related Portfolio Projects -->
+                {{ if .Params.related_portfolio }}
+                <div class="sidebar-card related-card portfolio-related">
+                    <h4 class="sidebar-card-title">
+                        <i class="fas fa-briefcase"></i> Related Projects
+                    </h4>
+                    <div class="related-items">
+                        {{ range .Params.related_portfolio }}
+                        {{ $project := site.GetPage (printf "/portfolio/%s" .) }}
+                        {{ if $project }}
+                        <a href="{{ $project.Permalink }}" class="related-item">
+                            <span class="related-icon"><i class="fas fa-folder-open"></i></span>
+                            <span class="related-info">
+                                <span class="related-title">{{ $project.Title | truncate 25 }}</span>
+                                {{ if $project.Params.client }}
+                                <span class="related-meta">{{ $project.Params.client }}</span>
+                                {{ end }}
+                            </span>
+                            <span class="related-arrow"><i class="fas fa-chevron-right"></i></span>
+                        </a>
+                        {{ end }}
+                        {{ end }}
+                    </div>
+                </div>
+                {{ end }}
+
+                <!-- Related Plugins -->
+                {{ if .Params.related_plugins }}
+                <div class="sidebar-card related-card">
+                    <h4 class="sidebar-card-title">
+                        <i class="fas fa-puzzle-piece"></i> Related Plugins
+                    </h4>
+                    <div class="related-items">
+                        {{ range .Params.related_plugins }}
+                        {{ $plugin := site.GetPage (printf "/plugins/%s" .) }}
+                        {{ if $plugin }}
+                        <a href="{{ $plugin.Permalink }}" class="related-item">
+                            <span class="related-icon"><i class="fas fa-puzzle-piece"></i></span>
+                            <span class="related-info">
+                                <span class="related-title">{{ $plugin.Title | truncate 25 }}</span>
+                                <span class="related-meta">{{ $plugin.Params.downloads }} downloads</span>
+                            </span>
+                            <span class="related-arrow"><i class="fas fa-chevron-right"></i></span>
+                        </a>
+                        {{ end }}
                         {{ end }}
                     </div>
                 </div>
@@ -155,4 +207,11 @@
     </div>
 </nav>
 
+{{ partial "page-reviewer.html" . }}
 {{ partial "footer.html" . }}
+{{- else -}}
+{{ partial "header.html" . }}
+{{ partial "menu.html" . }}
+{{ partial "page-under-review.html" . }}
+{{ partial "footer.html" . }}
+{{- end -}}

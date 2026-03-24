@@ -1,0 +1,1 @@
+Add EarthDaily plugin to QGIS plugins gallery

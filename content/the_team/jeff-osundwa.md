@@ -21,6 +21,8 @@ skills:
 achievements:
   - "Specialized in Python programming for GIS"
 bio: "From Nairobi, Kenya. BSc Geospatial Information Science. Python specialist."
+reviewedBy: "Tim Sutton"
+reviewedDate: 2026-03-17
 ---
 
 Jeff is a QGIS developer bringing together formal geospatial education with strong programming skills. His Bachelor of Science in Geospatial Information Science provides the theoretical foundation for understanding spatial data and analysis.

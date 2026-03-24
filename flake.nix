@@ -104,6 +104,10 @@
             pyyaml # YAML generation
             pillow # Image processing (12.1.0 - patched for CVE-2026-25990)
             stripe # Donor management
+            beautifulsoup4 # HTML parsing - for content comparison
+            html2text # HTML to markdown conversion
+            python-dateutil # Date parsing
+            tabulate # Nice table output
           ]);
         in
         {
@@ -114,9 +118,18 @@
               pkgs.vscode # VSCode for development
               pythonEnv # Python with all packages from unstable
               pkgs.gnumake # GNU Make for build automation
+              # Linting and formatting tools
+              pkgs.nodePackages.markdownlint-cli # Markdown linting
+              pkgs.nodePackages.prettier # Code formatting
+              pkgs.nodePackages.cspell # Spell checking
+              # Testing tools
+              pkgs.nodejs_22 # Node.js for Playwright
+              pkgs.playwright-driver.browsers # Playwright browsers
             ];
             shellHook = ''
               export DIRENV_LOG_FORMAT=
+              export PLAYWRIGHT_BROWSERS_PATH=${pkgs.playwright-driver.browsers}
+              export PLAYWRIGHT_SKIP_VALIDATE_HOST_REQUIREMENTS=true
               echo "-----------------------"
               echo "🌈 Your Hugo Dev Environment is ready."
               echo "It provides hugo and vscode for use with the Kartoza Website Project"
@@ -132,6 +145,12 @@
               echo "Start Hugo like this:"
               echo ""
               echo "hugo server"
+              echo ""
+              echo "🎭 Playwright:"
+              echo "--------------------------------"
+              echo "Run e2e tests like this:"
+              echo ""
+              echo "cd playwright/ci-test && npm test"
               echo "-----------------------"
             '';
           };

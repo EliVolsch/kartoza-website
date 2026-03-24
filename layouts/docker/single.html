@@ -1,3 +1,5 @@
+{{- $shouldRender := partial "review-check.html" . -}}
+{{- if $shouldRender -}}
 {{ partial "header.html" . }}
 {{ partial "menu.html" . }}
 
@@ -167,7 +169,7 @@
                     <span class="icon"><i class="fas fa-life-ring"></i></span>
                     <span>Get Support</span>
                 </a>
-                <a class="button is-light is-medium" href="https://geospatialhosting.com" target="_blank" rel="noopener">
+                <a class="button is-light is-medium" href="{{ absURL "hosting/" }}">
                     <span class="icon"><i class="fas fa-cloud"></i></span>
                     <span>Managed Hosting</span>
                 </a>
@@ -220,4 +222,11 @@ function copyToClipboard(text) {
 }
 </script>
 
+{{ partial "page-reviewer.html" . }}
 {{ partial "footer.html" . }}
+{{- else -}}
+{{ partial "header.html" . }}
+{{ partial "menu.html" . }}
+{{ partial "page-under-review.html" . }}
+{{ partial "footer.html" . }}
+{{- end -}}

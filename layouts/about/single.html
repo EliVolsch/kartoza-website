@@ -1,3 +1,5 @@
+{{- $shouldRender := partial "review-check.html" . -}}
+{{- if $shouldRender -}}
 {{ partial "header.html" . }}
 {{ partial "menu.html" . }}
 
@@ -78,8 +80,8 @@
                 </div>
                 <h3>Support & Hosting</h3>
                 <p>Maintenance and support for existing GIS systems, plus deployment of FOSS GIS applications using PostgreSQL/PostGIS, QGIS, and other leading tools.</p>
-                <a href="https://geospatialhosting.com" class="about-service-link">
-                    GeoSpatial Hosting <i class="fas fa-external-link-alt"></i>
+                <a href="{{ absURL "hosting/" }}" class="about-service-link">
+                    Hosting Services <i class="fas fa-arrow-right"></i>
                 </a>
             </div>
         </div>
@@ -260,4 +262,11 @@
     </div>
 </section>
 
+{{ partial "page-reviewer.html" . }}
 {{ partial "footer.html" . }}
+{{- else -}}
+{{ partial "header.html" . }}
+{{ partial "menu.html" . }}
+{{ partial "page-under-review.html" . }}
+{{ partial "footer.html" . }}
+{{- end -}}

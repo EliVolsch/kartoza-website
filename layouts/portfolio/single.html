@@ -1,3 +1,5 @@
+{{- $shouldRender := partial "review-check.html" . -}}
+{{- if $shouldRender -}}
 {{ partial "header.html" . }}
 {{ partial "menu.html" . }}
 
@@ -106,6 +108,56 @@
                     </div>
                 </div>
 
+                <!-- Related Plugins -->
+                {{ if .Params.related_plugins }}
+                <div class="sidebar-card related-card portfolio-related">
+                    <h4 class="sidebar-card-title">
+                        <i class="fas fa-puzzle-piece"></i> Related Plugins
+                    </h4>
+                    <div class="related-items">
+                        {{ range .Params.related_plugins }}
+                        {{ $plugin := site.GetPage (printf "/plugins/%s" .) }}
+                        {{ if $plugin }}
+                        <a href="{{ $plugin.Permalink }}" class="related-item">
+                            <span class="related-icon"><i class="fas fa-puzzle-piece"></i></span>
+                            <span class="related-info">
+                                <span class="related-title">{{ $plugin.Title | truncate 25 }}</span>
+                                <span class="related-meta">{{ $plugin.Params.downloads }} downloads</span>
+                            </span>
+                            <span class="related-arrow"><i class="fas fa-chevron-right"></i></span>
+                        </a>
+                        {{ end }}
+                        {{ end }}
+                    </div>
+                </div>
+                {{ end }}
+
+                <!-- Related Apps -->
+                {{ if .Params.related_apps }}
+                <div class="sidebar-card related-card apps-related">
+                    <h4 class="sidebar-card-title">
+                        <i class="fas fa-mobile-alt"></i> Related Apps
+                    </h4>
+                    <div class="related-items">
+                        {{ range .Params.related_apps }}
+                        {{ $app := site.GetPage (printf "/apps/%s" .) }}
+                        {{ if $app }}
+                        <a href="{{ $app.Permalink }}" class="related-item">
+                            <span class="related-icon"><i class="fas fa-mobile-alt"></i></span>
+                            <span class="related-info">
+                                <span class="related-title">{{ $app.Title | truncate 25 }}</span>
+                                {{ with $app.Params.tags }}
+                                <span class="related-meta">{{ index . 0 }}</span>
+                                {{ end }}
+                            </span>
+                            <span class="related-arrow"><i class="fas fa-chevron-right"></i></span>
+                        </a>
+                        {{ end }}
+                        {{ end }}
+                    </div>
+                </div>
+                {{ end }}
+
                 <!-- Related Projects -->
                 {{ $currentPage := . }}
                 {{ $related := where (where site.RegularPages "Section" "portfolio") ".Permalink" "!=" .Permalink }}
@@ -180,4 +232,11 @@
     </div>
 </nav>
 
+{{ partial "page-reviewer.html" . }}
 {{ partial "footer.html" . }}
+{{- else -}}
+{{ partial "header.html" . }}
+{{ partial "menu.html" . }}
+{{ partial "page-under-review.html" . }}
+{{ partial "footer.html" . }}
+{{- end -}}

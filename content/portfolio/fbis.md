@@ -15,6 +15,10 @@ services:
   - Support
   - Documentation
   - DevOps
+related_plugins:
+  - species-explorer
+related_apps:
+  - bims
 ---
 
 {{< block
