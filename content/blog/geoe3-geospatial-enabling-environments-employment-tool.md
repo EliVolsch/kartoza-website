@@ -1,6 +1,6 @@
 ---
 title: "GEOE3: Geospatial Enabling Environments for Employment Spatial Tool"
-description: "A powerful QGIS plugin that analyzes spatial barriers to women's employment and business opportunities, helping policymakers create more inclusive workplaces."
+description: "A powerful QGIS plugin that analyses spatial barriers to women's employment and business opportunities, helping policymakers create more inclusive workplaces."
 tags:
   - QGIS
   - Plugin
@@ -24,7 +24,7 @@ GEOE3 (formerly GEEST) is a powerful open-source spatial mapping tool developed 
 
 ## Overview
 
-**GEOE3 (Geospatial Enabling Environments for Employment Spatial Tool)** is a user-friendly QGIS plugin that analyzes how spatial factors influence women's economic participation across regions. Originally developed by the World Bank and Kartoza under the name GEEST, GEOE3 provides a comprehensive framework for gender-informed spatial analysis.
+**GEOE3 (Geospatial Enabling Environments for Employment Spatial Tool)** is a user-friendly QGIS plugin that analyses how spatial factors influence women's economic participation across regions. Originally developed by the World Bank and Kartoza under the name GEEST, GEOE3 provides a comprehensive framework for gender-informed spatial analysis.
 
 The tool helps identify key areas for intervention and enables data-driven decisions toward creating more equitable job opportunities for women across different regions.
 
