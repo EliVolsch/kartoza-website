@@ -36,11 +36,11 @@ The platform supports data-driven planning for clean cooking energy transitions,
 
 ![Clean Cooking Nepal](/img/portfolio/clean-cooking-nepal.png)
 
-![Clean Cooking Nepal 2](../img/cleancooking-nepal-2.png)
+![Clean Cooking Nepal 2](/img/portfolio/cleancooking-nepal-2.png)
 
-![Clean Cooking Nepal 3](../img/cleancooking-nepal-3.png)
+![Clean Cooking Nepal 3](/img/portfolio/cleancooking-nepal-3.png)
 
-![Clean Cooking Nepal 4](../img/cleancooking-nepal-4.png)
+![Clean Cooking Nepal 4](/img/portfolio/cleancooking-nepal-4.png)
 
 > **Note:** In the next round of work following this project we decided with the client to consolidate this work with the Energy Access Explorer platform. The web site is thus no longer online. The code remains available at [https://github.com/kartoza/clean-cooking-platform](https://github.com/kartoza/clean-cooking-platform). Please see the new platform developed and hosted by WRI for current state of this work.
 

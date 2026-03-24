@@ -35,7 +35,7 @@ The platform expanded the [OnStove](https://onstove-documentation.readthedocs.io
 
 ![EnergyAccess Explorer](/img/portfolio/energy-access-kenya.png)
 
-![EnergyAccess Explorer Kenya](../img/energyaccess-kenya.png)
+![EnergyAccess Explorer Kenya](/img/portfolio/energyaccess-kenya.png)
 
 ## Objectives
 

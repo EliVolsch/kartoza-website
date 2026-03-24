@@ -30,6 +30,6 @@ Kartoza, together with partners KTH Royal Institute of Technology division of En
 
 Kartoza's mission is to help governments leverage open source geospatial technology. In partnering with KTH and SNV, we provided expertise in open source geospatial application development and training, electrification planning, and knowledge of Benin's electrification industry. The result is a least-cost electrification model for Benin, an SDI (Spatial Data Infrastructure), and an electrification modelling platform for visualising results. This platform supports the goal of achieving universal access to electricity.
 
-![Benin Electrification Platform](../img/benin-electrification-2.png)
+![Benin Electrification Platform](/img/portfolio/benin-electrification-2.png)
 
 ![Benin Electrification](/img/portfolio/benin-electrification.png)

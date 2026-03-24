@@ -34,7 +34,7 @@ The REZoning platform version 1.0 was developed and deployed by devseed, working
 
 ![REZoning Platform](/img/portfolio/rezoning.png)
 
-![REZoning Platform v2.0](../img/rezoning-2.png)
+![REZoning Platform v2.0](/img/portfolio/rezoning-2.png)
 
 ## Kartoza's Contributions
 

@@ -38,7 +38,7 @@ The final phase of the project focuses on refining the tool by incorporating a m
 
 ![GEOE3 Plugin](/img/portfolio/geest.png)
 
-![GEOE3 Dashboard](../img/geoe3_1.gif)
+![GEOE3 Dashboard](/img/portfolio/geoe3_1.gif)
 
 ## Key Outcomes
 

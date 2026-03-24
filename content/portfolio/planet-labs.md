@@ -31,9 +31,9 @@ Planet Labs, a leading provider of daily Earth data and insights, engaged Kartoz
 
 ![Planet Labs Plugin](/img/portfolio/planet-labs.png)
 
-![Planet Labs Search](../img/planet-labs-2.png)
+![Planet Labs Search](/img/portfolio/planet-labs-2.png)
 
-![Planet Labs Ordering](../img/planet-labs-3.png)
+![Planet Labs Ordering](/img/portfolio/planet-labs-3.png)
 
 ## Scope of Work
 
