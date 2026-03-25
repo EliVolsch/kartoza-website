@@ -14,9 +14,10 @@ services:
 related_plugins:
   - trends-earth
 reviewedBy: "Jeff Osundwa"
-reviewedDate: "2026-03-19"
+reviewedDate: "2026-03-25"
 ---
 
+<!-- markdownlint-disable MD034 -->
 {{< block
     title="REZoning"
     subtitle="Renewable energy site suitability at a global scale"
@@ -25,6 +26,7 @@ reviewedDate: "2026-03-19"
     link="https://rezoning.energydata.info/"
     link-text="Visit REZoning"
 >}}
+<!-- markdownlint-enable MD034 -->
 Extending the ESMAP platform for renewable energy zone identification worldwide.
 {{< /block >}}
 

@@ -14,9 +14,10 @@ services:
 related_plugins:
   - geest
 reviewedBy: "Jeff Osundwa"
-reviewedDate: "2026-03-19"
+reviewedDate: "2026-03-25"
 ---
 
+<!-- markdownlint-disable MD034 -->
 {{< block
     title="GEOE3"
     subtitle="Geospatial Enabling Environments for Employment Spatial Tool"
@@ -25,6 +26,7 @@ reviewedDate: "2026-03-19"
     link="https://github.com/worldbank/GEEST/"
     link-text="View on GitHub"
 >}}
+<!-- markdownlint-enable MD034 -->
 Developed for the World Bank Group to address barriers to women's employment through spatial analysis.
 {{< /block >}}
 

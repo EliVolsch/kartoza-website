@@ -14,9 +14,10 @@ services:
 related_plugins:
   - stac-api-browser
 reviewedBy: "Jeff Osundwa"
-reviewedDate: "2026-03-19"
+reviewedDate: "2026-03-25"
 ---
 
+<!-- markdownlint-disable MD034 -->
 {{< block
     title="STAC Explorer Plugin"
     subtitle="Exploring satellite imagery catalogues directly in QGIS"
@@ -25,6 +26,7 @@ reviewedDate: "2026-03-19"
     link="https://github.com/stac-utils/qgis-stac-plugin"
     link-text="View on GitHub"
 >}}
+<!-- markdownlint-enable MD034 -->
 Developed for Microsoft to bring Planetary Computer data into the QGIS desktop.
 {{< /block >}}
 

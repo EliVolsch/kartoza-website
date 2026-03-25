@@ -10,9 +10,10 @@ date: 2014-01-01
 services:
   - Development
 reviewedBy: "Jeff Osundwa"
-reviewedDate: "2026-03-19"
+reviewedDate: "2026-03-25"
 ---
 
+<!-- markdownlint-disable MD034 -->
 {{< block
     title="Stream Feature Extractor"
     subtitle="Automated hydrological stream network analysis"
@@ -21,6 +22,7 @@ reviewedDate: "2026-03-19"
     link="https://github.com/kartoza/stream_feature_extractor"
     link-text="View on GitHub"
 >}}
+<!-- markdownlint-enable MD034 -->
 A GPL-licensed QGIS plugin for extracting and classifying stream network features.
 {{< /block >}}
 

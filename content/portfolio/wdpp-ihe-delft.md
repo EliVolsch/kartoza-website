@@ -14,9 +14,10 @@ services:
   - Hosting
   - Maintenance
 reviewedBy: "Jeff Osundwa"
-reviewedDate: "2026-03-19"
+reviewedDate: "2026-03-25"
 ---
 
+<!-- markdownlint-disable MD034 -->
 {{< block
     title="WDPP Repository"
     subtitle="Research data platform for water and development"
@@ -25,6 +26,7 @@ reviewedDate: "2026-03-19"
     link="https://wdpprepository.org/"
     link-text="Visit Repository"
 >}}
+<!-- markdownlint-enable MD034 -->
 A custom GeoNode instance for IHE Delft's research outputs.
 {{< /block >}}
 
