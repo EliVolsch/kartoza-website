@@ -13,8 +13,11 @@ services:
   - Development
   - Hosting
   - Maintenance
+reviewedBy: "Jeff Osundwa"
+reviewedDate: "2026-03-25"
 ---
 
+<!-- markdownlint-disable MD034 -->
 {{< block
     title="WDPP Repository"
     subtitle="Research data platform for water and development"
@@ -23,6 +26,7 @@ services:
     link="https://wdpprepository.org/"
     link-text="Visit Repository"
 >}}
+<!-- markdownlint-enable MD034 -->
 A custom GeoNode instance for IHE Delft's research outputs.
 {{< /block >}}
 
@@ -31,6 +35,8 @@ A custom GeoNode instance for IHE Delft's research outputs.
 Kartoza developed and configured a GeoNode instance functioning as a research repository for IHE Delft's Water and Development Partnership Programme. The platform enables diverse user types -- public visitors, project members, leaders, and moderators -- to access and filter varied content including maps, documents, and videos.
 
 The team customised branding using IHE Delft and WDPP visual elements and implemented a tailored permissions system. Emphasis was placed on making the platform user-friendly for individuals with varying levels of GIS knowledge.
+
+Kartoza continues to provide ongoing hosting and maintenance for the platform.
 
 ![WDPP Repository](/img/portfolio/wdpp-ihe-delft.png)
 
