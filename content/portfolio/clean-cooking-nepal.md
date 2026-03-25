@@ -12,7 +12,7 @@ endDate: 2023-12-31
 services:
   - Development
 reviewedBy: "Jeff Osundwa"
-reviewedDate: "2026-03-19"
+reviewedDate: "2026-03-25"
 ---
 
 {{< block
@@ -28,7 +28,7 @@ Addressing the global challenge of clean cooking access in partnership with CCA,
 
 Kartoza (as Project Technical Lead) in partnership with Clean Cooking Alliance, World Resources Institute, KTH Division of Energy Systems, and Nepal Open University worked on the Clean Cooking Explorer for Nepal.
 
-In Nepal, the residential sector accounted for about 80% of the country's primary energy consumption, with cooking making up around 70% of the annual primary energy supply, largely fueled by solid biomass. While more efficient fuels have reduced this share to about 56%, most households still rely on inefficient cookstoves, contributing to severe household air pollution linked to an estimated 22,841 premature deaths annually.
+In Nepal, the residential sector accounted for about 80% of the country's primary energy consumption, with cooking making up around 70% of the annual primary energy supply, largely fuelled by solid biomass. While more efficient fuels have reduced this share to about 56%, most households still rely on inefficient cookstoves, contributing to severe household air pollution linked to an estimated 22,841 premature deaths annually.
 
 Despite efforts to promote improved cookstoves and biogas, progress has been slow, with only 8.9% of households using improved cookstoves and 2% using biogas. The Clean Cooking Alliance initiated a demonstration project focused on promoting biogas and electricity for cooking in peri-urban areas.
 

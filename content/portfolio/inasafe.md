@@ -18,7 +18,7 @@ services:
 related_plugins:
   - inasafe
 reviewedBy: "Jeff Osundwa"
-reviewedDate: "2026-03-19"
+reviewedDate: "2026-03-25"
 ---
 
 {{< block
@@ -39,14 +39,17 @@ InaSAFE is a free, open-source tool used to model and plan for natural disasters
 ## Components
 
 ### InaSAFE Plugin
+
 A QGIS desktop plugin co-developed with DMInnovation enabling rapid scenario assessments. Users can run simulations locally, create impact maps, and export PDF reports detailing affected areas and estimated consequences.
 
 ### InaSAFE Realtime
+
 An automated server-side system delivering near real-time impact estimates following major disaster events. Built on top of InaSAFE libraries and enhancements to core QGIS functionality, the system ingests rapidly updating hazard data (such as earthquake shake maps or flood forecasts), runs automated impact calculations, and generates authoritative cartographic outputs within minutes. During this work, Kartoza contributed major improvements to the QGIS ecosystem, including raster rendering, Web Coverage Service (WCS) support, print composition, and Python bindings, to support fast, reliable automated map generation.
 
 ![InaSAFE Realtime](/img/portfolio/inasafe-realtime.png)
 
 ### GeoSAFE
+
 A web-based interface built on GeoNode allowing users to conduct analyses via browsers without desktop GIS software. Supports collaborative scenario planning across agencies.
 
 ![GeoSAFE](/img/portfolio/inasafe-geosafe.png)

@@ -13,7 +13,7 @@ services:
 related_plugins:
   - planet-explorer
 reviewedBy: "Jeff Osundwa"
-reviewedDate: "2026-03-19"
+reviewedDate: "2026-03-25"
 ---
 
 {{< block
@@ -38,15 +38,18 @@ Planet Labs, a leading provider of daily Earth data and insights, engaged Kartoz
 ## Scope of Work
 
 ### Plugin Enhancements
+
 - Added STAC Metadata as an order checkout option
 - Implemented "Add to Map" button for proper SkySat imagery band visualisation
 - Added Area of Interest (AOI) size display in the search panel
 
 ### Bug Fixes
+
 - Resolved Basemap panel availability issues
 - Fixed connection errors and Planet Basemap cadence ordering
 - Corrected Analytics Basemap display problems
 - Fixed auto-fill tasking coordinates and terms of use linking
 
 ### Imagery Visualisation
+
 Corrected SkySat band ordering from "BGR" to the standard "RGB" format expected by GIS tools, ensuring accurate colour channel representation.
