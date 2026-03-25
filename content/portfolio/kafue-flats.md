@@ -10,6 +10,8 @@ date: 2018-01-01
 services:
   - Development
   - Hosting
+reviewedBy: "Jeff Osundwa"
+reviewedDate: "2026-03-19"
 ---
 
 {{< block
@@ -23,6 +25,10 @@ An instance of BIMS adapted for tracking biodiversity in the Kafue Flats Wetland
 
 ## Overview
 
-The Kafue Flats Wetlands Information System (KFWIS) is an instance of the Biodiversity Information Management System (BIMS) set up for tracking biodiversity in the Kafue Flats Wetlands, Zambia. The platform enables researchers and conservation managers to collect, manage, and visualise biodiversity occurrence data for this critical wetland ecosystem.
+The Kafue Flats Wetlands Information System (KFWIS) is an online platform for uploading, exploring, and downloading biodiversity occurrence data. Available only to registered staff, with sensitive data limited to authorized individuals.
+
+The platform manages point localities, ranger sections, and parks for all taxonomic groups. Spatial layers including vegetation type and ecosystem threat level can be displayed. Data downloads via polygonal lasso tool or park boundary selection. Key function: generating checklists with conservation status.
+
+Built with open source tools: Postgres/PostGIS, GeoServer, Django, Python.
 
 ![Kafue Flats Wetlands](/img/portfolio/kafue-flats.png)

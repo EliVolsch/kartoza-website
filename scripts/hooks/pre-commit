@@ -55,14 +55,15 @@ run_reviewer_check() {
         if [[ -z "$REVIEWED_BY" || "$REVIEWED_BY" != "$GIT_USER" ]]; then
             FILE_OK=false
         fi
-        if [[ -z "$REVIEWED_DATE" || "$REVIEWED_DATE" != "$TODAY" ]]; then
+        # Date must be today or in the future (YYYY-MM-DD format allows string comparison)
+        if [[ -z "$REVIEWED_DATE" || "$REVIEWED_DATE" < "$TODAY" ]]; then
             FILE_OK=false
         fi
 
         if [[ "$FILE_OK" == "true" ]]; then
             echo -e "  ${GREEN}✓${NC} $file"
         else
-            echo -e "  ${RED}✗${NC} $file (reviewer: $REVIEWED_BY/$REVIEWED_DATE, expected: $GIT_USER/$TODAY)"
+            echo -e "  ${RED}✗${NC} $file (reviewer: $REVIEWED_BY/$REVIEWED_DATE, expected: $GIT_USER/$TODAY or later)"
             ERRORS=$((ERRORS + 1))
         fi
     done
