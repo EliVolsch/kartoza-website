@@ -13,6 +13,8 @@ related_portfolio:
   - fbis
 related_plugins:
   - species-explorer
+reviewedBy: "Tim Sutton"
+reviewedDate: 2026-03-24
 ---
 
 ## Overview
@@ -35,15 +37,19 @@ Built on open source technology, BIMS combines spatial data management with biol
 ## Use Cases
 
 ### Conservation Planning
+
 Track species distributions over time to inform protected area management and conservation priorities.
 
 ### Environmental Assessment
+
 Document baseline biodiversity for environmental impact assessments and monitoring programs.
 
 ### Research Projects
+
 Manage field survey data with proper taxonomic standards and spatial accuracy.
 
 ### Citizen Science
+
 Enable public participation in biodiversity monitoring with data quality controls.
 
 ## Technical Highlights
@@ -58,7 +64,7 @@ Enable public participation in biodiversity monitoring with data quality control
 ## Benefits
 
 - Purpose-built for biodiversity data
-- Standardisd taxonomic management
+- Standardised taxonomic management
 - Powerful spatial analysis tools
 - Open source with no license fees
 - Active development and support

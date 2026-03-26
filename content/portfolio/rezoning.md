@@ -13,8 +13,11 @@ services:
   - Development
 related_plugins:
   - trends-earth
+reviewedBy: "Jeff Osundwa"
+reviewedDate: "2026-03-25"
 ---
 
+<!-- markdownlint-disable MD034 -->
 {{< block
     title="REZoning"
     subtitle="Renewable energy site suitability at a global scale"
@@ -23,16 +26,17 @@ related_plugins:
     link="https://rezoning.energydata.info/"
     link-text="Visit REZoning"
 >}}
+<!-- markdownlint-enable MD034 -->
 Extending the ESMAP platform for renewable energy zone identification worldwide.
 {{< /block >}}
 
 ## Overview
 
-The REZoning tool is an interactive web-based platform enabling users to identify, visualise, and rank zones most suitable for solar, wind, or offshore wind project development. The platform applies custom spatial filters and economic parameters while leveraging global geospatial datasets and industry assumptions for economic calculations.
-
-Kartoza extended the platform from version 1.0 (developed by devseed and Derilinx) to version 2.0.
+The REZoning platform version 1.0 was developed and deployed by devseed, working in partnership with Derilinx. Kartoza was contracted to extend the platform and implement a number of additional features for a version 2.0 deployment. The application is a complex and multifaceted web application which consumes and analyses multiple preprocessed data stores against the criteria specified by users in the front-end, and then processes and retrieves these results to display for end users.
 
 ![REZoning Platform](/img/portfolio/rezoning.png)
+
+![REZoning Platform v2.0](/img/portfolio/rezoning-2.png)
 
 ## Kartoza's Contributions
 

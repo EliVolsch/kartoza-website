@@ -1,10 +1,33 @@
-# Project-specific words for cspell
 # Add words here that are valid but not in the dictionary
+CGIS
 # One word per line
 
-# Team member names (add as needed)
-
 # Technical terms specific to this project
+ACLED
+GEOE3
+GEOE
 
 # Place names
+Kafue
+Sachsen
 
+# Project-specific words for cspell
+Derilinx
+ESMAP
+GEOE
+ICTP
+KFWIS
+STAC
+stac
+WDPP
+
+# Team member names (add as needed)
+Osundwa
+
+# Technical terms specific to this project
+GBIF
+Hochwasserschutz
+Landesbetrieb
+Terrestris
+Wasserwirtschaft
+fuer
