@@ -8784,6 +8784,106 @@ body:has(.blog-hero) .contextmenu {
     font-size: 0.9rem;
 }
 
+.two-column-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem 3rem;
+    margin-bottom: 1.5rem;
+}
+
+.two-column-list ul,
+.two-column-list ol {
+    margin-bottom: 0;
+    padding-left: 0;
+}
+
+.two-column-list li {
+    color: var(--text-dark);
+    line-height: 1.7;
+    margin-bottom: 0.75rem;
+    padding-left: 2rem;
+    position: relative;
+    list-style: none;
+}
+
+.two-column-list li::before {
+    content: '\f00c';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-size: 0.9rem;
+}
+
+.two-column-list h3 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+    .two-column-list {
+        grid-template-columns: 1fr;
+        gap: 1rem 0;
+    }
+}
+
+/* Course Materials Grid */
+.materials-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.material-card {
+    background: var(--white);
+    border: 1px solid #e5e5e5;
+    border-radius: var(--radius-md);
+    padding: 1.75rem;
+    text-align: left;
+    transition: all 0.3s ease;
+}
+
+.material-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-color: var(--accent);
+}
+
+.material-icon {
+    font-size: 2rem;
+    color: var(--accent);
+    margin-bottom: 1rem;
+}
+
+.material-card h4 {
+    color: var(--text-dark);
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.material-card p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+@media screen and (max-width: 1024px) {
+    .materials-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.25rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .materials-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+}
+
 /* Course Sidebar */
 .course-sidebar {
     display: flex;

@@ -1,10 +1,10 @@
 ---
-title: "PostGIS and Spatial Databases"
-description: "Harness the power of spatial databases with PostgreSQL and PostGIS for enterprise-grade data management."
+title: "Introduction to PostGIS"
+description: "Dive into the world of spatial databases with Geospatial Data & Design with PostGIS, a hands‑on, two‑day instructor‑led course that transforms PostgreSQL into a powerful geospatial engine. You’ll learn to store, query, analyse and visualise spatial data—all from a single, shared database—fueling everything from web maps to enterprise GIS."
 thumbnail: "/img/courses/postgis.svg"
-duration: "3 Days"
+duration: "2 Days"
 level: "Intermediate"
-track: "Server & Infrastructure"
+track: "Desktop GIS"
 trackOrder: 2
 weight: 3
 tags:
@@ -24,20 +24,11 @@ The course combines theoretical concepts with extensive hands-on practice, ensur
 
 ## What You Will Learn
 
-- Installing and configuring PostgreSQL and PostGIS
-- Understanding spatial database concepts and architecture
-- Designing efficient spatial database schemas
-- Importing and exporting spatial data from various formats
-- Writing spatial SQL queries and performing spatial operations
-- Working with geometry and geography data types
-- Creating and managing spatial indexes for performance
-- Performing coordinate reference system transformations
-- Advanced spatial analysis using PostGIS functions
-- Working with raster data in PostGIS
-- Managing topology and ensuring data quality
-- Database backup, recovery, and maintenance
-- Connecting PostGIS to QGIS, GeoServer, and web applications
-- Performance tuning and optimisation strategies
+- General database concepts, including what is a relational database?
+- SQL basics including syntax, structure, standards and conventions
+- Connecting to a database
+- Building queries including Commands, functions, operators, etc
+- Resources - documentation and tutorials
 
 ## Who Should Attend
 
