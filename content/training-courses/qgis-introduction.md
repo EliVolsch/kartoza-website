@@ -1,6 +1,6 @@
 ---
 title: "Introduction to QGIS"
-description: "Master the fundamentals of desktop GIS using QGIS, the world's leading open source geographic information system."
+description: "Master the fundamentals of desktop GIS using QGIS, the world's leading open source geographic information system. Hands-on, practitioner-taught, and immediately applicable to your real-world mapping and analysis needs."
 thumbnail: "/img/courses/qgis-introduction.svg"
 duration: "3 Days"
 level: "Beginner"
@@ -24,21 +24,30 @@ The course covers essential GIS workflows including data acquisition, layer mana
 
 ## What You Will Learn
 
+<div class="two-column-list">
+
 - Installing and navigating the QGIS interface
-- Working with vector and raster data formats
 - Understanding and managing coordinate reference systems and projections
-- Creating and editing spatial data
-- Styling and symbolizing maps for effective visualization
-- Performing basic spatial analysis and geoprocessing operations
+- Styling and symbolising maps for effective visualisation
 - Using the field calculator and expressions
-- Creating print-ready maps with the layout manager
 - Installing and using QGIS plugins
+
+<!-- Column break -->
+
+- Working with vector and raster data formats
+- Creating and editing spatial data
+- Performing basic spatial analysis and geoprocessing operations
+- Creating print-ready maps with the layout manager
 - Best practices for data organisation and project management
+
+</div>
 
 ## Who Should Attend
 
-This course is ideal for:
+<div class="two-column-list">
+  <div class="column">
 
+### This course is ideal for:
 - GIS beginners with no prior experience
 - Professionals transitioning from proprietary GIS software
 - Researchers and academics working with spatial data
@@ -48,18 +57,65 @@ This course is ideal for:
 
 No prior GIS experience is required, though basic computer literacy is expected.
 
-## Prerequisites
+  </div>
+  <div class="column">
 
+### Prerequisites
 - Basic computer skills
 - Interest in working with maps and spatial data
 - Laptop with QGIS installed (we can help with installation)
 
+  </div>
+</div>
+
 ## Course Materials
 
-All participants receive:
+<div class="materials-grid">
+  <div class="material-card">
+    <div class="material-icon">
+      <i class="fas fa-book"></i>
+    </div>
+    <h4>Comprehensive course workbook</h4>
+    <p>Illustrated step-by-step exercises for every module</p>
+  </div>
 
-- Comprehensive course workbook
-- Sample datasets for exercises
-- Quick reference guides
-- Certificate of completion
-- 30-day post-course email support
+  <div class="material-card">
+    <div class="material-icon">
+      <i class="fas fa-database"></i>
+    </div>
+    <h4>Sample datasets for exercises</h4>
+    <p>Real spatial data used throughout the course</p>
+  </div>
+
+  <div class="material-card">
+    <div class="material-icon">
+      <i class="fas fa-bookmark"></i>
+    </div>
+    <h4>Quick reference guides</h4>
+    <p>Keep these open while you work in QGIS</p>
+  </div>
+
+  <div class="material-card">
+    <div class="material-icon">
+      <i class="fas fa-certificate"></i>
+    </div>
+    <h4>Certificate of completion</h4>
+    <p>Issued through the Kartoza GIS Academy</p>
+  </div>
+
+  <div class="material-card">
+    <div class="material-icon">
+      <i class="fas fa-comments"></i>
+    </div>
+    <h4>30-day post-course email support</h4>
+    <p>Questions answered by your trainer after the course</p>
+  </div>
+
+  <div class="material-card">
+    <div class="material-icon">
+      <i class="fas fa-lock-open"></i>
+    </div>
+    <h4>Free and open source tools only</h4>
+    <p>QGIS is free — no software licence costs ever</p>
+  </div>
+</div>
