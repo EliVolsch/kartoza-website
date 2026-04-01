@@ -98,16 +98,15 @@
 .hero-logo {
     width: 90px;
     height: auto;
-    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.6)) drop-shadow(0 4px 20px rgba(0, 0, 0, 0.2));
+    filter: drop-shadow(0 0 8px rgb(255, 255, 255)) drop-shadow(0 4px 20px rgba(255, 255, 255, 0.2));
 }
 
 .hero-company-name {
-    color: var(--white) !important;
+    color: #ffffff !important;
     font-size: 5.5rem !important;
     font-weight: 800 !important;
-    letter-spacing: -3px;
+    letter-spacing: 2 px;
     margin-bottom: 0 !important;
-    text-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
     line-height: 1 !important;
     background: linear-gradient(180deg, #ffffff 0%, rgba(255, 255, 255, 0.9) 100%);
     -webkit-background-clip: text;
@@ -131,7 +130,7 @@
 }
 
 .hero-tagline {
-    color: var(--accent);
+    color: #ffffff;
     font-size: 1rem;
     font-weight: 700;
     text-transform: uppercase;
@@ -147,7 +146,7 @@
     content: '';
     width: 30px;
     height: 2px;
-    background: var(--accent);
+    background: #ffffff;
     border-radius: 1px;
 }
 
@@ -177,8 +176,8 @@
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 2px;
-    color: var(--accent);
-    background: rgba(232, 163, 49, 0.15);
+    color: #ffffff;
+    background: #edb348;
     padding: 0.35rem 0.85rem;
     border-radius: 4px;
     margin-bottom: 0.75rem;
@@ -201,7 +200,7 @@
 .hero-vision-statement .quote-mark {
     font-size: 2.5rem;
     font-weight: 700;
-    color: var(--accent);
+    color: #edb348;
     font-style: normal;
     line-height: 0;
     vertical-align: -0.3em;
@@ -298,7 +297,7 @@
 /* Hero CTA Buttons - High contrast for hero background */
 .hero-ctas .button.is-primary:not(.is-outlined) {
     background: var(--accent) !important;
-    background-color: var(--accent) !important;
+    background-color: #edb348 !important;
     border-color: var(--accent) !important;
     color: var(--white) !important;
     box-shadow: 0 4px 20px rgba(232, 163, 49, 0.4);
@@ -593,7 +592,7 @@
 
 .product-badge {
     display: inline-block;
-    background: var(--accent);
+    background: #edb348;
     color: var(--white);
     font-size: 0.75rem;
     font-weight: 700;
@@ -8539,7 +8538,7 @@ body:has(.blog-hero) .contextmenu {
 }
 
 .cta-note i {
-    color: var(--primary-light);
+    color: #53a2cc;
 }
 
 /* ============================================
@@ -10290,8 +10289,9 @@ body:has(.blog-hero) .contextmenu {
 .showcase-nav {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
     padding: 0 0.5rem;
 }
 
@@ -13884,7 +13884,7 @@ a.team-member-clickable:hover .team-member-view-profile i {
 }
 
 .footer-cta-primary {
-    background: var(--accent);
+    background: #edb348;
     color: var(--white);
 }
 
@@ -13948,7 +13948,9 @@ a.team-member-clickable:hover .team-member-view-profile i {
 
 .footer-description {
     color: rgba(255, 255, 255, 0.8);
+    text-align: justify;
     font-size: 0.95rem;
+    letter-spacing: -0.11px;
     line-height: 1.7;
     margin-bottom: 1.5rem;
 }
