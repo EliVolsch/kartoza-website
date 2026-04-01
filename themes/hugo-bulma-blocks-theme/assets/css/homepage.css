@@ -297,7 +297,7 @@
 /* Hero CTA Buttons - High contrast for hero background */
 .hero-ctas .button.is-primary:not(.is-outlined) {
     background: var(--accent) !important;
-    background-color: var(--accent) !important;
+    background-color: #edb348 !important;
     border-color: var(--accent) !important;
     color: var(--white) !important;
     box-shadow: 0 4px 20px rgba(232, 163, 49, 0.4);
@@ -592,7 +592,7 @@
 
 .product-badge {
     display: inline-block;
-    background: var(--accent);
+    background: #edb348;
     color: var(--white);
     font-size: 0.75rem;
     font-weight: 700;
@@ -10289,7 +10289,7 @@ body:has(.blog-hero) .contextmenu {
 .showcase-nav {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     margin-top: 1.5rem;
     margin-bottom: 1.5rem;
     padding: 0 0.5rem;
@@ -13884,7 +13884,7 @@ a.team-member-clickable:hover .team-member-view-profile i {
 }
 
 .footer-cta-primary {
-    background: var(--accent);
+    background: #edb348;
     color: var(--white);
 }
 
