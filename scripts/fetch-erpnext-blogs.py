@@ -25,12 +25,17 @@ import sys
 from datetime import datetime
 from pathlib import Path
 
+import warnings
+
 import requests
 import yaml
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup, XMLParsedAsHTMLWarning
 from dateutil import parser as date_parser
 from tabulate import tabulate
 import json
+
+# Suppress XML parsing warning when using html.parser on content that looks like XML
+warnings.filterwarnings("ignore", category=XMLParsedAsHTMLWarning)
 
 
 # Configuration
@@ -219,36 +224,143 @@ def _update_review_fields(filepath: Path, front_matter: dict, content: str) -> N
 
 
 def fetch_blog_list() -> list[dict]:
-    """Fetch list of published blog posts from ERPNext."""
-    url = f"{ERPNEXT_URL}/api/resource/Blog Post"
-    params = {
-        'filters': '[["published", "=", 1]]',
-        'fields': '["name", "title", "published_on", "blogger", "blog_category", "modified"]',
-        'limit_page_length': 0  # Get all
-    }
+    """Fetch list of all published blog posts using the public list API with pagination."""
+    blogs = []
+    limit_start = 0
+    page_size = 20
 
-    try:
-        response = requests.get(url, params=params, headers=get_auth_headers(), timeout=30)
-        response.raise_for_status()
-        data = response.json()
-        return data.get('data', [])
-    except requests.RequestException as e:
-        print(f"Error fetching blog list: {e}")
-        return []
+    while True:
+        url = f"{ERPNEXT_URL}/api/method/frappe.www.list.get"
+        params = {
+            'doctype': 'Blog Post',
+            'limit_start': limit_start,
+            'pathname': '/blog'
+        }
+
+        try:
+            response = requests.get(url, params=params, timeout=30)
+            response.raise_for_status()
+            data = response.json()
+        except requests.RequestException as e:
+            print(f"Error fetching blog list (page {limit_start // page_size + 1}): {e}", file=sys.stderr)
+            break
+        except json.JSONDecodeError as e:
+            print(f"Error parsing blog list response: {e}", file=sys.stderr)
+            break
+
+        message = data.get('message', {})
+        raw_result = message.get('raw_result', '[]')
+
+        # Parse the raw_result JSON string
+        try:
+            page_blogs = json.loads(raw_result) if isinstance(raw_result, str) else raw_result
+        except json.JSONDecodeError:
+            page_blogs = []
+
+        if not page_blogs:
+            break
+
+        # Transform to our format
+        for blog in page_blogs:
+            route = blog.get('route', '')
+            blogs.append({
+                'name': f"/{route}" if route and not route.startswith('/') else route,
+                'title': blog.get('title', 'Untitled'),
+                'blog_category': blog.get('blog_category', 'uncategorised'),
+                'published_on': blog.get('published_on', ''),
+                'blogger': blog.get('blogger', 'Kartoza'),
+                'content': blog.get('content', ''),
+                'cover_image': blog.get('cover_image', ''),
+                'modified': blog.get('published_on', ''),  # Use published date as modified
+            })
+
+        # Check if there are more pages
+        show_more = message.get('show_more', False)
+        next_start = message.get('next_start', 0)
+
+        if not show_more or next_start <= limit_start:
+            break
+
+        limit_start = next_start
+
+    return blogs
 
 
 def fetch_blog_detail(name: str) -> dict | None:
-    """Fetch full blog post details from ERPNext."""
-    url = f"{ERPNEXT_URL}/api/resource/Blog Post/{name}"
+    """
+    Fetch full blog post details.
+
+    Since fetch_blog_list now returns full details, this function just returns
+    the blog data if it was passed directly, or fetches from the web page as fallback.
+    """
+    # If name is already a dict with full data, return it
+    if isinstance(name, dict):
+        return name
+
+    # Fallback: scrape the public blog page
+    url = f"{ERPNEXT_URL}{name}"
 
     try:
-        response = requests.get(url, headers=get_auth_headers(), timeout=30)
+        response = requests.get(url, timeout=30)
         response.raise_for_status()
-        data = response.json()
-        return data.get('data', {})
     except requests.RequestException as e:
-        print(f"Error fetching blog '{name}': {e}")
+        print(f"Error fetching blog '{name}': {e}", file=sys.stderr)
         return None
+
+    soup = BeautifulSoup(response.text, 'html.parser')
+
+    # Extract metadata from meta tags
+    def get_meta(attr_name, attr_value):
+        tag = soup.find('meta', attrs={attr_name: attr_value})
+        return tag.get('content', '') if tag else ''
+
+    # Get title from meta or h1
+    title = get_meta('name', 'name') or get_meta('property', 'og:title')
+    if not title:
+        h1 = soup.find('h1', class_='blog-title')
+        title = h1.get_text(strip=True) if h1 else 'Untitled'
+    # Clean up title prefix
+    title = re.sub(r'^Kartoza\s*-\s*', '', title)
+
+    # Get description/intro
+    description = get_meta('name', 'description') or get_meta('property', 'og:description')
+    if not description:
+        intro = soup.find('p', class_='blog-intro')
+        description = intro.get_text(strip=True) if intro else ''
+
+    # Get author
+    author = get_meta('name', 'author') or get_meta('property', 'og:author') or 'Kartoza'
+
+    # Get published date
+    published_on = get_meta('name', 'datePublished') or get_meta('property', 'og:published_on')
+    if not published_on:
+        time_tag = soup.find('time', attrs={'datetime': True})
+        published_on = time_tag['datetime'] if time_tag else ''
+
+    # Get featured image
+    image = get_meta('name', 'image') or get_meta('property', 'og:image') or ''
+
+    # Get content from article body
+    content = ''
+    article_body = soup.find('div', attrs={'itemprop': 'articleBody'})
+    if article_body:
+        content = str(article_body)
+
+    # Extract category from URL path
+    parts = name.split('/')
+    category = parts[2] if len(parts) >= 3 else 'uncategorised'
+
+    return {
+        'name': name,
+        'title': title,
+        'blog_intro': description,
+        'blogger': author,
+        'published_on': published_on,
+        'modified': published_on,  # Use published date as modified
+        'blog_category': category,
+        'content': content,
+        'featured_image': image,
+    }
 
 
 def blog_to_hugo_frontmatter(blog: dict, mark_reviewed: bool = False) -> dict:
@@ -264,13 +376,20 @@ def blog_to_hugo_frontmatter(blog: dict, mark_reviewed: bool = False) -> dict:
     else:
         date_str = datetime.now().strftime('%Y-%m-%d')
 
+    # Get thumbnail from featured_image or use placeholder
+    # Get thumbnail from cover_image (API) or featured_image (scraping) or use placeholder
+    thumbnail = blog.get('cover_image', '') or blog.get('featured_image', '') or '/img/blog/placeholder.png'
+    # Ensure full URL for external images
+    if thumbnail and not thumbnail.startswith(('http://', 'https://', '/')):
+        thumbnail = f"{ERPNEXT_URL}/{thumbnail}"
+
     # Build front matter
     front_matter = {
         'title': blog.get('title', 'Untitled'),
         'description': blog.get('blog_intro', '')[:200] if blog.get('blog_intro') else '',
         'date': date_str,
         'author': blog.get('blogger', 'Kartoza'),
-        'thumbnail': '/img/blog/placeholder.png',
+        'thumbnail': thumbnail,
         'tags': [],
         'erpnext_id': blog.get('name', ''),
         'erpnext_modified': blog.get('modified', ''),
@@ -461,24 +580,12 @@ def main():
     results = []
     errors_occurred = False
 
-    for blog_summary in blogs:
-        blog_name = blog_summary.get('name')
+    for blog in blogs:
+        blog_name = blog.get('name')
         if not blog_name:
             continue
 
-        # Fetch full details
-        blog = fetch_blog_detail(blog_name)
-        if not blog:
-            results.append({
-                'title': blog_summary.get('title', 'Unknown'),
-                'date': '-',
-                'author': '-',
-                'status': 'error',
-                'fidelity': 'fetch failed'
-            })
-            errors_occurred = True
-            continue
-
+        # Blog data is already complete from fetch_blog_list
         # Sync the blog
         sync_result = sync_blog(blog, content_dir, dry_run=args.dry_run)
 
