@@ -149,3 +149,43 @@ This is the content.
                 assert "Just plain content" in content
             finally:
                 os.unlink(f.name)
+
+
+class TestFindLocalFile:
+    """Tests for find_local_file function."""
+
+    def test_finds_by_erpnext_id(self):
+        module = get_module()
+        with tempfile.TemporaryDirectory() as tmpdir:
+            content_dir = Path(tmpdir)
+            # Create file with erpnext_id
+            (content_dir / "my-article.md").write_text("""---
+title: "My Article"
+erpnext_id: "blog-post-123"
+---
+Content here.
+""")
+            result = module.find_local_file(content_dir, "blog-post-123", "Different Title")
+            assert result is not None
+            assert result.name == "my-article.md"
+
+    def test_finds_by_slugified_title(self):
+        module = get_module()
+        with tempfile.TemporaryDirectory() as tmpdir:
+            content_dir = Path(tmpdir)
+            # Create file matching slugified title (no erpnext_id)
+            (content_dir / "my-test-article.md").write_text("""---
+title: "My Test Article"
+---
+Content here.
+""")
+            result = module.find_local_file(content_dir, "unknown-id", "My Test Article")
+            assert result is not None
+            assert result.name == "my-test-article.md"
+
+    def test_returns_none_when_not_found(self):
+        module = get_module()
+        with tempfile.TemporaryDirectory() as tmpdir:
+            content_dir = Path(tmpdir)
+            result = module.find_local_file(content_dir, "unknown", "Unknown Title")
+            assert result is None

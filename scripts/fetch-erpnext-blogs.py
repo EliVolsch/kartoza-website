@@ -119,6 +119,36 @@ def read_local_blog(filepath: Path) -> tuple[dict, str] | None:
     return front_matter, content
 
 
+def find_local_file(content_dir: Path, erpnext_id: str, title: str) -> Path | None:
+    """
+    Find a local Hugo file matching the ERPNext article.
+
+    Matches by:
+    1. erpnext_id in front matter (primary)
+    2. Slugified title matching filename (fallback)
+
+    Returns:
+        Path to matching file or None
+    """
+    # First, try to find by erpnext_id in front matter
+    for filepath in content_dir.glob('*.md'):
+        if filepath.name == '_index.md':
+            continue
+        result = read_local_blog(filepath)
+        if result:
+            front_matter, _ = result
+            if front_matter.get('erpnext_id') == erpnext_id:
+                return filepath
+
+    # Fallback: match by slugified title
+    expected_filename = f"{slugify(title)}.md"
+    expected_path = content_dir / expected_filename
+    if expected_path.exists():
+        return expected_path
+
+    return None
+
+
 def fetch_blog_list() -> list[dict]:
     """Fetch list of published blog posts from ERPNext."""
     url = f"{ERPNEXT_URL}/api/resource/Blog Post"
