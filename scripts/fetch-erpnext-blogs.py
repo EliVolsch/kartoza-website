@@ -398,6 +398,19 @@ def print_status_table(results: list[dict], dry_run: bool = False) -> None:
     print("=" * 80, file=sys.stderr)
 
 
+def output_json_summary(results: list[dict]) -> None:
+    """Output JSON summary to stdout for programmatic consumption."""
+    summary = {
+        'total': len(results),
+        'new': sum(1 for r in results if r['status'] == 'new'),
+        'unchanged': sum(1 for r in results if r['status'] == 'unchanged'),
+        'updated': sum(1 for r in results if r['status'] == 'updated'),
+        'errors': sum(1 for r in results if r['status'] == 'error'),
+        'articles': results
+    }
+    print(json.dumps(summary))
+
+
 def main():
     """Main entry point."""
     import argparse
