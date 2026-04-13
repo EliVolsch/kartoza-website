@@ -108,6 +108,7 @@
             html2text # HTML to markdown conversion
             python-dateutil # Date parsing
             tabulate # Nice table output
+            pytest # Testing framework
           ]);
         in
         {

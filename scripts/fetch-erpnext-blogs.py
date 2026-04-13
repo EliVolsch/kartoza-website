@@ -21,7 +21,10 @@ from pathlib import Path
 
 import requests
 import yaml
+from bs4 import BeautifulSoup
 from dateutil import parser as date_parser
+from tabulate import tabulate
+import json
 
 
 # Configuration
@@ -45,6 +48,28 @@ def slugify(text: str) -> str:
     text = re.sub(r'[^a-z0-9]+', '-', text)
     text = re.sub(r'-+', '-', text)
     return text.strip('-')
+
+
+def normalize_for_comparison(content: str) -> str:
+    """
+    Normalize content for fidelity comparison.
+    Focuses on TEXT content, ignores formatting/layout.
+    """
+    if not content:
+        return ''
+
+    # Remove Hugo shortcodes like {{< block >}} or {{< /block >}}
+    content = re.sub(r'\{\{[<>%].*?[>%]\}\}', '', content)
+
+    # Strip HTML tags but keep text content
+    soup = BeautifulSoup(content, 'html.parser')
+    text = soup.get_text(separator=' ')
+
+    # Collapse whitespace (multiple spaces/newlines -> single space)
+    text = re.sub(r'\s+', ' ', text)
+
+    # Strip leading/trailing whitespace and lowercase
+    return text.strip().lower()
 
 
 def fetch_blog_list() -> list[dict]:
