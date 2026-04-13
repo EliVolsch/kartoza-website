@@ -1,16 +1,22 @@
 #!/usr/bin/env python3
 """
-Fetch blog articles from ERPNext and create Hugo content files.
+Sync blog articles from ERPNext to Hugo with fidelity checking.
 
-Only fetches new articles that don't exist locally to preserve local edits.
+Features:
+- Fetches all published blog articles from ERPNext
+- Compares with local Hugo content (text-only, ignoring formatting)
+- ERPNext is authoritative: overwrites local content when different
+- Auto-marks articles as reviewed when fidelity check passes
+- Outputs rich status table and JSON summary
 
 Environment variables:
     ERPNEXT_URL: ERPNext instance URL (default: https://erp.kartoza.com)
-    ERPNEXT_API_KEY: API key for authentication
-    ERPNEXT_API_SECRET: API secret for authentication
 
 Usage:
-    ./fetch-erpnext-blogs.py [--dry-run] [--force] [--list]
+    ./fetch-erpnext-blogs.py              # Full sync with fidelity checking
+    ./fetch-erpnext-blogs.py --dry-run    # Preview changes without writing
+    ./fetch-erpnext-blogs.py --list       # List available blogs
+    ./fetch-erpnext-blogs.py --verbose    # Verbose output
 """
 
 import os
@@ -29,16 +35,10 @@ import json
 
 # Configuration
 ERPNEXT_URL = os.environ.get('ERPNEXT_URL', 'https://erp.kartoza.com')
-API_KEY = os.environ.get('ERPNEXT_API_KEY', '')
-API_SECRET = os.environ.get('ERPNEXT_API_SECRET', '')
 
 
 def get_auth_headers() -> dict:
-    """Get authentication headers for ERPNext API."""
-    if API_KEY and API_SECRET:
-        return {
-            'Authorization': f'token {API_KEY}:{API_SECRET}'
-        }
+    """Get authentication headers for ERPNext API (empty for public blogs)."""
     return {}
 
 
@@ -415,35 +415,34 @@ def main():
     """Main entry point."""
     import argparse
 
-    parser = argparse.ArgumentParser(description='Fetch blogs from ERPNext')
+    parser = argparse.ArgumentParser(
+        description='Sync blog articles from ERPNext with fidelity checking'
+    )
     parser.add_argument('--dry-run', '-n', action='store_true',
-                        help='Show what would be fetched without creating files')
-    parser.add_argument('--force', '-f', action='store_true',
-                        help='Overwrite existing files (use with caution)')
+                        help='Show what would happen without writing files')
     parser.add_argument('--list', '-l', action='store_true',
-                        help='Only list available blogs, do not fetch')
+                        help='Only list available blogs, do not sync')
+    parser.add_argument('--skip-images', action='store_true',
+                        help='Skip downloading images')
+    parser.add_argument('--verbose', '-v', action='store_true',
+                        help='Show verbose output')
     args = parser.parse_args()
-
-    if not API_KEY or not API_SECRET:
-        print("Warning: ERPNEXT_API_KEY and ERPNEXT_API_SECRET not set.")
-        print("Attempting unauthenticated access (may fail for private content).")
-        print()
 
     script_dir = Path(__file__).parent
     content_dir = script_dir.parent / 'content' / 'blog'
 
     if not content_dir.exists():
-        print(f"Error: Content directory not found: {content_dir}")
-        sys.exit(1)
+        print(f"Error: Content directory not found: {content_dir}", file=sys.stderr)
+        sys.exit(2)
 
-    print(f"Fetching blog list from {ERPNEXT_URL}...")
+    print(f"Fetching blog list from {ERPNEXT_URL}...", file=sys.stderr)
     blogs = fetch_blog_list()
 
     if not blogs:
-        print("No blogs found or error occurred.")
-        sys.exit(1)
+        print("No blogs found or error occurred.", file=sys.stderr)
+        sys.exit(2)
 
-    print(f"Found {len(blogs)} published blogs")
+    print(f"Found {len(blogs)} published blogs", file=sys.stderr)
 
     if args.list:
         # Just list the blogs
@@ -453,12 +452,15 @@ def main():
                 'title': blog.get('title', 'Untitled'),
                 'date': str(blog.get('published_on', ''))[:10],
                 'author': blog.get('blogger', 'Unknown'),
-                'status': 'Available'
+                'status': 'available',
+                'fidelity': '-'
             })
         print_status_table(results, dry_run=True)
         return
 
     results = []
+    errors_occurred = False
+
     for blog_summary in blogs:
         blog_name = blog_summary.get('name')
         if not blog_name:
@@ -471,20 +473,32 @@ def main():
                 'title': blog_summary.get('title', 'Unknown'),
                 'date': '-',
                 'author': '-',
-                'status': 'Error: fetch failed'
+                'status': 'error',
+                'fidelity': 'fetch failed'
             })
+            errors_occurred = True
             continue
 
-        filename, status = create_hugo_file(blog, content_dir, dry_run=args.dry_run)
+        # Sync the blog
+        sync_result = sync_blog(blog, content_dir, dry_run=args.dry_run)
 
         results.append({
             'title': blog.get('title', 'Untitled'),
             'date': str(blog.get('published_on', ''))[:10],
             'author': blog.get('blogger', 'Unknown'),
-            'status': status
+            'status': sync_result['status'],
+            'fidelity': sync_result['fidelity'],
+            'file': sync_result.get('file', '')
         })
 
+    # Output results
     print_status_table(results, dry_run=args.dry_run)
+    output_json_summary(results)
+
+    # Exit code based on errors
+    if errors_occurred:
+        sys.exit(1)
+    sys.exit(0)
 
 
 if __name__ == '__main__':
