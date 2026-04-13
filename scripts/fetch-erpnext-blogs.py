@@ -342,36 +342,60 @@ def create_hugo_file(blog: dict, content_dir: Path, dry_run: bool = False) -> tu
         return filename, 'Would create'
 
 
-def print_table(results: list[dict], dry_run: bool = False):
-    """Print a formatted table of results."""
+def print_status_table(results: list[dict], dry_run: bool = False) -> None:
+    """Print a rich status table of sync results to stderr."""
     if not results:
-        print("\nNo blogs found.")
+        print("\nNo blogs found.", file=sys.stderr)
         return
 
-    title_w = max(len(r['title'][:40]) for r in results)
-    title_w = max(title_w, 10)
-
-    print("\n" + "=" * (title_w + 50))
-    if dry_run:
-        print("ERPNEXT BLOG FETCH (DRY RUN)")
-    else:
-        print("ERPNEXT BLOG FETCH")
-    print("=" * (title_w + 50))
-    print(f"{'Title':<{title_w}}  {'Date':<12}  {'Author':<15}  Status")
-    print("-" * (title_w + 50))
-
+    # Prepare table data
+    table_data = []
     for r in results:
         title = r['title'][:40] + ('...' if len(r['title']) > 40 else '')
-        print(f"{title:<{title_w}}  {r['date']:<12}  {r['author'][:15]:<15}  {r['status']}")
+        status = r['status']
+        fidelity = r.get('fidelity', '-')
 
-    print("-" * (title_w + 50))
+        # Format fidelity with symbols
+        if fidelity == 'auto-reviewed':
+            fidelity_str = '✓ auto-reviewed'
+        elif fidelity == 'passed':
+            fidelity_str = '✓ passed'
+        elif fidelity == 'failed':
+            fidelity_str = '✗ failed'
+        else:
+            fidelity_str = fidelity
 
-    created = sum(1 for r in results if 'Created' in r['status'] or 'Would' in r['status'])
-    skipped = sum(1 for r in results if 'skipped' in r['status'])
-    errors = sum(1 for r in results if 'Error' in r['status'])
+        table_data.append([
+            title,
+            r.get('date', '-')[:10],
+            r.get('author', '-')[:15],
+            status,
+            fidelity_str
+        ])
 
-    print(f"Total: {len(results)} | New: {created} | Existing: {skipped} | Errors: {errors}")
-    print("=" * (title_w + 50))
+    # Print header
+    header = "ERPNEXT BLOG SYNC REPORT"
+    if dry_run:
+        header += " (DRY RUN)"
+
+    print("\n" + "=" * 80, file=sys.stderr)
+    print(f"  {header}", file=sys.stderr)
+    print(f"  Source: {ERPNEXT_URL} | Date: {datetime.now().strftime('%Y-%m-%d')}", file=sys.stderr)
+    print("=" * 80, file=sys.stderr)
+
+    # Print table using tabulate
+    headers = ['Title', 'Date', 'Author', 'Status', 'Fidelity']
+    print(tabulate(table_data, headers=headers, tablefmt='simple'), file=sys.stderr)
+
+    # Print summary
+    print("-" * 80, file=sys.stderr)
+    new_count = sum(1 for r in results if r['status'] == 'new')
+    unchanged_count = sum(1 for r in results if r['status'] == 'unchanged')
+    updated_count = sum(1 for r in results if r['status'] == 'updated')
+    error_count = sum(1 for r in results if r['status'] == 'error')
+
+    print(f"  Summary: {len(results)} total | {new_count} new | {unchanged_count} unchanged | {updated_count} updated | {error_count} errors", file=sys.stderr)
+    print("=" * 80, file=sys.stderr)
 
 
 def main():
@@ -418,7 +442,7 @@ def main():
                 'author': blog.get('blogger', 'Unknown'),
                 'status': 'Available'
             })
-        print_table(results, dry_run=True)
+        print_status_table(results, dry_run=True)
         return
 
     results = []
@@ -447,7 +471,7 @@ def main():
             'status': status
         })
 
-    print_table(results, dry_run=args.dry_run)
+    print_status_table(results, dry_run=args.dry_run)
 
 
 if __name__ == '__main__':
