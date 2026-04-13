@@ -83,6 +83,42 @@ def check_fidelity(local_content: str, erpnext_content: str) -> bool:
     return local_norm == erpnext_norm
 
 
+def read_local_blog(filepath: Path) -> tuple[dict, str] | None:
+    """
+    Read a local Hugo blog file and extract front matter and content.
+
+    Returns:
+        Tuple of (front_matter_dict, content_str) or None if file doesn't exist
+    """
+    if not filepath.exists():
+        return None
+
+    try:
+        text = filepath.read_text()
+    except (IOError, OSError):
+        return None
+
+    # Check for front matter delimiter
+    if not text.startswith('---'):
+        return {}, text
+
+    # Find end of front matter
+    end_match = re.search(r'\n---\n', text[3:])
+    if not end_match:
+        return {}, text
+
+    end_pos = end_match.start() + 3
+    front_matter_raw = text[4:end_pos]
+    content = text[end_pos + 5:]
+
+    try:
+        front_matter = yaml.safe_load(front_matter_raw) or {}
+    except yaml.YAMLError:
+        front_matter = {}
+
+    return front_matter, content
+
+
 def fetch_blog_list() -> list[dict]:
     """Fetch list of published blog posts from ERPNext."""
     url = f"{ERPNEXT_URL}/api/resource/Blog Post"

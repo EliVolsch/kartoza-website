@@ -3,6 +3,8 @@
 
 import sys
 from pathlib import Path
+import tempfile
+import os
 
 # Add scripts directory to path for imports
 sys.path.insert(0, str(Path(__file__).parent.parent))
@@ -105,3 +107,45 @@ class TestCheckFidelity:
         local = "Hello world"
         remote = '{{< block >}}Hello world{{< /block >}}'
         assert module.check_fidelity(local, remote) is True
+
+
+class TestReadLocalBlog:
+    """Tests for read_local_blog function."""
+
+    def test_reads_frontmatter_and_content(self):
+        module = get_module()
+        with tempfile.NamedTemporaryFile(mode='w', suffix='.md', delete=False) as f:
+            f.write("""---
+title: "Test Article"
+erpnext_id: "test-123"
+---
+
+This is the content.
+""")
+            f.flush()
+            try:
+                front_matter, content = module.read_local_blog(Path(f.name))
+                assert front_matter['title'] == "Test Article"
+                assert front_matter['erpnext_id'] == "test-123"
+                assert "This is the content." in content
+            finally:
+                os.unlink(f.name)
+
+    def test_returns_none_for_missing_file(self):
+        module = get_module()
+        result = module.read_local_blog(Path("/nonexistent/file.md"))
+        assert result is None
+
+    def test_handles_file_without_frontmatter(self):
+        module = get_module()
+        with tempfile.NamedTemporaryFile(mode='w', suffix='.md', delete=False) as f:
+            f.write("Just plain content without frontmatter.")
+            f.flush()
+            try:
+                result = module.read_local_blog(Path(f.name))
+                assert result is not None
+                front_matter, content = result
+                assert front_matter == {}
+                assert "Just plain content" in content
+            finally:
+                os.unlink(f.name)
