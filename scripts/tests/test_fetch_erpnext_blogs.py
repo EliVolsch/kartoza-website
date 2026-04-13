@@ -189,3 +189,36 @@ Content here.
             content_dir = Path(tmpdir)
             result = module.find_local_file(content_dir, "unknown", "Unknown Title")
             assert result is None
+
+
+class TestBlogToHugoFrontmatter:
+    """Tests for blog_to_hugo_frontmatter function."""
+
+    def test_includes_review_fields_when_requested(self):
+        module = get_module()
+        blog = {
+            'name': 'test-blog',
+            'title': 'Test Blog',
+            'published_on': '2024-01-15',
+            'blogger': 'Test Author',
+            'modified': '2024-01-15 10:00:00',
+        }
+        result = module.blog_to_hugo_frontmatter(blog, mark_reviewed=True)
+        assert result['reviewedBy'] == 'Automated Check'
+        assert result['reviewedDate'] is not None
+        # Just verify it's in ISO date format (YYYY-MM-DD)
+        assert len(result['reviewedDate']) == 10
+        assert result['reviewedDate'].count('-') == 2
+
+    def test_excludes_review_fields_when_not_requested(self):
+        module = get_module()
+        blog = {
+            'name': 'test-blog',
+            'title': 'Test Blog',
+            'published_on': '2024-01-15',
+            'blogger': 'Test Author',
+            'modified': '2024-01-15 10:00:00',
+        }
+        result = module.blog_to_hugo_frontmatter(blog, mark_reviewed=False)
+        assert 'reviewedBy' not in result
+        assert 'reviewedDate' not in result

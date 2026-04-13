@@ -182,7 +182,7 @@ def fetch_blog_detail(name: str) -> dict | None:
         return None
 
 
-def blog_to_hugo_frontmatter(blog: dict) -> dict:
+def blog_to_hugo_frontmatter(blog: dict, mark_reviewed: bool = False) -> dict:
     """Convert ERPNext blog to Hugo front matter."""
     # Parse date
     pub_date = blog.get('published_on') or blog.get('creation')
@@ -210,6 +210,11 @@ def blog_to_hugo_frontmatter(blog: dict) -> dict:
     # Add category as tag
     if blog.get('blog_category'):
         front_matter['tags'].append(blog['blog_category'])
+
+    # Add review fields if requested
+    if mark_reviewed:
+        front_matter['reviewedBy'] = 'Automated Check'
+        front_matter['reviewedDate'] = datetime.now().strftime('%Y-%m-%d')
 
     return front_matter
 
