@@ -72,6 +72,17 @@ def normalize_for_comparison(content: str) -> str:
     return text.strip().lower()
 
 
+def check_fidelity(local_content: str, erpnext_content: str) -> bool:
+    """
+    Check if local and ERPNext content match (fidelity check).
+
+    Returns True if text content matches (ignoring formatting).
+    """
+    local_norm = normalize_for_comparison(local_content)
+    erpnext_norm = normalize_for_comparison(erpnext_content)
+    return local_norm == erpnext_norm
+
+
 def fetch_blog_list() -> list[dict]:
     """Fetch list of published blog posts from ERPNext."""
     url = f"{ERPNEXT_URL}/api/resource/Blog Post"

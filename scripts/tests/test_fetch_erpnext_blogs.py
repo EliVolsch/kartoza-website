@@ -65,3 +65,43 @@ class TestNormalizeForComparison:
         # Note: BeautifulSoup's get_text(separator=' ') adds space between elements
         # so "link</a>." becomes "link ." - this is expected for text extraction
         assert "title first paragraph with link . item 1 item 2" == result
+
+
+class TestCheckFidelity:
+    """Tests for check_fidelity function."""
+
+    def test_identical_content_returns_true(self):
+        module = get_module()
+        local = "Hello world"
+        remote = "Hello world"
+        assert module.check_fidelity(local, remote) is True
+
+    def test_different_content_returns_false(self):
+        module = get_module()
+        local = "Hello world"
+        remote = "Goodbye world"
+        assert module.check_fidelity(local, remote) is False
+
+    def test_ignores_html_formatting(self):
+        module = get_module()
+        local = "Hello world"
+        remote = "<p>Hello <strong>world</strong></p>"
+        assert module.check_fidelity(local, remote) is True
+
+    def test_ignores_whitespace_differences(self):
+        module = get_module()
+        local = "Hello world"
+        remote = "Hello    \n\n   world"
+        assert module.check_fidelity(local, remote) is True
+
+    def test_ignores_case_differences(self):
+        module = get_module()
+        local = "hello world"
+        remote = "HELLO WORLD"
+        assert module.check_fidelity(local, remote) is True
+
+    def test_ignores_hugo_shortcodes(self):
+        module = get_module()
+        local = "Hello world"
+        remote = '{{< block >}}Hello world{{< /block >}}'
+        assert module.check_fidelity(local, remote) is True
