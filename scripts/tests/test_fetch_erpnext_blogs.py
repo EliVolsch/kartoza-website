@@ -222,3 +222,95 @@ class TestBlogToHugoFrontmatter:
         result = module.blog_to_hugo_frontmatter(blog, mark_reviewed=False)
         assert 'reviewedBy' not in result
         assert 'reviewedDate' not in result
+
+
+class TestSyncBlog:
+    """Tests for sync_blog function."""
+
+    def test_creates_new_file(self):
+        module = get_module()
+        with tempfile.TemporaryDirectory() as tmpdir:
+            content_dir = Path(tmpdir)
+            blog = {
+                'name': 'new-blog',
+                'title': 'New Blog Article',
+                'content': '<p>This is new content.</p>',
+                'published_on': '2024-01-15',
+                'blogger': 'Author',
+                'modified': '2024-01-15 10:00:00',
+            }
+            result = module.sync_blog(blog, content_dir, dry_run=False)
+            assert result['status'] == 'new'
+            assert result['fidelity'] == 'auto-reviewed'
+            # Check file was created
+            assert (content_dir / 'new-blog-article.md').exists()
+
+    def test_unchanged_when_fidelity_passes(self):
+        module = get_module()
+        with tempfile.TemporaryDirectory() as tmpdir:
+            content_dir = Path(tmpdir)
+            # Create existing file with matching content
+            (content_dir / 'existing-article.md').write_text("""---
+title: "Existing Article"
+erpnext_id: "existing-blog"
+reviewedBy: "Previous Reviewer"
+reviewedDate: "2024-01-01"
+---
+
+This is the content.
+""")
+            blog = {
+                'name': 'existing-blog',
+                'title': 'Existing Article',
+                'content': 'This is the content.',
+                'published_on': '2024-01-15',
+                'blogger': 'Author',
+                'modified': '2024-01-15 10:00:00',
+            }
+            result = module.sync_blog(blog, content_dir, dry_run=False)
+            assert result['status'] == 'unchanged'
+            assert result['fidelity'] == 'passed'
+
+    def test_updates_when_fidelity_fails(self):
+        module = get_module()
+        with tempfile.TemporaryDirectory() as tmpdir:
+            content_dir = Path(tmpdir)
+            # Create existing file with different content
+            (content_dir / 'old-article.md').write_text("""---
+title: "Old Article"
+erpnext_id: "old-blog"
+---
+
+Old content that differs.
+""")
+            blog = {
+                'name': 'old-blog',
+                'title': 'Old Article',
+                'content': '<p>New content from ERPNext.</p>',
+                'published_on': '2024-01-15',
+                'blogger': 'Author',
+                'modified': '2024-01-15 10:00:00',
+            }
+            result = module.sync_blog(blog, content_dir, dry_run=False)
+            assert result['status'] == 'updated'
+            assert result['fidelity'] == 'auto-reviewed'
+            # Check file was overwritten
+            content = (content_dir / 'old-article.md').read_text()
+            assert 'New content from ERPNext' in content
+
+    def test_dry_run_does_not_write(self):
+        module = get_module()
+        with tempfile.TemporaryDirectory() as tmpdir:
+            content_dir = Path(tmpdir)
+            blog = {
+                'name': 'dry-run-blog',
+                'title': 'Dry Run Article',
+                'content': 'Content.',
+                'published_on': '2024-01-15',
+                'blogger': 'Author',
+                'modified': '2024-01-15 10:00:00',
+            }
+            result = module.sync_blog(blog, content_dir, dry_run=True)
+            assert result['status'] == 'new'
+            # File should NOT exist
+            assert not (content_dir / 'dry-run-article.md').exists()

@@ -149,6 +149,75 @@ def find_local_file(content_dir: Path, erpnext_id: str, title: str) -> Path | No
     return None
 
 
+def sync_blog(blog: dict, content_dir: Path, dry_run: bool = False) -> dict:
+    """
+    Sync a single blog article from ERPNext to Hugo.
+
+    Performs fidelity checking and updates review fields.
+
+    Returns:
+        Dict with 'status' and 'fidelity' keys
+    """
+    erpnext_id = blog.get('name', '')
+    title = blog.get('title', 'Untitled')
+    erpnext_content = blog.get('content') or blog.get('content_html') or ''
+
+    # Find existing local file
+    local_file = find_local_file(content_dir, erpnext_id, title)
+
+    if local_file:
+        # File exists - check fidelity
+        result = read_local_blog(local_file)
+        if result:
+            local_frontmatter, local_content = result
+            if check_fidelity(local_content, erpnext_content):
+                # Content matches - fidelity passed
+                # Update review fields if not already set
+                if not local_frontmatter.get('reviewedBy'):
+                    if not dry_run:
+                        _update_review_fields(local_file, local_frontmatter, local_content)
+                return {'status': 'unchanged', 'fidelity': 'passed', 'file': local_file.name}
+
+        # Content differs - overwrite with ERPNext
+        status = 'updated'
+        filepath = local_file
+    else:
+        # New file
+        status = 'new'
+        slug = slugify(title)
+        filepath = content_dir / f"{slug}.md"
+
+    # Generate content
+    front_matter = blog_to_hugo_frontmatter(blog, mark_reviewed=True)
+    content = blog_to_hugo_content(blog)
+
+    # Build file content
+    file_content = "---\n"
+    file_content += yaml.dump(front_matter, default_flow_style=False, allow_unicode=True)
+    file_content += "---\n\n"
+    file_content += content
+    file_content += "\n"
+
+    if not dry_run:
+        filepath.write_text(file_content)
+
+    return {'status': status, 'fidelity': 'auto-reviewed', 'file': filepath.name}
+
+
+def _update_review_fields(filepath: Path, front_matter: dict, content: str) -> None:
+    """Update review fields in an existing file."""
+    front_matter['reviewedBy'] = 'Automated Check'
+    front_matter['reviewedDate'] = datetime.now().strftime('%Y-%m-%d')
+
+    file_content = "---\n"
+    file_content += yaml.dump(front_matter, default_flow_style=False, allow_unicode=True)
+    file_content += "---\n\n"
+    file_content += content.strip()
+    file_content += "\n"
+
+    filepath.write_text(file_content)
+
+
 def fetch_blog_list() -> list[dict]:
     """Fetch list of published blog posts from ERPNext."""
     url = f"{ERPNEXT_URL}/api/resource/Blog Post"
