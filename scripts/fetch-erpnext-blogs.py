@@ -33,6 +33,7 @@ from bs4 import BeautifulSoup, XMLParsedAsHTMLWarning
 from dateutil import parser as date_parser
 from tabulate import tabulate
 import json
+import html2text
 
 # Suppress XML parsing warning when using html.parser on content that looks like XML
 warnings.filterwarnings("ignore", category=XMLParsedAsHTMLWarning)
@@ -40,11 +41,112 @@ warnings.filterwarnings("ignore", category=XMLParsedAsHTMLWarning)
 
 # Configuration
 ERPNEXT_URL = os.environ.get('ERPNEXT_URL', 'https://erp.kartoza.com')
+KARTOZA_URL = 'https://kartoza.com'
+
+# Image storage path relative to Hugo static folder
+IMAGE_DIR = 'img/blog/erpnext'
 
 
 def get_auth_headers() -> dict:
     """Get authentication headers for ERPNext API (empty for public blogs)."""
     return {}
+
+
+def download_image(url: str, static_dir: Path, verbose: bool = False) -> str | None:
+    """
+    Download an image from ERPNext and save it locally.
+
+    Args:
+        url: The image URL (can be relative like /files/xxx or absolute)
+        static_dir: Path to Hugo's static directory
+
+    Returns:
+        Local path to use in markdown (e.g., /img/blog/erpnext/xxx.png) or None on failure
+    """
+    # Normalize the URL
+    if url.startswith('/files/'):
+        full_url = f"{KARTOZA_URL}{url}"
+        filename = url.split('/')[-1]
+    elif url.startswith('/'):
+        full_url = f"{KARTOZA_URL}{url}"
+        filename = url.split('/')[-1]
+    elif 'kartoza.com/files/' in url or 'erp.kartoza.com/files/' in url:
+        full_url = url
+        filename = url.split('/')[-1]
+    else:
+        # Not a Kartoza image, leave as-is
+        return None
+
+    # Create target directory
+    target_dir = static_dir / IMAGE_DIR
+    target_dir.mkdir(parents=True, exist_ok=True)
+
+    target_path = target_dir / filename
+    local_url = f"/{IMAGE_DIR}/{filename}"
+
+    # Skip if already downloaded
+    if target_path.exists():
+        return local_url
+
+    # Download the image
+    try:
+        if verbose:
+            print(f"  Downloading: {filename}", file=sys.stderr)
+        response = requests.get(full_url, timeout=30)
+        response.raise_for_status()
+        target_path.write_bytes(response.content)
+        return local_url
+    except requests.RequestException as e:
+        print(f"  Warning: Failed to download {full_url}: {e}", file=sys.stderr)
+        return None
+
+
+def process_images_in_content(content: str, static_dir: Path, verbose: bool = False) -> str:
+    """
+    Find all images in markdown content, download them, and rewrite URLs.
+
+    Args:
+        content: Markdown content with image references
+        static_dir: Path to Hugo's static directory
+
+    Returns:
+        Content with rewritten image URLs
+    """
+    # Pattern for markdown images: ![alt](/files/xxx) or ![alt](https://kartoza.com/files/xxx)
+    img_pattern = re.compile(r'!\[([^\]]*)\]\(([^)]+)\)')
+
+    def replace_image(match):
+        alt_text = match.group(1)
+        img_url = match.group(2)
+
+        # Try to download and get local path
+        local_path = download_image(img_url, static_dir, verbose=verbose)
+
+        if local_path:
+            return f'![{alt_text}]({local_path})'
+        else:
+            # Keep original URL if download failed or not a Kartoza image
+            return match.group(0)
+
+    return img_pattern.sub(replace_image, content)
+
+
+def process_thumbnail(thumbnail_url: str, static_dir: Path, verbose: bool = False) -> str:
+    """
+    Download thumbnail image and return local path.
+
+    Args:
+        thumbnail_url: The thumbnail URL
+        static_dir: Path to Hugo's static directory
+
+    Returns:
+        Local path or original URL if download failed
+    """
+    if not thumbnail_url:
+        return '/img/blog/placeholder.png'
+
+    local_path = download_image(thumbnail_url, static_dir, verbose=verbose)
+    return local_path if local_path else thumbnail_url
 
 
 def slugify(text: str) -> str:
@@ -154,11 +256,21 @@ def find_local_file(content_dir: Path, erpnext_id: str, title: str) -> Path | No
     return None
 
 
-def sync_blog(blog: dict, content_dir: Path, dry_run: bool = False) -> dict:
+def sync_blog(blog: dict, content_dir: Path, static_dir: Path, dry_run: bool = False,
+               force: bool = False, skip_images: bool = False, verbose: bool = False) -> dict:
     """
     Sync a single blog article from ERPNext to Hugo.
 
     Performs fidelity checking and updates review fields.
+
+    Args:
+        blog: Blog data from ERPNext
+        content_dir: Path to Hugo content directory
+        static_dir: Path to Hugo static directory (for images)
+        dry_run: If True, don't write files
+        force: If True, overwrite all files regardless of fidelity
+        skip_images: If True, don't download images
+        verbose: If True, show detailed output
 
     Returns:
         Dict with 'status' and 'fidelity' keys
@@ -170,8 +282,8 @@ def sync_blog(blog: dict, content_dir: Path, dry_run: bool = False) -> dict:
     # Find existing local file
     local_file = find_local_file(content_dir, erpnext_id, title)
 
-    if local_file:
-        # File exists - check fidelity
+    if local_file and not force:
+        # File exists - check fidelity (skip if force mode)
         result = read_local_blog(local_file)
         if result:
             local_frontmatter, local_content = result
@@ -186,6 +298,10 @@ def sync_blog(blog: dict, content_dir: Path, dry_run: bool = False) -> dict:
         # Content differs - overwrite with ERPNext
         status = 'updated'
         filepath = local_file
+    elif local_file and force:
+        # Force mode - overwrite existing file
+        status = 'forced'
+        filepath = local_file
     else:
         # New file
         status = 'new'
@@ -195,6 +311,15 @@ def sync_blog(blog: dict, content_dir: Path, dry_run: bool = False) -> dict:
     # Generate content
     front_matter = blog_to_hugo_frontmatter(blog, mark_reviewed=True)
     content = blog_to_hugo_content(blog)
+
+    # Process images (download and rewrite URLs)
+    if not skip_images and not dry_run:
+        content = process_images_in_content(content, static_dir, verbose=verbose)
+        # Also process thumbnail
+        if front_matter.get('thumbnail'):
+            front_matter['thumbnail'] = process_thumbnail(
+                front_matter['thumbnail'], static_dir, verbose=verbose
+            )
 
     # Build file content
     file_content = "---\n"
@@ -314,8 +439,8 @@ def fetch_blog_detail(name: str) -> dict | None:
         tag = soup.find('meta', attrs={attr_name: attr_value})
         return tag.get('content', '') if tag else ''
 
-    # Get title from meta or h1
-    title = get_meta('name', 'name') or get_meta('property', 'og:title')
+    # Get title from og:title (has proper capitalization) or meta name
+    title = get_meta('property', 'og:title') or get_meta('name', 'title') or get_meta('name', 'name')
     if not title:
         h1 = soup.find('h1', class_='blog-title')
         title = h1.get_text(strip=True) if h1 else 'Untitled'
@@ -328,8 +453,20 @@ def fetch_blog_detail(name: str) -> dict | None:
         intro = soup.find('p', class_='blog-intro')
         description = intro.get_text(strip=True) if intro else ''
 
-    # Get author
-    author = get_meta('name', 'author') or get_meta('property', 'og:author') or 'Kartoza'
+    # Get author - prefer full name from avatar/author link over meta tag username
+    author = None
+    # Try to get full name from avatar span
+    avatar_span = soup.find('span', class_='avatar', attrs={'title': True})
+    if avatar_span:
+        author = avatar_span.get('title')
+    # Or from author link
+    if not author:
+        author_link = soup.find('a', href=lambda h: h and '/blog?blogger=' in h)
+        if author_link:
+            author = author_link.get_text(strip=True)
+    # Fallback to meta tag
+    if not author:
+        author = get_meta('name', 'author') or get_meta('property', 'og:author') or 'Kartoza'
 
     # Get published date
     published_on = get_meta('name', 'datePublished') or get_meta('property', 'og:published_on')
@@ -395,9 +532,12 @@ def blog_to_hugo_frontmatter(blog: dict, mark_reviewed: bool = False) -> dict:
         'erpnext_modified': blog.get('modified', ''),
     }
 
-    # Add category as tag
+    # Add category as tag (capitalize first letter)
     if blog.get('blog_category'):
-        front_matter['tags'].append(blog['blog_category'])
+        category = blog['blog_category']
+        # Capitalize first letter of each word
+        category = category.replace('-', ' ').title()
+        front_matter['tags'].append(category)
 
     # Add review fields if requested
     if mark_reviewed:
@@ -408,24 +548,27 @@ def blog_to_hugo_frontmatter(blog: dict, mark_reviewed: bool = False) -> dict:
 
 
 def blog_to_hugo_content(blog: dict) -> str:
-    """Convert ERPNext blog content to Hugo markdown."""
+    """Convert ERPNext blog content to Hugo markdown using html2text."""
     content = blog.get('content') or blog.get('content_html') or ''
 
-    # Basic HTML to markdown conversion for simple cases
-    # For complex HTML, we preserve it as Hugo can handle it
-    content = re.sub(r'<br\s*/?>', '\n', content)
-    content = re.sub(r'<p>', '\n\n', content)
-    content = re.sub(r'</p>', '', content)
-    content = re.sub(r'<strong>([^<]+)</strong>', r'**\1**', content)
-    content = re.sub(r'<b>([^<]+)</b>', r'**\1**', content)
-    content = re.sub(r'<em>([^<]+)</em>', r'*\1*', content)
-    content = re.sub(r'<i>([^<]+)</i>', r'*\1*', content)
-    content = re.sub(r'<h1>([^<]+)</h1>', r'\n# \1\n', content)
-    content = re.sub(r'<h2>([^<]+)</h2>', r'\n## \1\n', content)
-    content = re.sub(r'<h3>([^<]+)</h3>', r'\n### \1\n', content)
-    content = re.sub(r'<a href="([^"]+)">([^<]+)</a>', r'[\2](\1)', content)
+    if not content:
+        return ''
 
-    return content.strip()
+    # Configure html2text for clean markdown output
+    h = html2text.HTML2Text()
+    h.body_width = 0  # Don't wrap lines
+    h.ignore_links = False
+    h.ignore_images = False
+    h.ignore_emphasis = False
+    h.skip_internal_links = False
+    h.inline_links = True
+    h.protect_links = True
+    h.unicode_snob = True  # Use unicode instead of ASCII
+
+    # Convert HTML to markdown
+    markdown = h.handle(content)
+
+    return markdown.strip()
 
 
 def create_hugo_file(blog: dict, content_dir: Path, dry_run: bool = False) -> tuple[str, str]:
@@ -539,6 +682,8 @@ def main():
     )
     parser.add_argument('--dry-run', '-n', action='store_true',
                         help='Show what would happen without writing files')
+    parser.add_argument('--force', '-f', action='store_true',
+                        help='Force overwrite all files, ignoring fidelity check')
     parser.add_argument('--list', '-l', action='store_true',
                         help='Only list available blogs, do not sync')
     parser.add_argument('--skip-images', action='store_true',
@@ -549,6 +694,7 @@ def main():
 
     script_dir = Path(__file__).parent
     content_dir = script_dir.parent / 'content' / 'blog'
+    static_dir = script_dir.parent / 'static'
 
     if not content_dir.exists():
         print(f"Error: Content directory not found: {content_dir}", file=sys.stderr)
@@ -580,14 +726,33 @@ def main():
     results = []
     errors_occurred = False
 
-    for blog in blogs:
+    for i, blog in enumerate(blogs):
         blog_name = blog.get('name')
         if not blog_name:
             continue
 
-        # Blog data is already complete from fetch_blog_list
+        # Fetch full blog content by scraping the web page (has proper HTML formatting)
+        if args.verbose:
+            print(f"Fetching {i+1}/{len(blogs)}: {blog.get('title', 'Untitled')}", file=sys.stderr)
+        blog_detail = fetch_blog_detail(blog_name)
+        if not blog_detail:
+            results.append({
+                'title': blog.get('title', 'Untitled'),
+                'date': str(blog.get('published_on', ''))[:10],
+                'author': blog.get('blogger', 'Unknown'),
+                'status': 'error',
+                'fidelity': '-',
+                'file': ''
+            })
+            errors_occurred = True
+            continue
+
         # Sync the blog
-        sync_result = sync_blog(blog, content_dir, dry_run=args.dry_run)
+        sync_result = sync_blog(
+            blog_detail, content_dir, static_dir,
+            dry_run=args.dry_run, force=args.force,
+            skip_images=args.skip_images, verbose=args.verbose
+        )
 
         results.append({
             'title': blog.get('title', 'Untitled'),
@@ -600,7 +765,6 @@ def main():
 
     # Output results
     print_status_table(results, dry_run=args.dry_run)
-    output_json_summary(results)
 
     # Exit code based on errors
     if errors_occurred:
