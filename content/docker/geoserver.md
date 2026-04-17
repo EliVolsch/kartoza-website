@@ -4,8 +4,8 @@ description: "Feature-rich GeoServer container with clustering support, GeoFence
 thumbnail: "/img/docker/geoserver.png"
 dockerhub: "https://hub.docker.com/r/kartoza/geoserver"
 github: "https://github.com/kartoza/docker-geoserver"
-pulls: "5.6M+"
-stars: 167
+pulls: "6M+"
+stars: "168"
 tags:
   - OGC Services
   - WMS

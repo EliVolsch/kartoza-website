@@ -4,8 +4,8 @@ description: "Production-ready QGIS Server for publishing maps and OGC services 
 thumbnail: "/img/docker/qgis-server.png"
 dockerhub: "https://hub.docker.com/r/kartoza/qgis-server"
 github: "https://github.com/kartoza/docker-qgis-server"
-pulls: "40K+"
-stars: 15
+pulls: "42K+"
+stars: "15"
 tags:
   - OGC Services
   - WMS

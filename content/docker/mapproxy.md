@@ -4,8 +4,8 @@ description: "Tile caching and proxying server for accelerating map services and
 thumbnail: "/img/docker/mapproxy.png"
 dockerhub: "https://hub.docker.com/r/kartoza/mapproxy"
 github: "https://github.com/kartoza/docker-mapproxy"
-pulls: "292K+"
-stars: 12
+pulls: "385K+"
+stars: "12"
 tags:
   - Caching
   - Tiles

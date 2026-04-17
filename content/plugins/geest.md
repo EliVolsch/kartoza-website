@@ -5,10 +5,10 @@ thumbnail: "/img/plugins/geest.png"
 plugin_type: "client"
 client: "The World Bank"
 client_url: "https://www.worldbank.org/"
-downloads: "470+"
+downloads: "185,570+"
 version: "1.0.0"
-rating: "3.17"
-votes: 6
+rating: "4.74"
+votes: 116
 repository: "https://github.com/worldbank/GEEST"
 plugin_url: "https://plugins.qgis.org/plugins/geest/"
 homepage: "https://github.com/worldbank/GEEST"
