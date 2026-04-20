@@ -3,10 +3,10 @@ title: "Animation Workbench"
 description: "A plugin to let you build animations in QGIS, enabling camera movement, zooming, and feature animations for cartographic visualisations."
 thumbnail: "/img/plugins/animation-workbench.png"
 plugin_type: "inhouse"
-downloads: "185,694+"
+downloads: "185,763+"
 version: "1.4"
-rating: "4.74"
-votes: 117
+rating: "4.75"
+votes: 118
 repository: "https://github.com/timlinux/QGISAnimationWorkbench"
 plugin_url: "https://plugins.qgis.org/plugins/animation_workbench/"
 homepage: "https://timlinux.github.io/QGISAnimationWorkbench/"
