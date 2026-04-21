@@ -5,7 +5,7 @@ thumbnail: "/img/docker/geoserver.png"
 dockerhub: "https://hub.docker.com/r/kartoza/geoserver"
 github: "https://github.com/kartoza/docker-geoserver"
 pulls: "6M+"
-stars: "168"
+stars: "167"
 tags:
   - OGC Services
   - WMS
