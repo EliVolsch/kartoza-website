@@ -6,10 +6,10 @@ plugin_type: "client"
 client: "Kirchhoff Surveyors"
 client_url: "https://www.kirchhoffsurveyors.co.za/"
 region: "South Africa"
-downloads: "186,106+"
+downloads: "186,209+"
 version: "3.4"
 rating: "4.75"
-votes: 118
+votes: 119
 repository: "https://github.com/kartoza/sg-diagram-downloader/"
 plugin_url: "https://plugins.qgis.org/plugins/SGDiagramDownloader/"
 homepage: "https://github.com/kartoza/sg-diagram-downloader/"
