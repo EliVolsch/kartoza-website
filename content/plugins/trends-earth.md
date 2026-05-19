@@ -5,10 +5,10 @@ thumbnail: "/img/plugins/trends-earth.png"
 plugin_type: "client"
 client: "Conservation International"
 client_url: "https://www.conservation.org/"
-downloads: "188,316+"
+downloads: "188,485+"
 version: "2.2.2"
 rating: "4.75"
-votes: 121
+votes: 122
 repository: "https://github.com/ConservationInternational/trends.earth"
 plugin_url: "https://plugins.qgis.org/plugins/LDMP/"
 homepage: "https://trends.earth"

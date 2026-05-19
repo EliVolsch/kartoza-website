@@ -5,7 +5,7 @@ thumbnail: "/img/docker/pg-backup.png"
 dockerhub: "https://hub.docker.com/r/kartoza/pg-backup"
 github: "https://github.com/kartoza/docker-pg-backup"
 pulls: "288K+"
-stars: "7"
+stars: "8"
 tags:
   - Backup
   - PostgreSQL
