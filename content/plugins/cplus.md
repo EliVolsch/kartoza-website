@@ -5,10 +5,10 @@ thumbnail: "/img/plugins/cplus.png"
 plugin_type: "client"
 client: "Conservation International"
 client_url: "https://www.conservation.org/"
-downloads: "188,652+"
+downloads: "188,824+"
 version: "1.1.26"
 rating: "4.76"
-votes: 123
+votes: 124
 repository: "https://github.com/ConservationInternational/cplus-plugin"
 plugin_url: "https://plugins.qgis.org/plugins/cplus_plugin/"
 homepage: "https://github.com/ConservationInternational/cplus-plugin"
