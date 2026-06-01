@@ -5,10 +5,10 @@ thumbnail: "/img/plugins/inasafe.png"
 plugin_type: "client"
 client: "Indonesian Government (BNPB), Australian Government & World Bank"
 client_url: "https://www.worldbank.org/"
-downloads: "189,637+"
+downloads: "189,712+"
 version: "5.0.7"
-rating: "4.76"
-votes: 125
+rating: "4.73"
+votes: 126
 repository: "https://github.com/inasafe/inasafe"
 plugin_url: "https://plugins.qgis.org/plugins/inasafe/"
 homepage: "http://www.inasafe.org/"
