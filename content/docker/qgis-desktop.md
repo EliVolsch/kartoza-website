@@ -4,7 +4,7 @@ description: "Dockerised QGIS Desktop application for running QGIS in containeri
 thumbnail: "/img/docker/qgis-desktop.png"
 dockerhub: "https://hub.docker.com/r/kartoza/qgis-desktop"
 github: "https://github.com/kartoza/docker-qgis-desktop"
-pulls: "20K+"
+pulls: "21K+"
 stars: "16"
 tags:
   - Desktop

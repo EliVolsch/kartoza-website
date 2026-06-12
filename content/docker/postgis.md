@@ -5,7 +5,7 @@ thumbnail: "/img/docker/postgis.png"
 dockerhub: "https://hub.docker.com/r/kartoza/postgis"
 github: "https://github.com/kartoza/docker-postgis"
 pulls: "22M+"
-stars: "203"
+stars: "204"
 tags:
   - Database
   - PostGIS
