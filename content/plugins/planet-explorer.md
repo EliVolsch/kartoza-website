@@ -6,7 +6,7 @@ plugin_type: "client"
 client: "Planet Inc"
 client_url: "https://www.planet.com/"
 client_note: "Kartoza provides maintenance"
-downloads: "192,948+"
+downloads: "192,987+"
 version: "2.3.6"
 rating: "4.72"
 votes: 136
