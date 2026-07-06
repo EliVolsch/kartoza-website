@@ -4,7 +4,7 @@ description: "Automated PostgreSQL backup container with local and remote storag
 thumbnail: "/img/docker/pg-backup.png"
 dockerhub: "https://hub.docker.com/r/kartoza/pg-backup"
 github: "https://github.com/kartoza/docker-pg-backup"
-pulls: "303K+"
+pulls: "304K+"
 stars: "8"
 tags:
   - Backup
