@@ -4,7 +4,7 @@ description: "Create a local mirror of OpenStreetMap data for anywhere in the wo
 thumbnail: "/img/docker/docker-osm.png"
 dockerhub: "https://hub.docker.com/r/kartoza/docker-osm"
 github: "https://github.com/kartoza/docker-osm"
-pulls: "303K+"
+pulls: "304K+"
 stars: "8"
 tags:
   - OpenStreetMap
