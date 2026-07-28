@@ -5,7 +5,7 @@ thumbnail: "/img/plugins/geest.png"
 plugin_type: "client"
 client: "The World Bank"
 client_url: "https://www.worldbank.org/"
-downloads: "194,157+"
+downloads: "194,212+"
 version: "1.0.0"
 rating: "4.70"
 votes: 142
