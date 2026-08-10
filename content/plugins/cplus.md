@@ -5,7 +5,7 @@ thumbnail: "/img/plugins/cplus.png"
 plugin_type: "client"
 client: "Conservation International"
 client_url: "https://www.conservation.org/"
-downloads: "194,809+"
+downloads: "194,848+"
 version: "1.1.26"
 rating: "4.71"
 votes: 146
