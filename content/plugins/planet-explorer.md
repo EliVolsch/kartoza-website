@@ -6,10 +6,10 @@ plugin_type: "client"
 client: "Planet Inc"
 client_url: "https://www.planet.com/"
 client_note: "Kartoza provides maintenance"
-downloads: "195,289+"
+downloads: "195,337+"
 version: "2.3.6"
 rating: "4.50"
-votes: 155
+votes: 157
 repository: "https://github.com/planetlabs/qgis-planet-plugin"
 plugin_url: "https://plugins.qgis.org/plugins/planet_explorer/"
 homepage: "https://developers.planet.com/docs/integrations/qgis/"
