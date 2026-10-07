@@ -3,7 +3,7 @@ title: "Species Explorer"
 description: "Quickly fetch and visualise species occurrence data from the Global Biodiversity Information Facility (GBIF) directly within QGIS."
 thumbnail: "/img/plugins/species-explorer.png"
 plugin_type: "inhouse"
-downloads: "198,097+"
+downloads: "198,158+"
 version: "0.3.3"
 rating: "4.53"
 votes: 165
