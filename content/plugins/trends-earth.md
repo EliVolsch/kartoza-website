@@ -5,7 +5,7 @@ thumbnail: "/img/plugins/trends-earth.png"
 plugin_type: "client"
 client: "Conservation International"
 client_url: "https://www.conservation.org/"
-downloads: "198,601+"
+downloads: "198,699+"
 version: "2.2.2"
 rating: "0.00"
 votes: 0
