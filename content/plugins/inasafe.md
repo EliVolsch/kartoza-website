@@ -5,7 +5,7 @@ thumbnail: "/img/plugins/inasafe.png"
 plugin_type: "client"
 client: "Indonesian Government (BNPB), Australian Government & World Bank"
 client_url: "https://www.worldbank.org/"
-downloads: "198,915+"
+downloads: "198,946+"
 version: "5.0.7"
 rating: "0.00"
 votes: 0
