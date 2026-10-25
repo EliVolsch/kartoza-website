@@ -6,7 +6,7 @@ plugin_type: "client"
 client: "Kirchhoff Surveyors"
 client_url: "https://www.kirchhoffsurveyors.co.za/"
 region: "South Africa"
-downloads: "199,059+"
+downloads: "199,080+"
 version: "3.4"
 rating: "0.00"
 votes: 0
