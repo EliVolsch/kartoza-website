@@ -4,7 +4,7 @@ description: "Production-ready PostGIS database with automatic clustering, repli
 thumbnail: "/img/docker/postgis.png"
 dockerhub: "https://hub.docker.com/r/kartoza/postgis"
 github: "https://github.com/kartoza/docker-postgis"
-pulls: "23M+"
+pulls: "24M+"
 stars: "203"
 tags:
   - Database
